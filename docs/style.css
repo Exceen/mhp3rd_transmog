@@ -84,6 +84,11 @@ header h1 {
     gap: 10px;
 }
 
+.title-icon {
+    height: 1.6em;
+    width: auto;
+}
+
 header .subtitle {
     color: var(--text-dim);
     font-size: 0.88rem;

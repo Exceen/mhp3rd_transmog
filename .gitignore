@@ -221,3 +221,5 @@ __pycache__/
 ._.DS_Store
 
 .idea/
+
+docs/transmog_data.json
