@@ -296,15 +296,20 @@ def build_armor_data(data, slot):
         model_groups[key].append(i)
 
     # Build model groups with flag info
+    # Also collect per-entry flags for pigment support
+    entry_flags = {e["eid"]: e["flag"] for e in entries_raw}
+
     variants_list = []
     for (model_m, model_f), eids in sorted(model_groups.items()):
         name = get_model_name(model_m, model_f, model_names)
         flag = get_dominant_flag(entries_raw, eids)
+        flags = [entry_flags[eid] for eid in eids]
         variants_list.append({
             "name": name,
             "model_m": model_m,
             "model_f": model_f,
             "eids": eids,
+            "flags": flags,
             "flag": flag,
         })
 
@@ -325,7 +330,8 @@ def build_armor_data(data, slot):
         if v["model_m"] == 0 and v["model_f"] == 0:
             sets.append({
                 "names": ["Nothing Equipped"],
-                "variants": [{"model_m": 0, "model_f": 0, "eids": v["eids"]}],
+                "variants": [{"model_m": 0, "model_f": 0, "eids": v["eids"],
+                              "flags": v["flags"]}],
             })
             used.add(i)
             continue
@@ -345,9 +351,11 @@ def build_armor_data(data, slot):
                 names = [first["name"], second["name"]]
                 variants = [
                     {"model_m": first["model_m"], "model_f": first["model_f"],
-                     "eids": first["eids"], "names": [first["name"]]},
+                     "eids": first["eids"], "flags": first["flags"],
+                     "names": [first["name"]]},
                     {"model_m": second["model_m"], "model_f": second["model_f"],
-                     "eids": second["eids"], "names": [second["name"]]},
+                     "eids": second["eids"], "flags": second["flags"],
+                     "names": [second["name"]]},
                 ]
                 sets.append({"names": names, "variants": variants})
                 used.add(i)
@@ -358,7 +366,7 @@ def build_armor_data(data, slot):
         sets.append({
             "names": [v["name"]],
             "variants": [{"model_m": v["model_m"], "model_f": v["model_f"],
-                          "eids": v["eids"]}],
+                          "eids": v["eids"], "flags": v["flags"]}],
         })
         used.add(i)
 

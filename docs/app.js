@@ -156,6 +156,8 @@
             tgtVariants = targetSet.variants;
         }
 
+        var pigmentLines = [];
+
         for (var vi = 0; vi < srcVariants.length; vi++) {
             var srcV = srcVariants[vi];
             var tgtV;
@@ -180,9 +182,12 @@
                 var offset = entryAddr - CWCHEAT_BASE;
                 var code = '_L 0x2' + hex(offset, 7) + ' 0x' + hex(value, 8);
                 lines.push(code);
+                // Enable pigment: write 1 to byte +19 of armor entry
+                var pigOffset = (entryAddr + 19) - CWCHEAT_BASE;
+                pigmentLines.push('_L 0x0' + hex(pigOffset, 7) + ' 0x00000001');
             }
         }
-        return lines;
+        return { modelLines: lines, pigmentLines: pigmentLines };
     }
 
     function genUniversalInvisibleCodes(slot) {
@@ -601,6 +606,9 @@
                 '</div>' +
             '</div>' +
             '<div id="armor-options"></div>' +
+            '<div class="option-group">' +
+                '<label><input type="checkbox" id="armor-pigment"> Enable pigment color</label>' +
+            '</div>' +
             '<div class="btn-row">' +
                 '<button class="btn btn-primary" id="armor-generate" disabled>Generate Codes</button>' +
             '</div>';
@@ -636,7 +644,9 @@
         document.getElementById('armor-generate').addEventListener('click', function () {
             if (!sourceItem) return;
             var target = isInvisible ? null : targetItem;
-            var lines = genArmorCodes(slot, sourceItem, target, optState.forceVariant, optState.swapGender);
+            var result = genArmorCodes(slot, sourceItem, target, optState.forceVariant, optState.swapGender);
+            var includePigment = document.getElementById('armor-pigment').checked;
+            var lines = includePigment ? result.modelLines.concat(result.pigmentLines) : result.modelLines;
             var srcName = displayName(sourceItem.names);
             var tgtName = isInvisible ? 'Invisible' : displayName(targetItem.names);
             var suffix = isInvisible ? ' (invisible ' + SLOT_LABELS[slot].toLowerCase() + ')' : '';
@@ -655,6 +665,9 @@
             '<div class="filter-row">' +
                 '<div class="filter-col"><label>Source search filter</label><input type="text" id="set-source-filter" placeholder="e.g. Yukumo"></div>' +
                 '<div class="filter-col"><label>Target search filter</label><input type="text" id="set-target-filter" placeholder="e.g. Rathalos"></div>' +
+            '</div>' +
+            '<div class="option-group">' +
+                '<label><input type="checkbox" id="set-pigment"> Enable pigment color</label>' +
             '</div>' +
             '<div class="btn-row" style="margin-bottom:16px">' +
                 '<button class="btn btn-primary" id="set-start">Start</button>' +
@@ -707,10 +720,11 @@
             document.getElementById('wizard-confirm').addEventListener('click', function () {
                 if (!state.source) return;
                 var target = state.isInvisible ? null : state.target;
-                var lines = genArmorCodes(slot, state.source, target, state.forceVariant, state.swapGender);
+                var result = genArmorCodes(slot, state.source, target, state.forceVariant, state.swapGender);
                 results.push({
                     slot: slot,
-                    lines: lines,
+                    modelLines: result.modelLines,
+                    pigmentLines: result.pigmentLines,
                     srcName: displayName(state.source.names),
                     tgtName: state.isInvisible ? 'Invisible' : displayName(state.target.names),
                     isInvisible: state.isInvisible
@@ -730,14 +744,16 @@
                 return;
             }
 
-            var allLines = [];
+            var allModelLines = [];
+            var allPigmentLines = [];
             var targetNames = {};
             var sourceNames = {};
             var invisibleSlots = [];
 
             for (var i = 0; i < results.length; i++) {
                 var r = results[i];
-                allLines = allLines.concat(r.lines);
+                allModelLines = allModelLines.concat(r.modelLines);
+                allPigmentLines = allPigmentLines.concat(r.pigmentLines);
                 sourceNames[r.srcName] = true;
                 if (r.isInvisible) {
                     invisibleSlots.push(SLOT_LABELS[r.slot].toLowerCase());
@@ -745,6 +761,9 @@
                     targetNames[r.tgtName] = true;
                 }
             }
+
+            var includePigment = document.getElementById('set-pigment').checked;
+            var allLines = includePigment ? allModelLines.concat(allPigmentLines) : allModelLines;
 
             var tgtKeys = Object.keys(targetNames);
             var srcKeys = Object.keys(sourceNames);
