@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MHP3rd Transmog</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>MHP3rd Transmog</h1>
+        <p class="subtitle">Generate CWCheat codes for equipment visual overrides in Monster Hunter Portable 3rd</p>
+    </header>
+
+    <nav id="mode-tabs">
+        <button class="tab active" data-mode="weapon">Weapon</button>
+        <button class="tab" data-mode="armor-slot">Armor (Single Slot)</button>
+        <button class="tab" data-mode="armor-set">Armor (Set)</button>
+        <button class="tab" data-mode="universal-invisible">Universal Invisible</button>
+    </nav>
+
+    <main id="mode-panel">
+        <!-- Dynamic content rendered by app.js -->
+    </main>
+
+    <section id="output-panel" class="hidden">
+        <h2>Generated CWCheat Codes</h2>
+        <div id="output-summary"></div>
+        <pre id="output-codes"></pre>
+        <div id="output-info"></div>
+        <div id="output-actions">
+            <button id="btn-copy" title="Copy codes to clipboard">Copy to Clipboard</button>
+            <button id="btn-download" title="Download as text file">Download .txt</button>
+        </div>
+    </section>
+
+    <footer>
+        <p>Works on all PSPs and emulators with cheat code support (e.g. CWCheat, PPSSPP)</p>
+        <p><a href="https://github.com/Exceen/mhp3rd_transmog" target="_blank">GitHub</a></p>
+        <p class="copyright">&copy; Exceen</p>
+    </footer>
+
+    <div id="loading-overlay">
+        <div class="spinner"></div>
+        <p>Loading equipment data...</p>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
