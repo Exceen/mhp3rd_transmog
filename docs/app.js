@@ -86,10 +86,11 @@
         var items = [];
         for (var modelStr in wtype.weapons) {
             var w = wtype.weapons[modelStr];
-            if (w.name === 'Model 0' || w.name === 'No Equipment') continue;
-            items.push({ name: w.name, entries: w.entries, model: modelStr, typeId: typeId });
+            var names = w.names || [w.name || 'Model ' + modelStr];
+            if (names.length === 1 && (names[0] === 'No Equipment' || names[0] === 'Model 0')) continue;
+            items.push({ names: names, entries: w.entries, model: modelStr, typeId: typeId });
         }
-        items.sort(function (a, b) { return a.name.toLowerCase().localeCompare(b.name.toLowerCase()); });
+        items.sort(function (a, b) { return displayName(a.names).toLowerCase().localeCompare(displayName(b.names).toLowerCase()); });
         return items;
     }
 
@@ -306,18 +307,12 @@
         var itemCount = container.querySelector('.item-count');
         var selectionDisplay = container.querySelector('.selection-display');
 
-        // Determine if items use .names (armor) or .name (weapon)
-        var isArmor = items.length > 0 && items[0].names;
-
         function getItemLabel(item) {
-            return isArmor ? displayName(item.names) : item.name;
+            return displayName(item.names);
         }
 
         function matchesFilter(item, term) {
-            if (isArmor) {
-                return item.names.some(function (n) { return n.toLowerCase().indexOf(term) !== -1; });
-            }
-            return item.name.toLowerCase().indexOf(term) !== -1;
+            return item.names.some(function (n) { return n.toLowerCase().indexOf(term) !== -1; });
         }
 
         function renderItems(filter) {
@@ -502,9 +497,11 @@
         document.getElementById('weapon-generate').addEventListener('click', function () {
             if (!sourceItem || !targetItem) return;
             var lines = genWeaponCodes(typeId, sourceItem, targetItem);
-            var title = 'Weapon Transmog: ' + sourceItem.name + ' -> ' + targetItem.name;
+            var srcLabel = displayName(sourceItem.names);
+            var tgtLabel = displayName(targetItem.names);
+            var title = 'Weapon Transmog: ' + srcLabel + ' -> ' + tgtLabel;
             var block = formatCheatBlock(title, lines);
-            showOutput([block], sourceItem.name + ' -> ' + targetItem.name);
+            showOutput([block], srcLabel + ' -> ' + tgtLabel);
         });
     }
 

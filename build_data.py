@@ -80,7 +80,7 @@ WEAPON_TABLES = {
     17: {"base": 0x0898DDB4, "entry_size": 28, "name": "Bow"},
 }
 
-# Weapon INI mapping (type_id → INI filename)
+# Weapon INI mapping (type_id → INI filename) — used as fallback for model names
 WEAPON_INI = {
     5: "GS.ini",
     6: "SNS.ini",
@@ -94,6 +94,22 @@ WEAPON_INI = {
     15: "SAXE.ini",
     16: "HH.ini",
     17: "BOW.ini",
+}
+
+# Weapon name string tables in memory (null-terminated strings, one per table entry)
+WEAPON_NAME_TABLES = {
+    5:  0x08A5D05F,   # Great Sword
+    6:  0x08A5EB66,   # Sword & Shield
+    7:  0x08A61E8B,   # Lance
+    8:  0x08A60498,   # Hammer
+    9:  0x08A64C53,   # Light Bowgun
+    10: 0x08A6386D,   # Heavy Bowgun
+    12: 0x08A65F53,   # Long Sword
+    13: 0x08A6B266,   # Dual Blades
+    14: 0x08A6873E,   # Gunlance
+    15: 0x08A67662,   # Switch Axe
+    16: 0x08A6C6E4,   # Hunting Horn
+    17: 0x08A69B1B,   # Bow
 }
 
 
@@ -353,25 +369,48 @@ def build_armor_data(data, slot):
     }
 
 
-def build_weapon_data(data, type_id):
+def get_weapon_table_max_entries():
+    """Compute max entry count per weapon table based on gaps between tables."""
+    sorted_tables = sorted(WEAPON_TABLES.items(), key=lambda x: x[1]["base"])
+    limits = {}
+    for i, (tid, info) in enumerate(sorted_tables):
+        if i + 1 < len(sorted_tables):
+            next_base = sorted_tables[i + 1][1]["base"]
+            limits[tid] = (next_base - info["base"]) // info["entry_size"]
+        else:
+            limits[tid] = 200  # last table, use generous limit
+    return limits
+
+
+def read_weapon_names(data, type_id, num_entries):
+    """Read weapon names from the in-memory name string table."""
+    name_addr = WEAPON_NAME_TABLES.get(type_id)
+    if not name_addr:
+        return {}
+    off = addr_to_off(name_addr)
+    names = {}
+    for i in range(num_entries):
+        end = data.find(b"\x00", off)
+        raw = data[off:end]
+        try:
+            names[i] = raw.decode("ascii").strip()
+        except UnicodeDecodeError:
+            names[i] = ""
+        off = end + 1
+    return names
+
+
+def build_weapon_data(data, type_id, max_entries):
     """Extract weapon table data for one type."""
     info = WEAPON_TABLES[type_id]
     base = info["base"]
     entry_size = info["entry_size"]
     type_name = info["name"]
 
-    # Build model name map from INI
-    ini_file = WEAPON_INI.get(type_id)
-    model_names = {}
-    if ini_file:
-        ini_path = os.path.join(EQUIPMENT_LIST_DIR, ini_file)
-        if os.path.exists(ini_path):
-            model_names = build_weapon_model_names(ini_path)
-
-    # Count entries (scan until model > 500)
+    # Count entries: stop at model_id > 500 or table boundary
     off_base = addr_to_off(base)
     num_entries = 0
-    for i in range(2000):
+    for i in range(max_entries):
         off = off_base + i * entry_size
         if off + entry_size > len(data):
             break
@@ -380,22 +419,40 @@ def build_weapon_data(data, type_id):
             break
         num_entries = i + 1
 
-    # Group by model_id
-    model_groups = {}
+    # Read per-entry weapon names from memory
+    entry_names = read_weapon_names(data, type_id, num_entries)
+
+    # Build model name map from INI as fallback
+    ini_file = WEAPON_INI.get(type_id)
+    model_names_ini = {}
+    if ini_file:
+        ini_path = os.path.join(EQUIPMENT_LIST_DIR, ini_file)
+        if os.path.exists(ini_path):
+            model_names_ini = build_weapon_model_names(ini_path)
+
+    # Group by model_id, collecting all weapon names per model
+    model_groups = {}  # model_id → {"entries": [...], "names": [...]}
     for i in range(num_entries):
         off = off_base + i * entry_size
         model_id = struct.unpack_from("<H", data, off)[0]
         if model_id not in model_groups:
-            model_groups[model_id] = []
-        model_groups[model_id].append(i)
+            model_groups[model_id] = {"entries": [], "names": []}
+        model_groups[model_id]["entries"].append(i)
+        name = entry_names.get(i, "")
+        if name and name not in model_groups[model_id]["names"]:
+            model_groups[model_id]["names"].append(name)
 
     # Build weapon items
     weapons = {}
-    for model_id, eids in sorted(model_groups.items()):
-        name = model_names.get(model_id, f"Model {model_id}")
+    for model_id, group in sorted(model_groups.items()):
+        names = group["names"]
+        if not names:
+            # Fallback to INI name
+            ini_name = model_names_ini.get(model_id, f"Model {model_id}")
+            names = [ini_name]
         weapons[str(model_id)] = {
-            "name": name,
-            "entries": eids,
+            "names": names,
+            "entries": group["entries"],
         }
 
     return {
@@ -444,10 +501,11 @@ def main():
         print(f"  {n_entries} entries, {n_sets} unique models")
 
     # Build weapon data
+    max_entries = get_weapon_table_max_entries()
     for type_id in sorted(WEAPON_TABLES.keys()):
         type_name = WEAPON_TABLES[type_id]["name"]
         print(f"Building {type_name} weapon data (type {type_id})...")
-        result["weapons"][str(type_id)] = build_weapon_data(data, type_id)
+        result["weapons"][str(type_id)] = build_weapon_data(data, type_id, max_entries[type_id])
         n_weapons = len(result["weapons"][str(type_id)]["weapons"])
         n_entries = result["weapons"][str(type_id)]["total_entries"]
         print(f"  {n_entries} entries, {n_weapons} unique models")
