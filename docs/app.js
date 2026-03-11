@@ -71,12 +71,17 @@
 
     // ── Item Builders ────────────────────────────────────────────────────────
 
+    // Weapon type display order (matches in-game equipment list)
+    var WEAPON_TYPE_ORDER = [5, 6, 7, 8, 9, 11, 12, 13, 14, 15, 16, 17];
+
     function getWeaponTypes() {
         var types = [];
-        for (var typeId in DATA.weapons) {
-            types.push({ typeId: typeId, typeName: DATA.weapons[typeId].type_name });
+        for (var i = 0; i < WEAPON_TYPE_ORDER.length; i++) {
+            var tid = String(WEAPON_TYPE_ORDER[i]);
+            if (DATA.weapons[tid]) {
+                types.push({ typeId: tid, typeName: DATA.weapons[tid].type_name });
+            }
         }
-        types.sort(function (a, b) { return a.typeName.localeCompare(b.typeName); });
         return types;
     }
 
@@ -86,9 +91,9 @@
         var items = [];
         for (var modelStr in wtype.weapons) {
             var w = wtype.weapons[modelStr];
-            var names = w.names || [w.name || 'Model ' + modelStr];
+            var names = w.names || ['Model ' + modelStr];
             if (names.length === 1 && (names[0] === 'No Equipment' || names[0] === 'Model 0')) continue;
-            items.push({ names: names, entries: w.entries, model: modelStr, typeId: typeId });
+            items.push({ names: names, model: modelStr, typeId: typeId });
         }
         items.sort(function (a, b) { return displayName(a.names).toLowerCase().localeCompare(displayName(b.names).toLowerCase()); });
         return items;

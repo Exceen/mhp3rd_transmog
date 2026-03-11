@@ -11039,49 +11039,24 @@
   },
   "weapons": {
     "5": {
-      "type_id": 5,
       "type_name": "Great Sword",
-      "table_base": "0x08992168",
-      "entry_size": 28,
-      "model_offset": 0,
-      "total_entries": 92,
       "weapons": {
-        "0": {
-          "names": [
-            "No Equipment"
-          ],
-          "entries": [
-            0
-          ]
-        },
         "1": {
           "names": [
             "Jawblade",
             "Giant Jawblade"
-          ],
-          "entries": [
-            39,
-            40
           ]
         },
         "2": {
           "names": [
             "Ravager Blade",
             "Ravager Blade+"
-          ],
-          "entries": [
-            11,
-            12
           ]
         },
         "3": {
           "names": [
             "Carbalite Sword",
             "Carbalite Sword+"
-          ],
-          "entries": [
-            13,
-            14
           ]
         },
         "4": {
@@ -11089,11 +11064,6 @@
             "Buster Sword",
             "Buster Sword+",
             "Buster Blade"
-          ],
-          "entries": [
-            8,
-            9,
-            10
           ]
         },
         "5": {
@@ -11101,11 +11071,6 @@
             "Bone Blade",
             "Bone Blade+",
             "Bone Slasher"
-          ],
-          "entries": [
-            33,
-            34,
-            35
           ]
         },
         "6": {
@@ -11113,11 +11078,6 @@
             "Golem Blade",
             "Golem Blade+",
             "Blade of Talos"
-          ],
-          "entries": [
-            36,
-            37,
-            38
           ]
         },
         "7": {
@@ -11125,11 +11085,6 @@
             "Rugged Great Sword",
             "Chieftain's Grt Swd",
             "High Chief's Grt Swd"
-          ],
-          "entries": [
-            20,
-            21,
-            22
           ]
         },
         "8": {
@@ -11137,41 +11092,24 @@
             "Carapace Sword",
             "Carapace Blade",
             "Barroth Smasher"
-          ],
-          "entries": [
-            23,
-            24,
-            25
           ]
         },
         "9": {
           "names": [
             "Ludroth Bone Sword"
-          ],
-          "entries": [
-            51
           ]
         },
         "10": {
           "names": [
-            "Tiger Jawblade",
-            "Tigrex Great Sword",
-            "Tigrex Supreme Sword"
-          ],
-          "entries": [
-            28,
-            29,
-            30
+            "Tiger Agito",
+            "Tiger Agito+",
+            "Tigrex Great Sword"
           ]
         },
         "11": {
           "names": [
             "Siegmund",
             "High Siegmund"
-          ],
-          "entries": [
-            45,
-            46
           ]
         },
         "12": {
@@ -11179,11 +11117,6 @@
             "Valkyrie Blade",
             "Sieglinde",
             "High Sieglinde"
-          ],
-          "entries": [
-            42,
-            43,
-            44
           ]
         },
         "13": {
@@ -11191,21 +11124,12 @@
             "Red Wing",
             "Rathalos Firesword",
             "Rathalos Flamesword"
-          ],
-          "entries": [
-            47,
-            48,
-            49
           ]
         },
         "14": {
           "names": [
             "Berserker Sword",
             "Anguish"
-          ],
-          "entries": [
-            63,
-            64
           ]
         },
         "15": {
@@ -11213,11 +11137,6 @@
             "Quarrel Hornsword",
             "Quarrel Hornsword+",
             "Diablos Hornsword"
-          ],
-          "entries": [
-            55,
-            56,
-            57
           ]
         },
         "16": {
@@ -11225,11 +11144,6 @@
             "Brazenwall",
             "Brazenwall+",
             "Crimsonwall"
-          ],
-          "entries": [
-            15,
-            16,
-            17
           ]
         },
         "17": {
@@ -11237,21 +11151,12 @@
             "Vulcanis",
             "Vulcanvil",
             "Vulcamagnon"
-          ],
-          "entries": [
-            65,
-            66,
-            67
           ]
         },
         "18": {
           "names": [
             "Autumn Rain Bangasa",
             "Rain Killer Bangasa"
-          ],
-          "entries": [
-            77,
-            78
           ]
         },
         "19": {
@@ -11260,48 +11165,28 @@
             "Tarnished Grt Sword",
             "Worn Great Sword",
             "Weathered Grt Sword"
-          ],
-          "entries": [
-            68,
-            69,
-            72,
-            73
           ]
         },
         "20": {
           "names": [
             "Ancient Blade",
             "Elder Monument"
-          ],
-          "entries": [
-            70,
-            71
           ]
         },
         "21": {
           "names": [
-            "Epitaph Eternal"
-          ],
-          "entries": [
-            74
+            "Epitaph Blade"
           ]
         },
         "22": {
           "names": [
-            "Alatreon Great Sword",
+            "Alatreon Greatsword",
             "Alatreon Revolution"
-          ],
-          "entries": [
-            87,
-            88
           ]
         },
         "23": {
           "names": [
             "Wyvern Jawblade"
-          ],
-          "entries": [
-            41
           ]
         },
         "24": {
@@ -11309,83 +11194,49 @@
             "Cataclysm Sword",
             "Cataclysm Sword+",
             "Cataclysm Blade"
-          ],
-          "entries": [
-            52,
-            53,
-            54
           ]
         },
         "25": {
           "names": [
             "True Cutter Sword"
-          ],
-          "entries": [
-            89
           ]
         },
         "26": {
           "names": [
-            "Hidden Blaze",
+            "Hidden Blade",
             "Dark of Night"
-          ],
-          "entries": [
-            18,
-            19
           ]
         },
         "27": {
           "names": [
-            "Akantor Broadsword"
-          ],
-          "entries": [
-            85
+            "Akantor Doomgiver"
           ]
         },
         "28": {
           "names": [
             "Ukanlos Destructor"
-          ],
-          "entries": [
-            86
           ]
         },
         "29": {
           "names": [
             "Old Yukumo Grt Sword",
-            "Yukumo Edge",
-            "Yukumo Edge+",
-            "Yukumo Blade",
-            "Yukumo Pure Edge",
-            "Yukumo Pure Edge+",
-            "Yukumo Cloudcutter"
-          ],
-          "entries": [
-            1,
-            2,
-            3,
-            4,
-            79,
-            80,
-            81
+            "Yukumo Great Sword",
+            "Yukumo Great Sword+",
+            "Yukumo Great Blade",
+            "True Yukumo Grt Swd",
+            "True Yukumo Grt Swd+",
+            "Cloudcleaver Grt Swd"
           ]
         },
         "30": {
           "names": [
             "Usurper's Storm",
             "Despot's Blackstorm"
-          ],
-          "entries": [
-            82,
-            83
           ]
         },
         "31": {
           "names": [
-            "Roilcloud Sword"
-          ],
-          "entries": [
-            84
+            "Evil Gathering Cloud"
           ]
         },
         "32": {
@@ -11393,11 +11244,6 @@
             "Type 41 Wyvernator",
             "Type 41 Wyvernator+",
             "Remalgalypse"
-          ],
-          "entries": [
-            5,
-            6,
-            7
           ]
         },
         "33": {
@@ -11405,97 +11251,52 @@
             "Icicle Fang",
             "Icicle Fang+",
             "Paladire"
-          ],
-          "entries": [
-            58,
-            59,
-            60
           ]
         },
         "34": {
           "names": [
             "Aurora Blade",
             "Northern Lights"
-          ],
-          "entries": [
-            26,
-            27
           ]
         },
         "35": {
           "names": [
             "Rathalos Gleamsword"
-          ],
-          "entries": [
-            50
           ]
         },
         "36": {
           "names": [
-            "Accursed Blade",
-            "Wildbite"
-          ],
-          "entries": [
-            31,
-            32
+            "Black Agito",
+            "Black Rex Grt Sword"
           ]
         },
         "37": {
           "names": [
             "Galespike",
             "Simoom Sandbarb"
-          ],
-          "entries": [
-            61,
-            62
           ]
         },
         "38": {
           "names": [
             "Wyvern's Perch",
             "Rougish Deathcap"
-          ],
-          "entries": [
-            75,
-            76
           ]
         },
         "39": {
           "names": [
             "Houma no Tsurugi",
             "Tenma no Tsurugi"
-          ],
-          "entries": [
-            90,
-            91
           ]
         }
       }
     },
     "6": {
-      "type_id": 6,
-      "type_name": "Sword & Shield",
-      "table_base": "0x0898FA78",
-      "entry_size": 28,
-      "model_offset": 0,
-      "total_entries": 95,
+      "type_name": "Sword and Shield",
       "weapons": {
-        "0": {
-          "names": [
-            "No Equipment"
-          ],
-          "entries": [
-            0
-          ]
-        },
         "1": {
           "names": [
             "Warrior's Sword",
             "Odyssey"
-          ],
-          "entries": [
-            16,
-            17
           ]
         },
         "2": {
@@ -11503,19 +11304,11 @@
             "Hunter's Dagger",
             "Hunter's Dagger+",
             "Assassin's Dagger"
-          ],
-          "entries": [
-            8,
-            9,
-            10
           ]
         },
         "3": {
           "names": [
             "Soldier's Dagger"
-          ],
-          "entries": [
-            21
           ]
         },
         "4": {
@@ -11523,29 +11316,17 @@
             "Hydra Knife",
             "Hydra Knife+",
             "Deadly Knife"
-          ],
-          "entries": [
-            22,
-            23,
-            24
           ]
         },
         "5": {
           "names": [
             "Bone Kris",
             "Bone Kris+"
-          ],
-          "entries": [
-            28,
-            29
           ]
         },
         "6": {
           "names": [
             "Ludroth's Nail"
-          ],
-          "entries": [
-            40
           ]
         },
         "7": {
@@ -11553,19 +11334,11 @@
             "Bone Tomahawk",
             "Bone Tomahawk+",
             "Qurupeco Chopper"
-          ],
-          "entries": [
-            30,
-            31,
-            32
           ]
         },
         "8": {
           "names": [
             "Golden Falchion"
-          ],
-          "entries": [
-            39
           ]
         },
         "9": {
@@ -11573,11 +11346,6 @@
             "Shadow Saber",
             "Shadow Saber+",
             "Toxic Fang"
-          ],
-          "entries": [
-            18,
-            19,
-            20
           ]
         },
         "10": {
@@ -11585,11 +11353,6 @@
             "Icicle Spike",
             "Icicle Spike+",
             "Nardebosche"
-          ],
-          "entries": [
-            11,
-            12,
-            13
           ]
         },
         "11": {
@@ -11597,55 +11360,31 @@
             "Carapace Mace",
             "Carapace Mace+",
             "Barroth Club"
-          ],
-          "entries": [
-            52,
-            53,
-            54
           ]
         },
         "12": {
           "names": [
             "Secta Nulo",
             "Secta Unu",
-            "Secta Nulo (W)",
-            "Secta Unu (W)",
-            "Secta Nulo (Y)",
-            "Secta Unu (Y)",
-            "Secta Nulo (G)",
-            "Secta Unu (G)",
-            "Secta Du (G)"
-          ],
-          "entries": [
-            59,
-            60,
-            61,
-            62,
-            63,
-            64,
-            65,
-            66,
-            67
+            "Secta Nulo(W)",
+            "Secta Unu(W)",
+            "Secta Nulo(Y)",
+            "Secta Unu(Y)",
+            "Secta Nulo(G)",
+            "Secta Unu(G)",
+            "Secta Du(G)"
           ]
         },
         "13": {
           "names": [
             "Blood Tabar",
             "Plague Tabar"
-          ],
-          "entries": [
-            33,
-            34
           ]
         },
         "14": {
           "names": [
             "Jhen Kodachi",
             "Calm Sands"
-          ],
-          "entries": [
-            68,
-            69
           ]
         },
         "15": {
@@ -11653,21 +11392,12 @@
             "Gigas Club",
             "Gigas Club+",
             "Gigas Crusher"
-          ],
-          "entries": [
-            56,
-            57,
-            58
           ]
         },
         "16": {
           "names": [
             "Djinn",
             "Blazing Falchion"
-          ],
-          "entries": [
-            37,
-            38
           ]
         },
         "17": {
@@ -11675,23 +11405,13 @@
             "Chak Chak",
             "Chak Chak+",
             "Wagga Wagga"
-          ],
-          "entries": [
-            70,
-            71,
-            72
           ]
         },
         "18": {
           "names": [
-            "Catspaw",
-            "Catburglar",
-            "Melynx Gadget"
-          ],
-          "entries": [
-            83,
-            84,
-            85
+            "Cat? Punch",
+            "Cat? Punch+",
+            "Nyan Nyan Punch"
           ]
         },
         "19": {
@@ -11699,11 +11419,6 @@
             "Tusk Gear",
             "Fossil Gear",
             "Skull's Wrath"
-          ],
-          "entries": [
-            73,
-            74,
-            75
           ]
         },
         "21": {
@@ -11711,11 +11426,6 @@
             "Dirty Baron",
             "Dirty Baron+",
             "Dirty Marquis"
-          ],
-          "entries": [
-            5,
-            6,
-            7
           ]
         },
         "22": {
@@ -11724,32 +11434,18 @@
             "Tarnished Sword",
             "Worn Sword",
             "Weathered Sword"
-          ],
-          "entries": [
-            76,
-            77,
-            80,
-            81
           ]
         },
         "23": {
           "names": [
             "Eternal Strife",
             "Eternal Hate"
-          ],
-          "entries": [
-            78,
-            79
           ]
         },
         "24": {
           "names": [
             "Alatreon Sword",
             "Alatreon Star"
-          ],
-          "entries": [
-            93,
-            94
           ]
         },
         "25": {
@@ -11757,102 +11453,61 @@
             "Royal Claw",
             "Royal Claw+",
             "Royal Ludroth Claw"
-          ],
-          "entries": [
-            41,
-            42,
-            43
           ]
         },
         "26": {
           "names": [
             "Divine Exodus"
-          ],
-          "entries": [
-            82
           ]
         },
         "27": {
           "names": [
             "Rex Talon",
             "Tigrex Sword"
-          ],
-          "entries": [
-            48,
-            49
           ]
         },
         "28": {
           "names": [
             "Hidden Edge",
             "Flash in the Night"
-          ],
-          "entries": [
-            46,
-            47
           ]
         },
         "29": {
           "names": [
             "Ukanlos Soul Hatchet"
-          ],
-          "entries": [
-            92
           ]
         },
         "30": {
           "names": [
             "Doomed Soul"
-          ],
-          "entries": [
-            55
           ]
         },
         "31": {
           "names": [
-            "Old Yukumo Cutter",
-            "Yukumo Cutter",
-            "Yukumo Cutter+",
+            "Old Yukumo Saber",
+            "Yukumo Saber",
+            "Yukumo Saber+",
             "Yukumo Hatchet",
-            "Yukumo Pure Cutter",
-            "Yukumo Pure Cutter+",
-            "Divine Yukumo Axe"
-          ],
-          "entries": [
-            1,
-            2,
-            3,
-            4,
-            86,
-            87,
-            88
+            "True Yukumo Saber",
+            "True Yukumo Saber+",
+            "Divine Dance Saber"
           ]
         },
         "32": {
           "names": [
             "Usurper's Firebolt",
             "Despot's Crookbolt"
-          ],
-          "entries": [
-            89,
-            90
           ]
         },
         "33": {
           "names": [
-            "Ominous Treasure"
-          ],
-          "entries": [
-            91
+            "Evil Jade Storm"
           ]
         },
         "34": {
           "names": [
+            "Baumfaller",
             "Dendrotomy"
-          ],
-          "entries": [
-            35,
-            36
           ]
         },
         "35": {
@@ -11860,1533 +11515,885 @@
             "Hypnos Knife",
             "Hypnos Knife+",
             "Morpheus Knife"
-          ],
-          "entries": [
-            25,
-            26,
-            27
           ]
         },
         "36": {
           "names": [
             "Amethyst Claw",
             "Harmethyst"
-          ],
-          "entries": [
-            44,
-            45
           ]
         },
         "37": {
           "names": [
             "Spiked Saber",
             "Clawed Saber"
-          ],
-          "entries": [
-            14,
-            15
           ]
         },
         "38": {
           "names": [
-            "Accursed Claw",
-            "Stonebite"
-          ],
-          "entries": [
-            50,
-            51
+            "Black Talon",
+            "Black Rex Sword"
           ]
         }
       }
     },
     "7": {
-      "type_id": 7,
-      "type_name": "Lance",
-      "table_base": "0x0898E71C",
-      "entry_size": 28,
-      "model_offset": 0,
-      "total_entries": 94,
-      "weapons": {
-        "0": {
-          "names": [
-            "No Equipment"
-          ],
-          "entries": [
-            0
-          ]
-        },
-        "1": {
-          "names": [
-            "Babel",
-            "Babel+"
-          ],
-          "entries": [
-            14,
-            15
-          ]
-        },
-        "2": {
-          "names": [
-            "Thane Lance+",
-            "Knight Lance",
-            "Rampart"
-          ],
-          "entries": [
-            8,
-            9,
-            10
-          ]
-        },
-        "3": {
-          "names": [
-            "Rampart+",
-            "Warrior's Spear",
-            "Millenial Lance"
-          ],
-          "entries": [
-            11,
-            12,
-            13
-          ]
-        },
-        "4": {
-          "names": [
-            "Hellfire",
-            "Spear of Prominence"
-          ],
-          "entries": [
-            42,
-            43
-          ]
-        },
-        "5": {
-          "names": [
-            "Diablos Spear",
-            "Black Tempest"
-          ],
-          "entries": [
-            35,
-            36
-          ]
-        },
-        "6": {
-          "names": [
-            "Spiral Heat"
-          ],
-          "entries": [
-            49
-          ]
-        },
-        "7": {
-          "names": [
-            "Longtusk Spear",
-            "Diablos Lance",
-            "Diablos Lance+"
-          ],
-          "entries": [
-            32,
-            33,
-            34
-          ]
-        },
-        "8": {
-          "names": [
-            "Giga Drill Lance",
-            "Longhorn Spear"
-          ],
-          "entries": [
-            29,
-            30
-          ]
-        },
-        "9": {
-          "names": [
-            "Night Rains Black",
-            "Tiger Stinger",
-            "Tiger Stinger+"
-          ],
-          "entries": [
-            21,
-            22,
-            23
-          ]
-        },
-        "10": {
-          "names": [
-            "Plohasta",
-            "Rhenohasta",
-            "Rugged Lance"
-          ],
-          "entries": [
-            44,
-            45,
-            46
-          ]
-        },
-        "11": {
-          "names": [
-            "Hard Bone Lance",
-            "Hard Bone Lance+",
-            "Boros Spear"
-          ],
-          "entries": [
-            37,
-            38,
-            39
-          ]
-        },
-        "12": {
-          "names": [
-            "Wild Boar Lance+",
-            "Bulldrome Spear"
-          ],
-          "entries": [
-            67,
-            68
-          ]
-        },
-        "13": {
-          "names": [
-            "Shadow Javelin+",
-            "Toxic Javelin",
-            "Wild Boar Lance"
-          ],
-          "entries": [
-            64,
-            65,
-            66
-          ]
-        },
-        "14": {
-          "names": [
-            "Tigrex Lance",
-            "Accursed Stinger",
-            "Blackbite"
-          ],
-          "entries": [
-            24,
-            25,
-            26
-          ]
-        },
-        "15": {
-          "names": [
-            "Grief Lance",
-            "Fiendish Tower",
-            "Blue Crater"
-          ],
-          "entries": [
-            69,
-            70,
-            71
-          ]
-        },
-        "16": {
-          "names": [
-            "Plegis Needle+",
-            "Mighty Plegis"
-          ],
-          "entries": [
-            82,
-            83
-          ]
-        },
-        "17": {
-          "names": [
-            "Smalt Crater",
-            "Doom Crown",
-            "Undertaker",
-            "High Undertaker"
-          ],
-          "entries": [
-            72,
-            73,
-            76,
-            77
-          ]
-        },
-        "18": {
-          "names": [
-            "Rusted Lance",
-            "Tarnished Lance"
-          ],
-          "entries": [
-            74,
-            75
-          ]
-        },
-        "19": {
-          "names": [
-            "Worn Spear"
-          ],
-          "entries": [
-            78
-          ]
-        },
-        "20": {
-          "names": [
-            "Ominous Cloud",
-            "Ukanlos Calamity"
-          ],
-          "entries": [
-            91,
-            92
-          ]
-        },
-        "21": {
-          "names": [
-            "Spiral Heat+",
-            "Agnaktor Firelance",
-            "Spiral Water"
-          ],
-          "entries": [
-            50,
-            51,
-            52
-          ]
-        },
-        "22": {
-          "names": [
-            "Elder Babel Spear",
-            "Tusk Lance",
-            "Tusk Lance+"
-          ],
-          "entries": [
-            16,
-            17,
-            18
-          ]
-        },
-        "23": {
-          "names": [
-            "Sabertooth",
-            "Hidden Stinger"
-          ],
-          "entries": [
-            19,
-            20
-          ]
-        },
-        "24": {
-          "names": [
-            "Spiral Lance+",
-            "Spiral Splash",
-            "Bella Nocuus"
-          ],
-          "entries": [
-            59,
-            60,
-            61
-          ]
-        },
-        "25": {
-          "names": [
-            "Despot's Cacophony"
-          ],
-          "entries": [
-            90
-          ]
-        },
-        "26": {
-          "names": [
-            "Great Azure",
-            "Ludroth Bone Spear",
-            "Spiral Lance"
-          ],
-          "entries": [
-            56,
-            57,
-            58
-          ]
-        },
-        "27": {
-          "names": [
-            "Old Yukumo Lance",
-            "Yukumo Lance",
-            "Yukumo Lance+",
-            "Yukumo Stinger",
-            "Sharq Byte",
-            "Sharq Attaq",
-            "Yukumo Purelance"
-          ],
-          "entries": [
-            1,
-            2,
-            3,
-            4,
-            84,
-            85,
-            86
-          ]
-        },
-        "28": {
-          "names": [
-            "Yukumo Purelance+",
-            "Godly Lance"
-          ],
-          "entries": [
-            87,
-            88
-          ]
-        },
-        "29": {
-          "names": [
-            "Usurper's Coming"
-          ],
-          "entries": [
-            89
-          ]
-        },
-        "30": {
-          "names": [
-            "Agnaktor Aqualance",
-            "Azure Crest",
-            "Azure Crest+"
-          ],
-          "entries": [
-            53,
-            54,
-            55
-          ]
-        },
-        "31": {
-          "names": [
-            "Frontrider Lance",
-            "Warcry Lance",
-            "Thane Lance"
-          ],
-          "entries": [
-            5,
-            6,
-            7
-          ]
-        },
-        "32": {
-          "names": [
-            "Drill Lance",
-            "Mega Drill Lance"
-          ],
-          "entries": [
-            27,
-            28
-          ]
-        },
-        "33": {
-          "names": [
-            "Temblor Illboros",
-            "Red Tail"
-          ],
-          "entries": [
-            40,
-            41
-          ]
-        },
-        "34": {
-          "names": [
-            "Rugged Lance+",
-            "Barroth Carver"
-          ],
-          "entries": [
-            47,
-            48
-          ]
-        },
-        "35": {
-          "names": [
-            "Bel Nefastro",
-            "Shadow Javelin"
-          ],
-          "entries": [
-            62,
-            63
-          ]
-        },
-        "36": {
-          "names": [
-            "Longhorn Spear+"
-          ],
-          "entries": [
-            31
-          ]
-        },
-        "37": {
-          "names": [
-            "Weathered Spear",
-            "Skyscraper",
-            "Plegis Needle"
-          ],
-          "entries": [
-            79,
-            80,
-            81
-          ]
-        },
-        "38": {
-          "names": [
-            "Alatreon Lance"
-          ],
-          "entries": [
-            93
-          ]
-        }
-      }
-    },
-    "8": {
-      "type_id": 8,
       "type_name": "Hammer",
-      "table_base": "0x08990D64",
-      "entry_size": 28,
-      "model_offset": 0,
-      "total_entries": 97,
       "weapons": {
-        "0": {
-          "names": [
-            "No Equipment"
-          ],
-          "entries": [
-            0
-          ]
-        },
         "1": {
-          "names": [
-            "Iron Striker+",
-            "Iron Impact"
-          ],
-          "entries": [
-            12,
-            13
-          ]
-        },
-        "2": {
-          "names": [
-            "Armored Gogue",
-            "War Hammer",
-            "War Hammer+"
-          ],
-          "entries": [
-            7,
-            8,
-            9
-          ]
-        },
-        "3": {
-          "names": [
-            "War Mace",
-            "Iron Striker"
-          ],
-          "entries": [
-            10,
-            11
-          ]
-        },
-        "4": {
           "names": [
             "Kurogane",
-            "Iron Devil",
-            "Gun Hammer"
-          ],
-          "entries": [
-            14,
-            15,
-            16
+            "Iron Devil"
+          ]
+        },
+        "2": {
+          "names": [
+            "War Hammer",
+            "War Hammer+",
+            "War Mace"
+          ]
+        },
+        "3": {
+          "names": [
+            "Iron Striker",
+            "Iron Striker+",
+            "Iron Impact"
+          ]
+        },
+        "4": {
+          "names": [
+            "Hard Bone Hammer",
+            "Hard Bone Hammer+"
           ]
         },
         "5": {
           "names": [
-            "Carapace Hammer",
-            "Carapace Hammer+"
-          ],
-          "entries": [
-            37,
-            38
+            "Bone Bludgeon",
+            "Bone Bludgeon+"
           ]
         },
         "6": {
           "names": [
-            "Brazenclout",
-            "Crimsonclout"
-          ],
-          "entries": [
-            44,
-            45
+            "Ludroth Bone Mace"
           ]
         },
         "7": {
           "names": [
-            "Bull Head Hammer"
-          ],
-          "entries": [
-            57
+            "Hummingbird",
+            "Pua Kala",
+            "Pharmakon"
           ]
         },
         "8": {
           "names": [
-            "Gun Hammer+",
-            "Deadeye Revolver",
-            "Striped Striker"
-          ],
-          "entries": [
-            17,
-            18,
-            19
+            "Red Bludgeon",
+            "Huracan Hammer"
           ]
         },
         "9": {
           "names": [
-            "Alatreon Metamorph"
-          ],
-          "entries": [
-            92
+            "Frozen Core",
+            "Frozen Core+",
+            "Cocytus"
           ]
         },
         "10": {
           "names": [
-            "Peco Lectro",
-            "Lightning Peco",
-            "Red Bludgeon"
-          ],
-          "entries": [
-            27,
-            28,
-            29
+            "Brazenclout",
+            "Crimsonclout",
+            "Gigas Hammer"
           ]
         },
         "11": {
           "names": [
-            "Gigas Hammer",
-            "Meltroknuckle",
-            "Uragantic Hammer"
-          ],
-          "entries": [
-            46,
-            47,
-            48
+            "Carapace Hammer",
+            "Carapace Hammer+",
+            "Barroth Hammer"
           ]
         },
         "12": {
           "names": [
-            "Ludroth Bone Mace",
-            "Ludroth Splashammer",
-            "Ludroth Splashammer+"
-          ],
-          "entries": [
-            49,
-            50,
-            51
+            "Devil's Due",
+            "Devil's Crush"
           ]
         },
         "13": {
           "names": [
-            "Pua Kala",
-            "Pharmakon",
-            "Bone Bludgeon"
-          ],
-          "entries": [
-            33,
-            34,
-            35
+            "Fang Hammer \"Echo\"",
+            "Fang Hammer \"Ruin\"",
+            "Jhen Mohran Hammer"
           ]
         },
         "14": {
           "names": [
-            "Midnight Aeternum",
-            "Fang Hammer \"Echo\"",
-            "Fang Hammer \"Ruin\""
-          ],
-          "entries": [
-            63,
-            64,
-            65
+            "Plume Flint",
+            "Plume Flint+",
+            "Peco Flint"
           ]
         },
         "15": {
           "names": [
-            "Great Gaiarch",
-            "Rusted Hammer",
-            "Tarnished Hammer"
-          ],
-          "entries": [
-            71,
-            72,
-            73
+            "Gaiasp",
+            "Gaiarch",
+            "Great Gaiarch"
           ]
         },
         "16": {
           "names": [
-            "Jhen Mohran Hammer",
-            "Devil's Due",
-            "Devil's Crush"
-          ],
-          "entries": [
-            66,
-            67,
-            68
+            "Egg Hammer",
+            "Gargwa Egg Hammer"
           ]
         },
         "17": {
           "names": [
-            "Gaiasp",
-            "Gaiarch"
-          ],
-          "entries": [
-            69,
-            70
+            "Rusted Hammer",
+            "Tarnished Hammer",
+            "Worn Hammer",
+            "Weathered Hammer"
           ]
         },
         "18": {
           "names": [
             "Breath Core Hammer",
-            "Lava Core Hammer",
-            "Pulsating Core",
-            "Pumpking"
-          ],
-          "entries": [
-            74,
-            75,
-            78,
-            79
+            "Lava Core Hammer"
           ]
         },
         "19": {
           "names": [
-            "Worn Hammer",
-            "Weathered Hammer"
-          ],
-          "entries": [
-            76,
-            77
+            "Pulsating Core"
           ]
         },
         "20": {
           "names": [
-            "Pumpkingdom"
-          ],
-          "entries": [
-            80
+            "Alatreon Hammer",
+            "Alatreon Metamorph"
           ]
         },
         "21": {
           "names": [
-            "Demon's Visage"
-          ],
-          "entries": [
-            93,
-            94
+            "Ludroth Splashammer",
+            "Ludroth Splashammer+",
+            "Vodyanoy Hammer"
           ]
         },
         "22": {
           "names": [
-            "Bull Tusk Hammer",
-            "Hidden Breaker",
-            "Hidden Breaker+"
-          ],
-          "entries": [
-            58,
-            59,
-            60
+            "Gunhammer",
+            "Gunhammer+",
+            "Deadeye Revolver"
           ]
         },
         "23": {
           "names": [
-            "Striped Striker"
-          ],
-          "entries": [
-            95,
-            96
+            "Striped Striker",
+            "Tigrex Hammer"
           ]
         },
         "24": {
           "names": [
-            "Jupiter's Sphere+",
-            "Duramboros Fellmace",
-            "Bull Hammer"
-          ],
-          "entries": [
-            54,
-            55,
-            56
+            "Hidden Breaker",
+            "Hidden Breaker+",
+            "Night Eternal"
           ]
         },
         "25": {
           "names": [
-            "Yukumo Purehammer",
-            "Yukumo Purehammer+"
-          ],
-          "entries": [
-            84,
-            85
+            "Ukanlos Avalanche"
           ]
         },
         "26": {
           "names": [
-            "Frozen Core+",
-            "Cocytus",
-            "Plume Flint"
-          ],
-          "entries": [
-            22,
-            23,
-            24
+            "Bull Hammer",
+            "Bull Head Hammer",
+            "Bull Tusk Hammer"
           ]
         },
         "27": {
-          "names": [
-            "Tigrex Hammer",
-            "Frozen Core"
-          ],
-          "entries": [
-            20,
-            21
-          ]
-        },
-        "28": {
-          "names": [
-            "Ice Obliterator",
-            "Hard Bone Hammer",
-            "Hard Bone Hammer+"
-          ],
-          "entries": [
-            41,
-            42,
-            43
-          ]
-        },
-        "29": {
-          "names": [
-            "Bone Bludgeon+"
-          ],
-          "entries": [
-            36
-          ]
-        },
-        "30": {
           "names": [
             "Old Yukumo Mallet",
             "Yukumo Mallet",
             "Yukumo Mallet+",
             "Yukumo Impact",
-            "Yukumo Hammerfist",
+            "True Yukumo Mallet",
+            "True Yukumo Mallet+",
+            "Spirit Mallet"
+          ]
+        },
+        "28": {
+          "names": [
             "Usurper's Thunder",
             "Despot's Crackle"
-          ],
-          "entries": [
-            1,
-            2,
-            3,
-            4,
-            86,
-            87,
-            88
+          ]
+        },
+        "29": {
+          "names": [
+            "Evil Mystic Cloud"
+          ]
+        },
+        "30": {
+          "names": [
+            "Jupiter's Sphere",
+            "Jupiter's Sphere+",
+            "Duramboros Fellmace"
           ]
         },
         "31": {
           "names": [
-            "Incubus Hammer",
-            "Ukanlos Trampler"
-          ],
-          "entries": [
-            89,
-            90
+            "Binding Bludgeon",
+            "Binding Bludgeon+",
+            "Armored Gogue"
           ]
         },
         "32": {
           "names": [
-            "Alatreon Hammer"
-          ],
-          "entries": [
-            91
+            "Peco Lectro",
+            "Lightning Peco"
           ]
         },
         "33": {
           "names": [
-            "Barroth Hammer",
-            "Ice Crusher"
-          ],
-          "entries": [
-            39,
-            40
+            "Ice Crusher",
+            "Ice Obliterator"
           ]
         },
         "34": {
           "names": [
-            "Night Eternal",
-            "Virnar Breaker"
-          ],
-          "entries": [
-            61,
-            62
+            "Meltroknuckle",
+            "Uragantic Hammer"
           ]
         },
         "35": {
           "names": [
-            "Plume Flint+",
-            "Peco Flint"
-          ],
-          "entries": [
-            25,
-            26
+            "Virnar Breaker",
+            "Midnight Aeternum"
           ]
         },
         "36": {
           "names": [
-            "Vodyanoy Hammer",
-            "Jupiter's Sphere"
-          ],
-          "entries": [
-            52,
-            53
+            "Leonid Starcrusher"
           ]
         },
         "37": {
           "names": [
-            "Binding Bludgeon",
-            "Binding Bludgeon+"
-          ],
-          "entries": [
-            5,
-            6
+            "Pumpking",
+            "Pumpkingdom",
+            "Pumpking Spirit Maul"
           ]
         },
         "38": {
           "names": [
-            "Pumpking Spirit Maul",
-            "Egg Hammer",
-            "Gargwa Egg Hammer"
-          ],
-          "entries": [
-            81,
-            82,
-            83
+            "Demon's Visage"
+          ]
+        }
+      }
+    },
+    "8": {
+      "type_name": "Lance",
+      "weapons": {
+        "1": {
+          "names": [
+            "Warrior's Spear",
+            "Millennium"
+          ]
+        },
+        "2": {
+          "names": [
+            "Thane Lance",
+            "Thane Lance+",
+            "Knight Lance"
+          ]
+        },
+        "3": {
+          "names": [
+            "Rampart",
+            "Rampart+"
+          ]
+        },
+        "4": {
+          "names": [
+            "Babel",
+            "Babel+",
+            "Elder Babel Spear"
+          ]
+        },
+        "5": {
+          "names": [
+            "Hard Bone Lance",
+            "Hard Bone Lance+"
+          ]
+        },
+        "6": {
+          "names": [
+            "Plohasta",
+            "Rhenohasta"
+          ]
+        },
+        "7": {
+          "names": [
+            "Ludroth Bone Spear"
+          ]
+        },
+        "8": {
+          "names": [
+            "Tusk Lance",
+            "Tusk Lance+",
+            "Sabertooth"
+          ]
+        },
+        "9": {
+          "names": [
+            "Ukanlos Calamity"
+          ]
+        },
+        "10": {
+          "names": [
+            "Drill Lance",
+            "Mega Drill Lance",
+            "Giga Drill Lance"
+          ]
+        },
+        "11": {
+          "names": [
+            "Rugged Lance",
+            "Rugged Lance+",
+            "Barroth Carver"
+          ]
+        },
+        "12": {
+          "names": [
+            "Spiral Heat",
+            "Spiral Heat+",
+            "Agnaktor Firelance"
+          ]
+        },
+        "13": {
+          "names": [
+            "Diablos Lance",
+            "Diablos Lance+",
+            "Diablos Spear"
+          ]
+        },
+        "14": {
+          "names": [
+            "Shadow Javelin",
+            "Shadow Javelin+",
+            "Toxic Javelin"
+          ]
+        },
+        "15": {
+          "names": [
+            "Blue Crater",
+            "Smalt Crater",
+            "Doom Crown"
+          ]
+        },
+        "16": {
+          "names": [
+            "Wild Boar Lance",
+            "Wild Boar Lance+",
+            "Bulldrome Spear"
+          ]
+        },
+        "17": {
+          "names": [
+            "Grief Lance",
+            "Fiendish Tower"
+          ]
+        },
+        "18": {
+          "names": [
+            "Rusted Lance",
+            "Tarnished Lance",
+            "Worn Spear",
+            "Weathered Spear"
+          ]
+        },
+        "19": {
+          "names": [
+            "Undertaker",
+            "High Undertaker"
+          ]
+        },
+        "20": {
+          "names": [
+            "Skyscraper"
+          ]
+        },
+        "21": {
+          "names": [
+            "Alatreon Lance",
+            "Alatreon Gleam"
+          ]
+        },
+        "22": {
+          "names": [
+            "Spiral Lance",
+            "Spiral Lance+",
+            "Spiral Slash"
+          ]
+        },
+        "23": {
+          "names": [
+            "Brain Fox Lance",
+            "Hundred Fox Spear"
+          ]
+        },
+        "24": {
+          "names": [
+            "Azure Crest",
+            "Azure Crest+",
+            "Great Azure"
+          ]
+        },
+        "25": {
+          "names": [
+            "Sharq Byte",
+            "Sharq Attaq"
+          ]
+        },
+        "26": {
+          "names": [
+            "Tiger Stinger",
+            "Tiger Stinger+",
+            "Tigrex Lance"
+          ]
+        },
+        "27": {
+          "names": [
+            "Hidden Stinger",
+            "Night Rains Black"
+          ]
+        },
+        "28": {
+          "names": [
+            "Red Tail",
+            "Hellfire",
+            "Spear of Prominence"
+          ]
+        },
+        "29": {
+          "names": [
+            "Black Tempest"
+          ]
+        },
+        "30": {
+          "names": [
+            "Old Yukumo Lance",
+            "Yukumo Lance",
+            "Yukumo Lance+",
+            "Yukumo Stinger",
+            "True Yukumo Lance",
+            "True Yukumo Lance+",
+            "Divine Lance"
+          ]
+        },
+        "31": {
+          "names": [
+            "Usurper's Coming",
+            "Despot's Cacophony"
+          ]
+        },
+        "32": {
+          "names": [
+            "Evil Cloudpiercer"
+          ]
+        },
+        "33": {
+          "names": [
+            "Boros Spear",
+            "Temblor Illboros"
+          ]
+        },
+        "34": {
+          "names": [
+            "Bella Nocuus",
+            "Bel Nefastro"
+          ]
+        },
+        "35": {
+          "names": [
+            "Black Tiger Stinger",
+            "Black Tigrex Lance"
+          ]
+        },
+        "36": {
+          "names": [
+            "Spiral Water",
+            "Agnaktor Aqualance"
+          ]
+        },
+        "37": {
+          "names": [
+            "War Lance",
+            "War Lance \"Victory\""
+          ]
+        },
+        "38": {
+          "names": [
+            "Plegis Needle",
+            "Plegis Needle+",
+            "Mighty Plegis"
           ]
         },
         "39": {
           "names": [
-            "Huracan Hammer",
-            "Leonid Starcrusher",
-            "Harmingbird"
-          ],
-          "entries": [
-            30,
-            31,
-            32
+            "Longhorn Spear",
+            "Longhorn Spear+",
+            "Longtusk Spear"
           ]
         }
       }
     },
     "9": {
-      "type_id": 9,
-      "type_name": "Light Bowgun",
-      "table_base": "0x0898AB2C",
-      "entry_size": 80,
-      "model_offset": 0,
-      "total_entries": 67,
+      "type_name": "Heavy Bowgun",
       "weapons": {
         "1": {
           "names": [
-            "No Equipment",
-            "Cross Bowgun",
-            "Royal Launcher",
-            "Cross Bowgun+"
-          ],
-          "entries": [
-            0,
-            3,
-            6,
-            7
+            "Bone Blaster",
+            "Bone Shooter+",
+            "Bone Buster"
           ]
         },
         "2": {
           "names": [
-            "Barro Barrel",
-            "Poison Stinger",
-            "Barro Barrel+"
-          ],
-          "entries": [
-            9,
-            15,
-            20
+            "Tropeco Gun",
+            "Tropeco Flambogun",
+            "Pecopious Gun"
           ]
         },
         "3": {
           "names": [
-            "Poison Stinger+",
-            "Bandit's Rage",
-            "Crimson Seeker"
-          ],
-          "entries": [
-            25,
-            33,
-            53
+            "Dual Threat",
+            "Dual Threat+",
+            "Diablazooka"
           ]
         },
         "4": {
           "names": [
-            "Tigrex Tank",
-            "Blizzard Volley",
-            "Accursed Tank"
-          ],
-          "entries": [
-            27,
-            45,
-            57
+            "Agnaboom",
+            "Agnablaster",
+            "Agna Hellblazer"
           ]
         },
         "5": {
           "names": [
-            "Devil's Madness"
-          ],
-          "entries": [
-            65
+            "Chaos Wing"
           ]
         },
         "6": {
           "names": [
-            "Kettleblower",
-            "Tabula Blizzara",
-            "Kettleblower Deluxe"
-          ],
-          "entries": [
-            29,
-            46,
-            61
+            "Jhen Cannon",
+            "Jhen Dracannon",
+            "Prosperity Dracannon"
           ]
         },
         "7": {
           "names": [
-            "Durambarrel",
-            "Hunter's Rifle",
-            "Devil's Grin"
-          ],
-          "entries": [
-            28,
-            35,
-            59
+            "Aquamatic \"Needler\"",
+            "Aquamatic \"Firelash\"",
+            "Aquamatic \"Ashmaker\""
           ]
         },
         "8": {
           "names": [
-            "Cross Blitz",
-            "Teasel Shot",
-            "Valkyrie Flame",
-            "God's Island"
-          ],
-          "entries": [
-            12,
-            18,
-            36,
-            60
+            "Queen's Longfire",
+            "Queen's Farflier",
+            "Queen's Scionfire",
+            "Queen's Deityfire"
           ]
         },
         "9": {
           "names": [
-            "Hidden Eye+",
-            "Blossomayhem"
-          ],
-          "entries": [
-            48,
-            62
+            "Gigant Launcher",
+            "Gigant Cannon"
           ]
         },
         "10": {
           "names": [
-            "Rathling Gun+",
-            "Despot's Wildfire",
-            "Tigrex Wargun"
-          ],
-          "entries": [
-            26,
-            55,
-            56
+            "Tigrex Howl",
+            "Tigrex Howl+",
+            "Tigrex Skull"
           ]
         },
         "11": {
           "names": [
-            "Hidden Eye",
-            "Poison Aftermath"
-          ],
-          "entries": [
-            22,
-            43
+            "Hidden Gambit",
+            "Baleful Night"
           ]
         },
         "12": {
           "names": [
-            "Aldebaran Dreadgun"
-          ],
-          "entries": [
-            64
+            "Ukanlos Roar"
           ]
         },
         "13": {
           "names": [
-            "Royal Inundation",
-            "Valkyrie Blaze"
-          ],
-          "entries": [
-            34,
-            47
+            "Carbalite Cannon",
+            "Meteor Cannon"
           ]
         },
         "14": {
           "names": [
-            "Old Yukumo L. Bowgun",
-            "Yukumo Light Bowgun",
-            "Yukumo Light Bowgun+",
-            "Demon's Isle",
-            "Durambarrel+"
-          ],
-          "entries": [
-            1,
-            2,
-            4,
-            17,
-            30
+            "Old Yukumo Ballista",
+            "Yukumo Ballista",
+            "Yukumo Ballista+",
+            "Yukumo Heavy Cannon",
+            "Yukumo Cannon"
           ]
         },
         "15": {
           "names": [
-            "Blizzard Cannon",
-            "Avalauncher"
-          ],
-          "entries": [
-            21,
-            51
+            "Usurper's Tremor",
+            "Despot's Paroxysm"
           ]
         },
         "16": {
           "names": [
-            "Ukanlos Frost Bow"
-          ],
-          "entries": [
-            66
+            "Evil Solstice Shower"
           ]
         },
         "17": {
           "names": [
-            "Jaggid Fire+",
-            "Rathling Gun",
-            "Night Owl"
-          ],
-          "entries": [
-            10,
-            23,
-            49
+            "Carrozza Bazooka",
+            "Queen's Carrozza",
+            "Cendrillon"
           ]
         },
         "18": {
           "names": [
-            "Gourd Shot",
-            "Yukumo Pureshot",
-            "God's Isle",
-            "Demon's Island"
-          ],
-          "entries": [
-            8,
-            19,
-            37,
-            38
+            "Spheniscine Slayer",
+            "Spheniscine Enslaver",
+            "Spheniscine Ruler",
+            "Spheniscine Overlord"
           ]
         },
         "19": {
           "names": [
-            "Royal Torrent",
-            "Usurper's Crime",
-            "Barrozooka",
-            "Aurora Flare"
-          ],
-          "entries": [
-            14,
-            24,
-            32,
-            40
+            "Type 46 Gunflage I",
+            "Type 46 Gunflage II",
+            "Type 46 Gunflage III",
+            "Nibelflage Prototype"
           ]
         },
         "20": {
           "names": [
-            "Jaggid Fire",
-            "Bandit Fire",
-            "Yukumo Spiritshot",
-            "Crookneck Shot"
-          ],
-          "entries": [
-            5,
-            13,
-            31,
-            39
+            "Arzuros Gun",
+            "Arzuros Gun+",
+            "Arzuros Rumblegun",
+            "Arzuros Fishergun"
           ]
         },
         "21": {
           "names": [
-            "Accursed Wargun"
-          ],
-          "entries": [
-            63
+            "Akantor Destroyer"
           ]
         },
         "22": {
           "names": [
-            "Royal Launcher+",
-            "Valkyrie Fire",
-            "Rathling Doombringer"
-          ],
-          "entries": [
-            11,
-            16,
-            50
+            "Wishing Star",
+            "Meteorite",
+            "Great Meteor"
           ]
         },
         "23": {
           "names": [
-            "Royal Tempest",
-            "Sniper Shot"
-          ],
-          "entries": [
-            41,
-            42
+            "Pecopious Thunder",
+            "Paco Pico Peco"
           ]
         },
         "24": {
           "names": [
-            "Bloodthirsty Binder",
-            "Immortal Shackle"
-          ],
-          "entries": [
-            44,
-            52
+            "Virnar Heavy Rifle",
+            "Sinister Midnight"
           ]
         },
         "25": {
           "names": [
-            "Rathling Phoenix"
-          ],
-          "entries": [
-            54
+            "Nero's Blazooka"
           ]
         },
         "26": {
           "names": [
-            "Taurambarrel"
-          ],
-          "entries": [
-            58
+            "Avel Agnagun"
           ]
         }
       }
     },
-    "10": {
-      "type_id": 10,
-      "type_name": "Heavy Bowgun",
-      "table_base": "0x0898C01C",
-      "entry_size": 80,
-      "model_offset": 0,
-      "total_entries": 68,
+    "11": {
+      "type_name": "Light Bowgun",
       "weapons": {
         "1": {
           "names": [
-            "No Equipment",
-            "Bone Blaster",
-            "Bone Buster",
-            "Queen's Longfire"
-          ],
-          "entries": [
-            0,
-            3,
-            7,
-            12
+            "Cross Bowgun",
+            "Cross Bowgun+",
+            "Cross Blitz"
           ]
         },
         "2": {
           "names": [
-            "Aquamatic \"Firelash\"",
-            "Paco Pico Peco"
-          ],
-          "entries": [
-            35,
-            42
+            "Hunter's Rifle",
+            "Sniper Shot"
           ]
         },
         "3": {
           "names": [
-            "Bone Shooter+",
-            "Wishing Star",
-            "Type 46 Gunflage I",
-            "Carbalite Cannon",
-            "Pecopious Thunder"
-          ],
-          "entries": [
-            6,
-            11,
-            14,
-            34,
-            41
+            "Royal Launcher",
+            "Royal Turrent",
+            "Royal Cataract",
+            "Royal Inundation",
+            "Royal Noah"
           ]
         },
         "4": {
           "names": [
-            "Arzuros Gun",
-            "Carrozza Bazooka",
-            "Arzuros Gun+",
-            "Dual Threat+"
-          ],
-          "entries": [
-            5,
-            10,
-            13,
-            33
+            "Jaggid Fire",
+            "Jaggid Fire+",
+            "Bandit Fire",
+            "Bandit's Rage"
           ]
         },
         "6": {
           "names": [
-            "Queen's Carrozza",
-            "Tigrex Howl",
-            "Great Meteor",
-            "Nero's Blazooka"
-          ],
-          "entries": [
-            23,
-            26,
-            50,
-            54
+            "Rathling Gun",
+            "Rathling Gun+",
+            "Rathling Doombringer",
+            "Rathling Phoenix"
           ]
         },
         "7": {
           "names": [
-            "Usurper's Tremor",
-            "Agnablaster",
-            "Jhen Dracannon"
-          ],
-          "entries": [
-            21,
-            45,
-            46
+            "Blizzard Cannon",
+            "Blizzard Volley",
+            "Tabula Blizzara"
           ]
         },
         "8": {
           "names": [
-            "Tropeco Flambogun",
-            "Dual Threat",
-            "Baleful Night",
-            "Sinister Midnight"
-          ],
-          "entries": [
-            15,
-            25,
-            43,
-            52
+            "Poison Stinger",
+            "Poison Stinger+",
+            "Poison Aftermath",
+            "Immortal Shackle"
           ]
         },
         "9": {
           "names": [
-            "Tropeco Gun",
-            "Pecopious Gun",
-            "Type 46 Gunflage III"
-          ],
-          "entries": [
-            9,
-            20,
-            32
+            "Barro Barrel",
+            "Barro Barrel+",
+            "Barrozooka"
           ]
         },
         "10": {
           "names": [
-            "Aquamatic \"Ashmaker\"",
-            "Chaos Wing"
-          ],
-          "entries": [
-            59,
-            65
+            "Devil's Grin",
+            "Devil's Madness"
           ]
         },
         "11": {
           "names": [
-            "Yukumo Puregun",
-            "Spheniscine Ruler",
-            "Spheniscine Overlord",
-            "Queen's Deityfire"
-          ],
-          "entries": [
-            17,
-            37,
-            38,
-            60
+            "Demon's Isle",
+            "God's Isle",
+            "Demon's Island",
+            "God's Island"
           ]
         },
         "12": {
           "names": [
-            "Agnaboom",
-            "Tigrex Skull"
-          ],
-          "entries": [
-            27,
-            56
+            "Tigrex Tank",
+            "Tigrex Wargun"
           ]
         },
         "13": {
           "names": [
-            "Hidden Gambit",
-            "Gigant Launcher",
-            "Cendrillon"
-          ],
-          "entries": [
-            22,
-            48,
-            49
+            "Hidden Eye",
+            "Hidden Eye+",
+            "Night Owl"
           ]
         },
         "14": {
           "names": [
-            "Ill Omen"
-          ],
-          "entries": [
-            66
+            "Ukanlos Growl"
           ]
         },
         "15": {
           "names": [
-            "Meteorite",
-            "Queen's Scionfire",
-            "Meteor Cannon"
-          ],
-          "entries": [
-            16,
-            36,
-            47
+            "Valkyrie Fire",
+            "Valkyrie Flame",
+            "Valkyrie Blaze"
           ]
         },
         "16": {
           "names": [
-            "Gigant Cannon"
-          ],
-          "entries": [
-            62
+            "Blossomayhem"
           ]
         },
         "17": {
           "names": [
-            "Old Yukumo Bowgun",
-            "Yukumo Bowgun",
-            "Yukumo Bowgun+",
-            "Spheniscine Enslaver",
-            "Arzuros Rumblegun"
-          ],
-          "entries": [
-            1,
-            2,
-            4,
-            19,
-            31
+            "Old Yukumo Crossbow",
+            "Yukumo Crossbow",
+            "Yukumo Crossbow+",
+            "Yukumo Rifle",
+            "Yukumo Bullet Rain"
           ]
         },
         "18": {
           "names": [
-            "Type 46 Gunflage II",
-            "Tigrex Howl+"
-          ],
-          "entries": [
-            24,
-            55
+            "Usurper's Crime",
+            "Despot's Wildfire"
           ]
         },
         "19": {
           "names": [
-            "Type 46 Gunflage I"
-          ],
-          "entries": [
-            67
+            "Evil Flash Flood"
           ]
         },
         "20": {
           "names": [
-            "Aquamatic \"Needler\"",
-            "Yukumo Spiritgun",
-            "Avel Agnagun",
-            "Ukanlos Cannon"
-          ],
-          "entries": [
-            28,
-            30,
-            58,
-            64
+            "Durambarrel",
+            "Durambarrel+",
+            "Taurambarrel",
+            "Aldebaran Dreadgun"
           ]
         },
         "21": {
           "names": [
-            "Nibelflage Prototype",
-            "Despot's Paroxysm"
-          ],
-          "entries": [
-            40,
-            51
+            "Aurora Flare",
+            "Avalauncher"
           ]
         },
         "22": {
           "names": [
-            "Virnar Heavy Rifle",
-            "Diablazooka"
-          ],
-          "entries": [
-            44,
-            53
+            "Bloodthirsty Binder",
+            "Crimson Seeker"
           ]
         },
         "23": {
           "names": [
-            "Agna Hellblazer",
-            "Akantor Cannon"
-          ],
-          "entries": [
-            57,
-            63
+            "Black Tigrex Tank",
+            "Black Tigrex Panzer"
           ]
         },
         "24": {
           "names": [
-            "Spheniscine Slayer",
-            "Queen's Farflier",
-            "Arzuros Fishergun"
-          ],
-          "entries": [
-            8,
-            18,
-            39
+            "Gourd Shot",
+            "Teasel Shot",
+            "Crookneck Shot"
           ]
         },
         "25": {
           "names": [
-            "Jhen Cannon",
-            "Prosperity Dracannon"
-          ],
-          "entries": [
-            29,
-            61
+            "Kettleblower",
+            "Kettleblower Deluxe"
           ]
         }
       }
     },
     "12": {
-      "type_id": 12,
       "type_name": "Long Sword",
-      "table_base": "0x08991800",
-      "entry_size": 28,
-      "model_offset": 0,
-      "total_entries": 86,
       "weapons": {
-        "0": {
-          "names": [
-            "No Equipment"
-          ],
-          "entries": [
-            0
-          ]
-        },
         "1": {
           "names": [
             "Reaver \"Cruelty\"",
             "Reaver \"Calamity\""
-          ],
-          "entries": [
-            64,
-            65
           ]
         },
         "2": {
@@ -13394,11 +12401,6 @@
             "Wyvern Blade \"Fire\"",
             "Wyvern Blade \"Flame\"",
             "Wyvern Blade \"Flare\""
-          ],
-          "entries": [
-            49,
-            50,
-            51
           ]
         },
         "3": {
@@ -13406,11 +12408,6 @@
             "Hidden Saber",
             "Hidden Saber+",
             "Deepest Night"
-          ],
-          "entries": [
-            13,
-            14,
-            15
           ]
         },
         "4": {
@@ -13418,11 +12415,6 @@
             "Ananta Boneblade",
             "Ananta Boneblade+",
             "Shadowbinder"
-          ],
-          "entries": [
-            42,
-            43,
-            44
           ]
         },
         "5": {
@@ -13430,79 +12422,47 @@
             "Barbarian Blade",
             "Barbarian Blade+",
             "Barbarian \"Sharq\""
-          ],
-          "entries": [
-            61,
-            62,
-            63
           ]
         },
         "6": {
           "names": [
             "Guan Dao",
             "Yan Yue Dao"
-          ],
-          "entries": [
-            30,
-            31
           ]
         },
         "7": {
           "names": [
             "Dark Claw",
             "Dark Claw \"Demise\""
-          ],
-          "entries": [
-            80,
-            81
           ]
         },
         "8": {
           "names": [
-            "Light Works"
-          ],
-          "entries": [
-            84
+            "Lightning Works"
           ]
         },
         "9": {
           "names": [
             "Tessaiga",
             "Tessaiga D"
-          ],
-          "entries": [
-            82,
-            83
           ]
         },
         "10": {
           "names": [
             "Dancing Flames",
             "Dancing Hellfire"
-          ],
-          "entries": [
-            47,
-            48
           ]
         },
         "11": {
           "names": [
             "Wyvern Blade \"Pale\""
-          ],
-          "entries": [
-            52
           ]
         },
         "12": {
           "names": [
-            "Tigrine Edge",
-            "Tigrine Need",
-            "Desperate Roar"
-          ],
-          "entries": [
-            18,
-            19,
-            20
+            "Tigrex Slasher",
+            "Tigrex Slasher+",
+            "Tigrex Annihilator"
           ]
         },
         "13": {
@@ -13510,49 +12470,28 @@
             "Rimeblade",
             "Rimeblossom",
             "Rime & Treason"
-          ],
-          "entries": [
-            24,
-            25,
-            26
           ]
         },
         "14": {
           "names": [
-            "Old Yukumo Longsword",
-            "Yukumo Long Sword",
-            "Yukumo Long Sword+",
-            "Yukumo War Sword",
-            "Yukumo Puresword",
-            "Yukumo Puresword+",
-            "Yukumo Spiritblade"
-          ],
-          "entries": [
-            1,
-            2,
-            3,
-            4,
-            72,
-            73,
-            74
+            "Old Yukumo Blade",
+            "Yukumo Blade",
+            "Yukumo Blade+",
+            "Yukumo Longsword",
+            "True Yukumo Blade",
+            "True Yukumo Blade+",
+            "Spirit-Strike Blade"
           ]
         },
         "15": {
           "names": [
             "Usurper's Boltslicer",
             "Despot's Boltbreaker"
-          ],
-          "entries": [
-            75,
-            76
           ]
         },
         "16": {
           "names": [
-            "Ominous Spring"
-          ],
-          "entries": [
-            77
+            "Evil Flooding Rain"
           ]
         },
         "17": {
@@ -13560,11 +12499,6 @@
             "Mountain Reaper",
             "Mountain Archreaper",
             "Wild Heights"
-          ],
-          "entries": [
-            32,
-            33,
-            34
           ]
         },
         "18": {
@@ -13572,11 +12506,6 @@
             "Arzuros Naginata",
             "Arzuros Naginata+",
             "Arzuros Strikequill"
-          ],
-          "entries": [
-            27,
-            28,
-            29
           ]
         },
         "19": {
@@ -13584,11 +12513,6 @@
             "Wroggi Sword",
             "Wroggi Sword+",
             "Nightshade's Bite"
-          ],
-          "entries": [
-            58,
-            59,
-            60
           ]
         },
         "20": {
@@ -13596,11 +12520,6 @@
             "Bleeding Cross",
             "Bleeding Cross+",
             "Mephitic Katana"
-          ],
-          "entries": [
-            5,
-            6,
-            7
           ]
         },
         "21": {
@@ -13608,11 +12527,6 @@
             "Diapason",
             "Diapason+",
             "Crimsonfork"
-          ],
-          "entries": [
-            53,
-            54,
-            55
           ]
         },
         "22": {
@@ -13620,11 +12534,6 @@
             "Drowning Shaft",
             "Drowning Shaft+",
             "Douser Bardiche"
-          ],
-          "entries": [
-            35,
-            36,
-            37
           ]
         },
         "23": {
@@ -13632,77 +12541,45 @@
             "Windeater",
             "Soundeater",
             "Zephyr"
-          ],
-          "entries": [
-            66,
-            67,
-            68
           ]
         },
         "24": {
           "names": [
             "Canine Katana",
             "Lupine Katana",
-            "Gnash Katana",
-            "Sunderer"
-          ],
-          "entries": [
-            40,
-            41,
-            45,
-            46
+            "Guaruga Boneblade",
+            "Shadowblade"
           ]
         },
         "25": {
           "names": [
             "Enfeebling Glaive",
             "Dispatcher Glaive"
-          ],
-          "entries": [
-            38,
-            39
           ]
         },
         "26": {
           "names": [
             "Crimson Cross",
             "Lost Eden"
-          ],
-          "entries": [
-            8,
-            9
           ]
         },
         "27": {
           "names": [
             "Chrome Mazurka",
             "Chrome Waltz"
-          ],
-          "entries": [
-            56,
-            57
           ]
         },
         "28": {
           "names": [
             "Virnar Saber",
             "Depths of Midnight"
-          ],
-          "entries": [
-            16,
-            17
           ]
         },
         "29": {
           "names": [
-            "Hairtails Hairblade",
-            "Hairtails Hairblade+",
+            "Hairtail Hairblade",
+            "Hairtail Hairblade+",
             "Fresh Hairblade"
-          ],
-          "entries": [
-            69,
-            70,
-            71
           ]
         },
         "30": {
@@ -13710,35 +12587,21 @@
             "Chainslaughter",
             "Chainslaughter+",
             "Rumbalarum"
-          ],
-          "entries": [
-            21,
-            22,
-            23
           ]
         },
         "31": {
           "names": [
             "Supreme King Sword"
-          ],
-          "entries": [
-            85
           ]
         },
         "32": {
           "names": [
-            "Akantor Katana"
-          ],
-          "entries": [
-            78
+            "Akantor Widowmaker"
           ]
         },
         "33": {
           "names": [
             "Ukanlos Slicer"
-          ],
-          "entries": [
-            79
           ]
         },
         "34": {
@@ -13746,351 +12609,194 @@
             "Iron Katana",
             "Iron Grace",
             "Iron Gospel"
-          ],
-          "entries": [
-            10,
-            11,
-            12
           ]
         }
       }
     },
     "13": {
-      "type_id": 13,
-      "type_name": "Dual Blades",
-      "table_base": "0x0898D5D4",
-      "entry_size": 28,
-      "model_offset": 0,
-      "total_entries": 72,
+      "type_name": "Switch Axe",
       "weapons": {
-        "0": {
-          "names": [
-            "No Equipment"
-          ],
-          "entries": [
-            0
-          ]
-        },
         "1": {
           "names": [
-            "Bone Scythes+",
-            "Ludroth Pair",
-            "Wyvern Lovers",
-            "Wyvern Strife",
-            "Diablos Bashers"
-          ],
-          "entries": [
-            25,
-            26,
-            31,
-            32,
-            33
+            "Bone Axe",
+            "Bone Axe+",
+            "Bone Hacker",
+            "Bone Hacker+",
+            "Daedalus"
           ]
         },
         "2": {
           "names": [
-            "Ludroth Pair+",
-            "Double Droth",
-            "Brother Flames",
-            "Brother Blazes"
-          ],
-          "entries": [
-            27,
-            28,
-            29,
-            30
+            "Assault Axe",
+            "Assault Axe+",
+            "Blitzkrieg",
+            "Bastion Blitz"
           ]
         },
         "3": {
           "names": [
-            "Night Wings",
-            "Virnar Slicers",
-            "Midnight Blackwings"
-          ],
-          "entries": [
-            45,
-            46,
-            47
+            "Fire Tempest",
+            "Fire Tempest+",
+            "Flame Tempest"
           ]
         },
         "4": {
           "names": [
-            "Snow Slicers",
-            "Snow Slicers+",
-            "Snow Sisters"
-          ],
-          "entries": [
-            53,
-            54,
-            55
+            "Demonbind",
+            "Demonbind+",
+            "Grand Demonbind"
           ]
         },
         "5": {
           "names": [
-            "Wrath & Rancor",
-            "Wrathful Predation",
-            "Worn Blade"
-          ],
-          "entries": [
-            56,
-            57,
-            58
+            "Rough Edge",
+            "Tough Break",
+            "Soul Breaker"
           ]
         },
         "6": {
           "names": [
-            "Old Yukumo Duo",
-            "Yukumo Duo",
-            "Yukumo Duo+",
-            "Yukumo Slicers",
-            "White Dango",
-            "Sublime Dango",
-            "Ice Dango"
-          ],
-          "entries": [
-            1,
-            2,
-            3,
-            4,
-            62,
-            63,
-            64
+            "Old Yukumo Switchaxe",
+            "Yukumo Switchaxe",
+            "Yukumo Switchaxe+",
+            "Yukumo Axe",
+            "True Yukumo Axe",
+            "True Yukumo Axe+",
+            "Founder's Switchaxe"
           ]
         },
         "7": {
           "names": [
-            "Weathered Blades",
-            "Enduring Schism",
-            "Plain Dango"
-          ],
-          "entries": [
-            59,
-            60,
-            61
+            "Grim Cat",
+            "Grim Cat+",
+            "Grimmig Katze"
           ]
         },
         "8": {
           "names": [
-            "Holy Sabers",
-            "Rex Slicers",
-            "Tigrex Claws"
-          ],
-          "entries": [
-            15,
-            16,
-            17
+            "Amber Slash",
+            "Amber Slash+",
+            "Amber Hoarfrost"
           ]
         },
         "9": {
           "names": [
-            "Venom Wings",
-            "Boltgeist",
-            "Double Boltwings"
-          ],
-          "entries": [
-            50,
-            51,
-            52
+            "Binding Roller",
+            "Binding Roller+",
+            "Vermilingua"
           ]
         },
         "10": {
           "names": [
-            "Sizzling Dango",
-            "Tengu Dango"
-          ],
-          "entries": [
-            69,
-            70
+            "Dark Switch Axe",
+            "Black Harvest"
           ]
         },
         "11": {
           "names": [
-            "Devil Dango"
-          ],
-          "entries": [
-            71
+            "Pirate J Axe"
           ]
         },
         "12": {
           "names": [
-            "Frozen Dango",
-            "Spicy Dango"
-          ],
-          "entries": [
-            65,
-            66
+            "Usurper's Downpour",
+            "Despot's Cloudburst"
           ]
         },
         "13": {
           "names": [
-            "Red Hot Dango"
-          ],
-          "entries": [
-            67
+            "Evil White Rain"
           ]
         },
         "14": {
           "names": [
-            "Dual Slicers",
-            "Dual Hatchets",
-            "Dual Hatchets+"
-          ],
-          "entries": [
-            9,
-            10,
-            11
+            "Heavy Divider",
+            "Heavy Divider+",
+            "Grunhart"
           ]
         },
         "15": {
           "names": [
-            "Hurricane",
-            "Cyclone",
-            "Sworn Rapiers"
-          ],
-          "entries": [
-            12,
-            13,
-            14
+            "Arzuros Axe",
+            "Arzuros Axe+",
+            "Arzuros Revelax"
           ]
         },
         "16": {
           "names": [
-            "Diablos Bashers+",
-            "Diablos Mashers",
-            "Jaggid Shotels"
-          ],
-          "entries": [
-            34,
-            35,
-            36
+            "Hidden Axe",
+            "Hidden Axe+",
+            "Night's Crescent"
           ]
         },
         "17": {
           "names": [
-            "Zesty Dango"
-          ],
-          "entries": [
-            68
+            "Akantor Subjugator"
           ]
         },
         "18": {
           "names": [
-            "Qornu Waga",
-            "Ro Waga",
-            "Matched Slicers",
-            "Matched Slicers+"
-          ],
-          "entries": [
-            5,
-            6,
-            7,
-            8
+            "Dragonmaiden Axe",
+            "Dragonmaiden Axe+",
+            "Gridr's Landmaker",
+            "Gridr's Landforger"
           ]
         },
         "19": {
           "names": [
-            "Guillotines",
-            "Type 51 Macerators",
-            "Type 51 Macerators+"
-          ],
-          "entries": [
-            20,
-            21,
-            22
+            "Pecospander",
+            "Pecospander+",
+            "Qurupexspander"
           ]
         },
         "20": {
           "names": [
-            "Jaggid Shotels+",
-            "Leader's Shotels",
-            "Flamestorm"
-          ],
-          "entries": [
-            37,
-            38,
-            39
+            "Wild Axe",
+            "Wild Axe+",
+            "Ground Dasher"
           ]
         },
         "21": {
           "names": [
-            "Salamanders",
-            "Aqua Stream",
-            "Undine"
-          ],
-          "entries": [
-            40,
-            41,
-            42
+            "Axe Semper Tyrannis",
+            "Axe Semper Tyrannis+",
+            "Grand Chaos"
           ]
         },
         "22": {
           "names": [
-            "Deathsnarfs",
-            "Bone Scythes"
-          ],
-          "entries": [
-            23,
-            24
+            "Sparqlepeco",
+            "Peco Volt"
           ]
         },
         "23": {
           "names": [
-            "Twin Chainsaws",
-            "Twin Chainsaws+"
-          ],
-          "entries": [
-            18,
-            19
+            "Azurite Slash Axe",
+            "Gale Azurite"
           ]
         },
         "24": {
           "names": [
-            "Hidden Gemini",
-            "Hidden Gemini+"
-          ],
-          "entries": [
-            43,
-            44
+            "Axe of Thanatos",
+            "Axe of Demons"
           ]
         },
         "25": {
           "names": [
-            "Bloodwings",
-            "Bloodwings+"
-          ],
-          "entries": [
-            48,
-            49
+            "Liquid Storm",
+            "Aqua Tempest"
           ]
         }
       }
     },
     "14": {
-      "type_id": 14,
       "type_name": "Gunlance",
-      "table_base": "0x089904DC",
-      "entry_size": 28,
-      "model_offset": 0,
-      "total_entries": 78,
       "weapons": {
-        "0": {
-          "names": [
-            "No Equipment"
-          ],
-          "entries": [
-            0
-          ]
-        },
         "1": {
           "names": [
-            "Tiger Blast",
-            "Tiger Blast+",
+            "Rex Blast",
+            "Rex Blast+",
             "Tigrex Gunlance"
-          ],
-          "entries": [
-            40,
-            41,
-            42
           ]
         },
         "2": {
@@ -14098,27 +12804,16 @@
             "Hidden Gunlance",
             "Hidden Gunlance+",
             "Fading Night"
-          ],
-          "entries": [
-            5,
-            6,
-            7
           ]
         },
         "3": {
           "names": [
-            "Akantor Gunlance"
-          ],
-          "entries": [
-            71
+            "Akantor Decimator"
           ]
         },
         "4": {
           "names": [
-            "Ukanlos Gunlance"
-          ],
-          "entries": [
-            72
+            "Ukanlos Hail"
           ]
         },
         "5": {
@@ -14126,33 +12821,19 @@
             "Striker's Gunlance",
             "Defender's Gunlance",
             "Imperial Guardlance"
-          ],
-          "entries": [
-            10,
-            11,
-            12
           ]
         },
         "6": {
           "names": [
-            "Eizenlitter",
-            "Eizenlitter+",
-            "Sol Bite Burst"
-          ],
-          "entries": [
-            13,
-            14,
-            15
+            "Eisenritter",
+            "Eisenritter+",
+            "Solbite Burst"
           ]
         },
         "7": {
           "names": [
             "Ancient Gyrelance",
             "Ancient Gyresmite"
-          ],
-          "entries": [
-            16,
-            17
           ]
         },
         "8": {
@@ -14160,21 +12841,12 @@
             "Bone Gunlance",
             "Great Bone Gunlance",
             "Wyvern Bone Gunlance"
-          ],
-          "entries": [
-            37,
-            38,
-            39
           ]
         },
         "9": {
           "names": [
             "Silver Rook",
             "Chariot Gun"
-          ],
-          "entries": [
-            20,
-            21
           ]
         },
         "10": {
@@ -14183,36 +12855,20 @@
             "Yukumo Gunlance",
             "Yukumo Gunlance+",
             "Yukumo Burst",
-            "Yukumo Puregunlance",
-            "Yukumo Puregunlance+",
-            "Mystic Gunlance"
-          ],
-          "entries": [
-            1,
-            2,
-            3,
-            4,
-            65,
-            66,
-            67
+            "True Yukumo Burst",
+            "True Yukumo Burst+",
+            "Ascended Artillery"
           ]
         },
         "11": {
           "names": [
             "Usurper's Roar",
             "Despot's Phlogiston"
-          ],
-          "entries": [
-            68,
-            69
           ]
         },
         "12": {
           "names": [
-            "Ominous Monsoon"
-          ],
-          "entries": [
-            70
+            "Evil Auspicious Rain"
           ]
         },
         "13": {
@@ -14220,21 +12876,12 @@
             "Type 62 Stormlance",
             "Type 62 Stormlance+",
             "Assault Stormlance"
-          ],
-          "entries": [
-            22,
-            23,
-            24
           ]
         },
         "14": {
           "names": [
             "Jaggid Gunlance",
             "Jaggid Gunlance+"
-          ],
-          "entries": [
-            25,
-            26
           ]
         },
         "15": {
@@ -14242,11 +12889,6 @@
             "Princess Panoply",
             "Princess Panoply+",
             "Ortlinde"
-          ],
-          "entries": [
-            27,
-            28,
-            29
           ]
         },
         "16": {
@@ -14254,11 +12896,6 @@
             "Peco Teepee",
             "Peco Teepee+",
             "Dreamy Teepee"
-          ],
-          "entries": [
-            32,
-            33,
-            34
           ]
         },
         "17": {
@@ -14266,29 +12903,17 @@
             "Flamethrower",
             "Flamethrower+",
             "Agna Magma"
-          ],
-          "entries": [
-            43,
-            44,
-            45
           ]
         },
         "18": {
           "names": [
             "Worn Gunlance",
             "Weathered Gunlance"
-          ],
-          "entries": [
-            57,
-            58
           ]
         },
         "19": {
           "names": [
             "Obelisk"
-          ],
-          "entries": [
-            59
           ]
         },
         "20": {
@@ -14296,1202 +12921,698 @@
             "Shattershot",
             "Shatter Ace",
             "Shatter God"
-          ],
-          "entries": [
-            51,
-            52,
-            53
           ]
         },
         "21": {
           "names": [
             "Lagomberator",
-            "Lagomberatrix",
-            "Lagombalanche"
-          ],
-          "entries": [
-            48,
-            49,
-            50
+            "Lagomberator+",
+            "Lagomberatrix"
           ]
         },
         "22": {
           "names": [
-            "Fangbreaker",
+            "Fang Breaker",
             "Fangdemonium",
             "Jhen Mortalis"
-          ],
-          "entries": [
-            54,
-            55,
-            56
           ]
         },
         "23": {
           "names": [
             "Red Rook",
             "Red Rook+"
-          ],
-          "entries": [
-            18,
-            19
           ]
         },
         "24": {
           "names": [
             "Thunder Feather",
             "Thunderbird"
-          ],
-          "entries": [
-            35,
-            36
           ]
         },
         "25": {
           "names": [
             "Virnar Gunlance",
             "End of Night"
-          ],
-          "entries": [
-            8,
-            9
           ]
         },
         "26": {
           "names": [
             "Queen's Panoply",
             "Shining Ishtar"
-          ],
-          "entries": [
-            30,
-            31
           ]
         },
         "27": {
           "names": [
             "Waterthrower",
             "Agna Aqua"
-          ],
-          "entries": [
-            46,
-            47
           ]
         },
         "28": {
           "names": [
             "Felyoshka",
             "Felicitous Felyoshka"
-          ],
-          "entries": [
-            60,
-            61
           ]
         },
         "29": {
           "names": [
-            "Bamboo Birdsbane",
-            "Bamboo Birdsbane+",
-            "Bamboo Lionsbane"
-          ],
-          "entries": [
-            62,
-            63,
-            64
+            "Bamboo Scarecrow",
+            "Bamboo Avianward",
+            "Bamboo Dragonsbane"
           ]
         },
         "30": {
           "names": [
             "Platinum Crown"
-          ],
-          "entries": [
-            77
           ]
         },
         "31": {
           "names": [
             "Gold Crown",
             "Gold Crown+"
-          ],
-          "entries": [
-            75,
-            76
           ]
         },
         "32": {
           "names": [
             "Silver Crown",
             "Silver Crown+"
-          ],
-          "entries": [
-            73,
-            74
           ]
         }
       }
     },
     "15": {
-      "type_id": 15,
-      "type_name": "Switch Axe",
-      "table_base": "0x089891DC",
-      "entry_size": 80,
-      "model_offset": 0,
-      "total_entries": 81,
-      "weapons": {
-        "1": {
-          "names": [
-            "Wild Axe"
-          ],
-          "entries": [
-            37,
-            72
-          ]
-        },
-        "2": {
-          "names": [
-            "Hidden Axe",
-            "Binding Roller",
-            "Grim Cat+"
-          ],
-          "entries": [
-            34,
-            50,
-            60
-          ]
-        },
-        "3": {
-          "names": [
-            "Fire Tempest"
-          ],
-          "entries": [
-            78
-          ]
-        },
-        "4": {
-          "names": [
-            "Demonbind"
-          ],
-          "entries": [
-            79
-          ]
-        },
-        "5": {
-          "names": [
-            "No Equipment",
-            "Yukumo Axe",
-            "Heavy Divider",
-            "Amber Hoarfrost"
-          ],
-          "entries": [
-            0,
-            4,
-            9,
-            17
-          ]
-        },
-        "6": {
-          "names": [
-            "Aqua Tempest",
-            "Demonbind"
-          ],
-          "entries": [
-            49,
-            53
-          ]
-        },
-        "7": {
-          "names": [
-            "Peco Volt",
-            "Bastion Blitz",
-            "Grand Demonbind"
-          ],
-          "entries": [
-            24,
-            30,
-            55
-          ]
-        },
-        "8": {
-          "names": [
-            "Wild Axe+"
-          ],
-          "entries": [
-            38,
-            73
-          ]
-        },
-        "9": {
-          "names": [
-            "Binding Roller"
-          ],
-          "entries": [
-            74
-          ]
-        },
-        "10": {
-          "names": [
-            "Old Yukumo Switchaxe",
-            "Yukumo Switch Axe",
-            "Dragonmaiden Axe",
-            "Assault Axe",
-            "Grand Chaos"
-          ],
-          "entries": [
-            1,
-            2,
-            5,
-            27,
-            42
-          ]
-        },
-        "11": {
-          "names": [
-            "Bone Hacker",
-            "Rough Edge",
-            "Cloudburst Axe"
-          ],
-          "entries": [
-            31,
-            56,
-            67
-          ]
-        },
-        "12": {
-          "names": [
-            "Usurper's Downpour"
-          ],
-          "entries": [
-            80
-          ]
-        },
-        "13": {
-          "names": [
-            "Sparqlepeco",
-            "Hidden Axe+",
-            "Demonbind+",
-            "Despot's Cloudburst"
-          ],
-          "entries": [
-            23,
-            35,
-            54,
-            66
-          ]
-        },
-        "14": {
-          "names": [
-            "Grunhart",
-            "Assault Axe+",
-            "Axe of Thanatos",
-            "Binding Roller+"
-          ],
-          "entries": [
-            11,
-            28,
-            43,
-            51
-          ]
-        },
-        "15": {
-          "names": [
-            "Bone Hacker+",
-            "Tough Break",
-            "Akantor Switch Axe"
-          ],
-          "entries": [
-            32,
-            57,
-            68
-          ]
-        },
-        "16": {
-          "names": [
-            "Daidalos Axe",
-            "Night's Crescent",
-            "Grim Cat",
-            "Black Harvest"
-          ],
-          "entries": [
-            33,
-            36,
-            59,
-            70
-          ]
-        },
-        "17": {
-          "names": [
-            "Arzuros Axe+",
-            "Blitzkrieg"
-          ],
-          "entries": [
-            7,
-            13,
-            29
-          ]
-        },
-        "18": {
-          "names": [
-            "Axe Semper Tyrannis"
-          ],
-          "entries": [
-            40,
-            75,
-            77
-          ]
-        },
-        "19": {
-          "names": [
-            "Azurite Slash Axe",
-            "Bone Axe",
-            "Axe Semper Tyrannis+",
-            "Yukumo Pure Axe"
-          ],
-          "entries": [
-            18,
-            25,
-            41,
-            62
-          ]
-        },
-        "20": {
-          "names": [
-            "Dragonmaiden Axe+",
-            "Arzuros Axe",
-            "Gale Azurite",
-            "Axe of Demons"
-          ],
-          "entries": [
-            6,
-            12,
-            19,
-            44
-          ]
-        },
-        "21": {
-          "names": [
-            "Yukumo Switch Axe+",
-            "Arzuros Revelax",
-            "Amber Slash",
-            "Amber Slash+",
-            "Pecospander",
-            "Pecospander+",
-            "Qurupexspander",
-            "Fire Tempest+",
-            "Flame Tempest",
-            "Liquid Storm"
-          ],
-          "entries": [
-            3,
-            8,
-            14,
-            15,
-            16,
-            20,
-            21,
-            22,
-            46,
-            47,
-            48
-          ]
-        },
-        "22": {
-          "names": [
-            "Fire Tempest",
-            "Vermilingua",
-            "Usurper's Downpour"
-          ],
-          "entries": [
-            45,
-            52,
-            65
-          ]
-        },
-        "23": {
-          "names": [
-            "Soulbreaker",
-            "Dark Switch Axe"
-          ],
-          "entries": [
-            58,
-            69
-          ]
-        },
-        "24": {
-          "names": [
-            "Grimmig Katze",
-            "Pirate Axe J"
-          ],
-          "entries": [
-            61,
-            71
-          ]
-        },
-        "25": {
-          "names": [
-            "Liquid Storm"
-          ],
-          "entries": [
-            76
-          ]
-        },
-        "26": {
-          "names": [
-            "Ground Dasher",
-            "Yukumo Pure Axe+"
-          ],
-          "entries": [
-            39,
-            63
-          ]
-        },
-        "27": {
-          "names": [
-            "Heavy Divider+",
-            "Bone Axe+",
-            "Yukumo Spirit Axe"
-          ],
-          "entries": [
-            10,
-            26,
-            64
-          ]
-        }
-      }
-    },
-    "16": {
-      "type_id": 16,
-      "type_name": "Hunting Horn",
-      "table_base": "0x0898F164",
-      "entry_size": 28,
-      "model_offset": 0,
-      "total_entries": 83,
-      "weapons": {
-        "0": {
-          "names": [
-            "No Equipment"
-          ],
-          "entries": [
-            0
-          ]
-        },
-        "1": {
-          "names": [
-            "Hard Bone Horn+",
-            "Heavy Bone Horn"
-          ],
-          "entries": [
-            16,
-            17
-          ]
-        },
-        "2": {
-          "names": [
-            "Bariguiro+",
-            "Algiguiro",
-            "Brazengaita"
-          ],
-          "entries": [
-            43,
-            44,
-            45
-          ]
-        },
-        "3": {
-          "names": [
-            "Usurper's Growl"
-          ],
-          "entries": [
-            78
-          ]
-        },
-        "4": {
-          "names": [
-            "Despot's Thunderclap"
-          ],
-          "entries": [
-            79
-          ]
-        },
-        "5": {
-          "names": [
-            "Metal Bagpipe+",
-            "Great Bagpipe"
-          ],
-          "entries": [
-            10,
-            11
-          ]
-        },
-        "6": {
-          "names": [
-            "Hidden Harmonic",
-            "Cry in the Night",
-            "Qurupeco Horn"
-          ],
-          "entries": [
-            18,
-            19,
-            20
-          ]
-        },
-        "7": {
-          "names": [
-            "Fortissimo",
-            "Hard Bone Horn"
-          ],
-          "entries": [
-            14,
-            15
-          ]
-        },
-        "8": {
-          "names": [
-            "Queen's Chordmaker",
-            "Gold Chordmaker",
-            "Metal Bagpipe"
-          ],
-          "entries": [
-            7,
-            8,
-            9
-          ]
-        },
-        "9": {
-          "names": [
-            "Heavy Bagpipe",
-            "Heavy Bagpipe+"
-          ],
-          "entries": [
-            12,
-            13
-          ]
-        },
-        "10": {
-          "names": [
-            "Type 63 Warmonica+",
-            "Snarfonix"
-          ],
-          "entries": [
-            24,
-            25
-          ]
-        },
-        "11": {
-          "names": [
-            "Vicello Nulo",
-            "Vicello Unu"
-          ],
-          "entries": [
-            58,
-            59
-          ]
-        },
-        "12": {
-          "names": [
-            "Vicello Nulo (W)"
-          ],
-          "entries": [
-            60
-          ]
-        },
-        "13": {
-          "names": [
-            "Ice Kazoo",
-            "Glacial Kazoo",
-            "Agnakdion"
-          ],
-          "entries": [
-            29,
-            30,
-            31
-          ]
-        },
-        "14": {
-          "names": [
-            "Agnakdion+"
-          ],
-          "entries": [
-            32
-          ]
-        },
-        "15": {
-          "names": [
-            "Old Yukumo Flute",
-            "Yukumo Flute",
-            "Yukumo Flute+",
-            "Yukumo Horn",
-            "Swell Shell",
-            "Swell Shell+",
-            "Vertex Shell"
-          ],
-          "entries": [
-            1,
-            2,
-            3,
-            4,
-            72,
-            73,
-            74
-          ]
-        },
-        "16": {
-          "names": [
-            "Yukumo Pureflute",
-            "Yukumo Pureflute+"
-          ],
-          "entries": [
-            75,
-            76
-          ]
-        },
-        "17": {
-          "names": [
-            "Yukumo Spirit Flute"
-          ],
-          "entries": [
-            77
-          ]
-        },
-        "18": {
-          "names": [
-            "Qurupeco Trumpet",
-            "Qurupeco Honker",
-            "Type 63 Warmonica"
-          ],
-          "entries": [
-            21,
-            22,
-            23
-          ]
-        },
-        "19": {
-          "names": [
-            "Zurogong Tertio",
-            "Striped Dragonga",
-            "Striped Dragonga+"
-          ],
-          "entries": [
-            36,
-            37,
-            38
-          ]
-        },
-        "20": {
-          "names": [
-            "Cindervone",
-            "Scaldrovone",
-            "Droth Drone"
-          ],
-          "entries": [
-            48,
-            49,
-            50
-          ]
-        },
-        "21": {
-          "names": [
-            "Bloodstopper",
-            "Bloodcurtler"
-          ],
-          "entries": [
-            56,
-            57
-          ]
-        },
-        "22": {
-          "names": [
-            "Tigrex Horn",
-            "Accursed Wail"
-          ],
-          "entries": [
-            39,
-            40
-          ]
-        },
-        "23": {
-          "names": [
-            "Black Coffin",
-            "Shadow Coffin",
-            "Darkest Coffin"
-          ],
-          "entries": [
-            53,
-            54,
-            55
-          ]
-        },
-        "24": {
-          "names": [
-            "Brandoneon",
-            "Zurogong Primo",
-            "Zurogong Secundo"
-          ],
-          "entries": [
-            33,
-            34,
-            35
-          ]
-        },
-        "25": {
-          "names": [
-            "Droth Drone+",
-            "Droth Roar"
-          ],
-          "entries": [
-            51,
-            52
-          ]
-        },
-        "26": {
-          "names": [
-            "Brazengaita+",
-            "Gigas Gaita"
-          ],
-          "entries": [
-            46,
-            47
-          ]
-        },
-        "27": {
-          "names": [
-            "Ogrebite",
-            "Bariguiro"
-          ],
-          "entries": [
-            41,
-            42
-          ]
-        },
-        "28": {
-          "names": [
-            "Sandpipe",
-            "Sandcrier",
-            "Sandscreecher"
-          ],
-          "entries": [
-            26,
-            27,
-            28
-          ]
-        },
-        "29": {
-          "names": [
-            "Vicello Unu (W)",
-            "Vicello Nulo (Y)",
-            "Vicello Unu (Y)",
-            "Vicello Nulo (G)",
-            "Vicello Unu (G)",
-            "Vicello Du (G)",
-            "Worn Horn",
-            "Weathered Horn",
-            "Avenir's Music Box",
-            "Magia Charm",
-            "Magia Charmbell"
-          ],
-          "entries": [
-            61,
-            62,
-            63,
-            64,
-            65,
-            66,
-            67,
-            68,
-            69,
-            70,
-            71
-          ]
-        },
-        "30": {
-          "names": [
-            "Valkyrie Chordmaker",
-            "Valkyrie Chordmaker+",
-            "Ukanlos Horned Flute"
-          ],
-          "entries": [
-            5,
-            6,
-            82
-          ]
-        },
-        "31": {
-          "names": [
-            "Autumn Lute",
-            "Akantor Horn"
-          ],
-          "entries": [
-            80,
-            81
-          ]
-        }
-      }
-    },
-    "17": {
-      "type_id": 17,
       "type_name": "Bow",
-      "table_base": "0x0898DDB4",
-      "entry_size": 28,
-      "model_offset": 0,
-      "total_entries": 86,
       "weapons": {
-        "0": {
-          "names": [
-            "No Equipment"
-          ],
-          "entries": [
-            0
-          ]
-        },
         "1": {
           "names": [
-            "Tigrex Archer",
-            "Diablos Hornbow I",
-            "Kelbi Stingshot"
-          ],
-          "entries": [
-            37,
-            38,
-            39
+            "Tiger Arrow",
+            "Tigrex Whisker"
           ]
         },
         "2": {
           "names": [
-            "Arca Raptora",
-            "Wroggi Revolver III"
-          ],
-          "entries": [
-            18,
-            19
+            "Hidden Bow I",
+            "Hidden Bow II",
+            "Night Flight"
           ]
         },
         "3": {
           "names": [
             "Akantor Wrathmaker"
-          ],
-          "entries": [
-            81
           ]
         },
         "4": {
           "names": [
             "Ukanlos Frostbreath"
-          ],
-          "entries": [
-            82
           ]
         },
         "5": {
           "names": [
+            "Hunter's Bow I",
             "Hunter's Bow II",
-            "Bamboo Taketori",
-            "Peckish Peco"
-          ],
-          "entries": [
-            9,
-            10,
-            11
+            "Hunter's Bow III"
           ]
         },
         "6": {
           "names": [
-            "Arko Unu"
-          ],
-          "entries": [
-            8
+            "Hunter's Stoutbow I",
+            "Hunter's Stoutbow II"
           ]
         },
         "7": {
           "names": [
-            "Arko Nulo (W)",
-            "Arko Nulo (Y)",
-            "Hunter's Bow III"
-          ],
-          "entries": [
-            15,
-            16,
-            17
+            "Queen Blaster I",
+            "Queen Blaster II",
+            "Queen Blaster III"
           ]
         },
         "8": {
           "names": [
-            "Old Yukumo Bow",
-            "Yukumo Bow",
-            "Arko Nulo",
-            "Hunter's Bow I",
-            "Worldseer's Proof",
-            "Selene Moonbroken",
-            "Worldseer's Bounty"
-          ],
-          "entries": [
-            1,
-            2,
-            3,
-            4,
-            75,
-            76,
-            77
+            "Diablos Hornbow I",
+            "Diablos Hornbow II"
           ]
         },
         "9": {
           "names": [
-            "Akantor Bow",
-            "Ukanlos Bow"
-          ],
-          "entries": [
-            78,
-            79
+            "Cera Coilbender"
           ]
         },
         "10": {
           "names": [
-            "Tempest Nightbow"
-          ],
-          "entries": [
-            80
+            "Old Yukumo Bow",
+            "Yukumo Bow",
+            "Yukumo Bow+",
+            "True Yukumo Bow",
+            "Army Vanquisher Bow"
           ]
         },
         "11": {
           "names": [
-            "Type 64 Multibow I",
-            "Queen Blaster I",
-            "Arca Chaotica"
-          ],
-          "entries": [
-            23,
-            24,
-            25
+            "Usurper's Rumble I",
+            "Usurper's Rumble II",
+            "Despot's Earlybolt"
           ]
         },
         "12": {
           "names": [
-            "Hidden Bow I",
-            "Type 64 Multibow II",
-            "Brazencord II"
-          ],
-          "entries": [
-            34,
-            35,
-            36
+            "Evil Night Tempest"
           ]
         },
         "13": {
           "names": [
-            "Hunter's Stoutbow II",
+            "Type 64 Multibow I",
+            "Type 64 Multibow II",
             "Type 64 Multibow III",
-            "Queen Blaster III"
-          ],
-          "entries": [
-            53,
-            54,
-            55
+            "Scorpion Zinger"
           ]
         },
         "14": {
           "names": [
-            "Bamboo Okina",
-            "Yukumo Purebow",
-            "Famished Peco"
-          ],
-          "entries": [
-            26,
-            27,
-            28
+            "Peckish Peco",
+            "Famished Peco",
+            "Insatiable Peco",
+            "Heartbreaker"
           ]
         },
         "15": {
           "names": [
-            "Amethyst Gear I",
-            "Arko Du (R)",
-            "Arko Du (W)"
-          ],
-          "entries": [
-            45,
-            46,
-            47
+            "Ice Crest I",
+            "Ice Crest II",
+            "Edelweiss"
           ]
         },
         "16": {
           "names": [
-            "Hidden Bow II",
-            "Heartbreaker",
-            "Amethyst Gear II"
-          ],
-          "entries": [
-            50,
-            51,
-            52
+            "Brazencord I",
+            "Brazencord II",
+            "Brazencord III",
+            "Gigacles"
           ]
         },
         "17": {
           "names": [
-            "Yukumo Spiritbow",
-            "Insatiable Peco",
-            "Dirty Revolver I"
-          ],
-          "entries": [
-            42,
-            43,
-            44
+            "Sponge Gear I",
+            "Sponge Gear II",
+            "Sponge Gear III"
           ]
         },
         "18": {
           "names": [
-            "Usurper's Rumble I",
-            "Ice Crest I",
-            "Brazencord I"
-          ],
-          "entries": [
-            31,
-            32,
-            33
+            "Worldseer's Bow",
+            "Worldseer's Proof",
+            "Worldseer's Bounty"
           ]
         },
         "19": {
           "names": [
-            "Despot's Earlybolt",
-            "Edelweiss"
-          ],
-          "entries": [
-            67,
-            68
+            "Arca Raptora",
+            "Arca Chaotica",
+            "Arca Insantia",
+            "Amnis"
           ]
         },
         "20": {
           "names": [
-            "Fallenfriede"
-          ],
-          "entries": [
-            69
+            "Wroggi Revolver I",
+            "Wroggi Revolver II",
+            "Wroggi Revolver III",
+            "Dirty Revolver"
           ]
         },
         "21": {
           "names": [
-            "Lithe Saberbow",
-            "Brazencord III",
-            "Night Flight",
-            "Virnar Bow",
-            "Amnis",
-            "Kelbi Strongshot",
-            "Bamboo Kaguya",
-            "Amir al Bahr",
-            "Scorpion Zinger"
-          ],
-          "entries": [
-            58,
-            59,
-            60,
-            61,
-            62,
-            63,
-            64,
-            65,
-            66
+            "Arko Nulo",
+            "Arko Unu",
+            "Arko Nulo(R)",
+            "Arko Nulo(W)",
+            "Arko Nulo(Y)",
+            "Arko Unu(R)",
+            "Arko Unu(W)",
+            "Arko Unu(Y)",
+            "Arko Du(R)",
+            "Arko Du(W)",
+            "Arko Du(Y)"
           ]
         },
         "22": {
           "names": [
-            "Arko Unu (R)",
-            "Arko Unu (W)",
-            "Arko Unu (Y)"
-          ],
-          "entries": [
-            20,
-            21,
-            22
+            "Amethyst Gear I",
+            "Amethyst Gear II",
+            "Amir al Bahr"
           ]
         },
         "23": {
           "names": [
-            "Yukumo Bow+",
-            "Wroggi Revolver I",
-            "Sponge Gear I"
-          ],
-          "entries": [
-            5,
-            6,
-            7
+            "Lithe Saberbow",
+            "Fallenfriede"
           ]
         },
         "24": {
           "names": [
-            "Sponge Gear III",
-            "Queen Blaster II"
-          ],
-          "entries": [
-            29,
-            30
+            "Virnar Bow",
+            "Midnight Farflight"
           ]
         },
         "25": {
           "names": [
-            "Usurper's Rumble II",
-            "Ice Crest II"
-          ],
-          "entries": [
-            56,
-            57
+            "Selene Moonbroken"
           ]
         },
         "26": {
           "names": [
-            "Arko Du (Y)",
-            "Hunter's Stoutbow I"
-          ],
-          "entries": [
-            48,
-            49
+            "Kelbi Stingshot",
+            "Kelbi Strongshot"
           ]
         },
         "27": {
           "names": [
-            "Arca Insantia"
-          ],
-          "entries": [
-            40,
-            41
+            "Bamboo Taketori",
+            "Bamboo Okina",
+            "Bamboo Kaguya"
+          ]
+        }
+      }
+    },
+    "16": {
+      "type_name": "Dual Blades",
+      "weapons": {
+        "1": {
+          "names": [
+            "Rex Slicers",
+            "Tigrex Claws"
+          ]
+        },
+        "2": {
+          "names": [
+            "Hidden Gemini",
+            "Hidden Gemini+",
+            "Night Wings"
+          ]
+        },
+        "3": {
+          "names": [
+            "Akantor Blades"
+          ]
+        },
+        "4": {
+          "names": [
+            "Ukanlos Rippers"
+          ]
+        },
+        "5": {
+          "names": [
+            "Dual Hatchets",
+            "Dual Hatchets+"
+          ]
+        },
+        "6": {
+          "names": [
+            "Twin Chainsaws",
+            "Twin Chainsaws+",
+            "Guillotines"
+          ]
+        },
+        "7": {
+          "names": [
+            "Sworn Rapiers",
+            "Holy Sabers"
+          ]
+        },
+        "8": {
+          "names": [
+            "Matched Slicers",
+            "Matched Slicers+",
+            "Dual Slicers"
+          ]
+        },
+        "9": {
+          "names": [
+            "Hurricane",
+            "Cyclone"
+          ]
+        },
+        "10": {
+          "names": [
+            "Bone Scythes",
+            "Bone Scythes+"
+          ]
+        },
+        "11": {
+          "names": [
+            "Worn Blade",
+            "Weathered Blades"
+          ]
+        },
+        "12": {
+          "names": [
+            "Enduring Schism"
+          ]
+        },
+        "13": {
+          "names": [
+            "Brother Flames",
+            "Brother Blazes",
+            "Wyvern Lovers"
+          ]
+        },
+        "14": {
+          "names": [
+            "Wyvern Strife"
+          ]
+        },
+        "15": {
+          "names": [
+            "Old Yukumo Dual",
+            "Yukumo Duals",
+            "Yukumo Duals+",
+            "Yukumo Slicers",
+            "True Yukumo Duals",
+            "True Yukumo Duals+",
+            "Worship Dance Duals"
+          ]
+        },
+        "16": {
+          "names": [
+            "Usurper's Fulgur",
+            "Despot's Blitz"
+          ]
+        },
+        "17": {
+          "names": [
+            "Evil Monsoon"
+          ]
+        },
+        "18": {
+          "names": [
+            "Type 51 Macerators",
+            "Type 51 Macerators+",
+            "Deathsnarfs"
+          ]
+        },
+        "19": {
+          "names": [
+            "Jaggid Shotels",
+            "Jaggid Shotels+",
+            "Leader's Shotels"
+          ]
+        },
+        "20": {
+          "names": [
+            "Bloodwings",
+            "Bloodwings+",
+            "Venom Wings"
+          ]
+        },
+        "21": {
+          "names": [
+            "Wrath & Rancor",
+            "Wrathful Predation"
+          ]
+        },
+        "22": {
+          "names": [
+            "Flamestorm",
+            "Salamanders"
+          ]
+        },
+        "23": {
+          "names": [
+            "Snow Slicers",
+            "Snow Slicers+",
+            "Snow Sisters"
+          ]
+        },
+        "24": {
+          "names": [
+            "Diablos Bashers",
+            "Diablos Bashers+",
+            "Diablos Mashers"
+          ]
+        },
+        "25": {
+          "names": [
+            "Boltgeist",
+            "Double Boltwings"
+          ]
+        },
+        "26": {
+          "names": [
+            "Virnar Slicers",
+            "Midnight Blackwings"
+          ]
+        },
+        "27": {
+          "names": [
+            "Aqua Stream",
+            "Undine"
           ]
         },
         "28": {
           "names": [
-            "Gigacles",
-            "Midnight Farflight"
-          ],
-          "entries": [
-            70,
-            71,
-            85
+            "Ludroth Pair",
+            "Ludroth Pair+",
+            "Double Droth"
           ]
         },
         "29": {
           "names": [
-            "Tigrex Whisker",
-            "Diablos Hornbow II",
-            "Cera Coilbender"
-          ],
-          "entries": [
-            72,
-            73,
-            74
+            "Plain Dumplings",
+            "White Dumplings",
+            "Ivory Dumplings",
+            "Ice Dumplings",
+            "Frost Dumplings",
+            "Fire Dumplings",
+            "Inferno Dumplings",
+            "Thunder Dumplings",
+            "Lightning Dumplings",
+            "Poison Dumplings",
+            "Venom Dumplings"
           ]
         },
         "30": {
           "names": [
-            "Model 30"
-          ],
-          "entries": [
-            83,
-            84
+            "Korunu Waaga",
+            "Wandering Rowaaga",
+            "Korunu Waaga+"
           ]
         },
         "31": {
           "names": [
-            "Wroggi Revolver II",
-            "Sponge Gear II",
-            "Arko Nulo (R)"
-          ],
-          "entries": [
-            12,
-            13,
-            14
+            "Pirate J Knives",
+            "Hi Pirate J Knives"
+          ]
+        }
+      }
+    },
+    "17": {
+      "type_name": "Hunting Horn",
+      "weapons": {
+        "1": {
+          "names": [
+            "Striped Gong",
+            "Striped Dragonga",
+            "Tigrex Horn"
+          ]
+        },
+        "2": {
+          "names": [
+            "Hidden Harmonic",
+            "Cry in the Night"
+          ]
+        },
+        "3": {
+          "names": [
+            "Akantor Deathknell"
+          ]
+        },
+        "4": {
+          "names": [
+            "Ukanlos Howler"
+          ]
+        },
+        "5": {
+          "names": [
+            "Metal Bagpipe",
+            "Metal Bagpipe+",
+            "Great Bagpipe"
+          ]
+        },
+        "6": {
+          "names": [
+            "Gold Chordmaker"
+          ]
+        },
+        "7": {
+          "names": [
+            "Hard Bone Horn",
+            "Hard Bone Horn+",
+            "Heavy Bone Horn"
+          ]
+        },
+        "8": {
+          "names": [
+            "Old Yukumo Whistle",
+            "Yukumo Whistle",
+            "Yukumo Whistle+",
+            "Yukumo Horn",
+            "True Yukumo Whistle",
+            "True Yukumo Whistle+",
+            "Chidori Whistle"
+          ]
+        },
+        "9": {
+          "names": [
+            "Usurper's Growl",
+            "Despot's Thunderclap"
+          ]
+        },
+        "10": {
+          "names": [
+            "Evil Autumn Typhoon"
+          ]
+        },
+        "11": {
+          "names": [
+            "Type 63 Warmonica",
+            "Type 63 Warmonica+",
+            "Snarfonix"
+          ]
+        },
+        "12": {
+          "names": [
+            "Zurogong Primo",
+            "Zurogong Secundo",
+            "Zurogong Tertio"
+          ]
+        },
+        "13": {
+          "names": [
+            "Black Coffin",
+            "Shadow Coffin",
+            "Darkest Coffin"
+          ]
+        },
+        "14": {
+          "names": [
+            "Sandpipe",
+            "Sandcrier",
+            "Sandscreecher"
+          ]
+        },
+        "15": {
+          "names": [
+            "Brazengaita",
+            "Brazengaita+",
+            "Gigas Gaita"
+          ]
+        },
+        "16": {
+          "names": [
+            "Droth Drone",
+            "Droth Drone+",
+            "Droth Roar"
+          ]
+        },
+        "17": {
+          "names": [
+            "Bariguiro",
+            "Bariguiro+",
+            "Algiguiro"
+          ]
+        },
+        "18": {
+          "names": [
+            "Agnakdion",
+            "Agnakdion+",
+            "Brandoneon"
+          ]
+        },
+        "19": {
+          "names": [
+            "Worn Horn",
+            "Weathered Horn"
+          ]
+        },
+        "20": {
+          "names": [
+            "Avenir's Music Box"
+          ]
+        },
+        "21": {
+          "names": [
+            "Vicello Nulo",
+            "Vicello Unu",
+            "Vicello Nulo(W)",
+            "Vicello Unu(W)",
+            "Vicello Nulo(Y)",
+            "Vicello Unu(Y)",
+            "Vicello Nulo(G)",
+            "Vicello Unu(G)",
+            "Vicello Du(G)"
+          ]
+        },
+        "22": {
+          "names": [
+            "Qurupeco Horn",
+            "Qurupeco Trumpet",
+            "Qurupeco Honker"
+          ]
+        },
+        "23": {
+          "names": [
+            "Valkyrie Chordmaker",
+            "Valkyrie Chordmaker+",
+            "Queen's Chordmaker"
+          ]
+        },
+        "24": {
+          "names": [
+            "Ice Kazoo",
+            "Glacial Kazoo"
+          ]
+        },
+        "25": {
+          "names": [
+            "Bloodstopper",
+            "Bloodcurtler"
+          ]
+        },
+        "26": {
+          "names": [
+            "Cindervone",
+            "Scaldrovone"
+          ]
+        },
+        "27": {
+          "names": [
+            "Black Dragonga",
+            "Black Tigrex Horn"
+          ]
+        },
+        "28": {
+          "names": [
+            "Magia Charm",
+            "Magia Charmbell",
+            "Magia Charm+"
+          ]
+        },
+        "29": {
+          "names": [
+            "Swell Shell",
+            "Swell Shell+",
+            "Vertex Shell"
+          ]
+        },
+        "30": {
+          "names": [
+            "Blitzworks",
+            "Giga Blitzworks"
+          ]
+        },
+        "31": {
+          "names": [
+            "Heavy Bagpipe",
+            "Heavy Bagpipe+",
+            "Fortissimo"
           ]
         }
       }

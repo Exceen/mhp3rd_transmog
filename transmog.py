@@ -21,6 +21,17 @@ SLOT_NAMES = ["head", "chest", "arms", "waist", "legs"]
 SLOT_LABELS = {"head": "Head", "chest": "Chest", "arms": "Arms", "waist": "Waist", "legs": "Legs"}
 PAGE_SIZE = 20
 
+# ── Code Cave Constants ──────────────────────────────────────────────────────
+# Weapon transmog uses an ASM code cave that intercepts model_id lookup at
+# runtime. Function 0x088691FC loads equipment model IDs; we hook the
+# `lhu v0, 0(v0)` instruction in both its wrapper1 (0x0886927C, for 80-byte
+# weapon types + armor) and wrapper2 (0x088692A0, for 28-byte weapon types)
+# paths to redirect into a code cave that checks type+model and substitutes.
+
+CODE_CAVE_BASE = 0x08800200
+HOOK1_ADDR = 0x0886927C  # wrapper1 path (types 9,10,15 + armor 0-4)
+HOOK2_ADDR = 0x088692A0  # wrapper2 path (types 5-8,12-14,16-17)
+
 # ── ANSI Formatting ───────────────────────────────────────────────────────
 
 BOLD = "\033[1m"
@@ -218,20 +229,81 @@ def gen_universal_invisible_codes(data, slot):
     return lines
 
 
-def gen_weapon_codes(data, weapon_type, source_weapon, target_weapon):
-    """Generate CWCheat lines for weapon transmog."""
-    wdata = data["weapons"][weapon_type]
-    weapon_base = int(wdata["table_base"], 16)
-    entry_size = wdata["entry_size"]
-    model_offset = wdata["model_offset"]
-    target_model = int(target_weapon["model"])
+def gen_weapon_cave_codes(transmogs):
+    """Generate multi-weapon code cave CWCheat codes.
+
+    transmogs: list of (type_id, source_model, target_model) tuples.
+    Returns list of CWCheat line strings.
+
+    The code cave intercepts model_id lookup in function 0x088691FC.
+    For each transmog entry, it checks: if equipment_type == type_id AND
+    model_id == source_model, replace model_id with target_model.
+    Multiple entries are chained — each check is 7 MIPS instructions (28 bytes).
+
+    Layout:
+      0x100: lhu v0, 0(v0)          ; original instruction
+      Per weapon (28 bytes each):
+        ori  $at, $zero, TYPE
+        bne  $a1, $at, next_check   ; wrong type → try next weapon
+        ori  $at, $zero, SRC_MODEL  ; (delay slot) load source model
+        bne  $v0, $at, exit         ; wrong model → exit unchanged
+        nop
+        beq  $zero, $zero, exit     ; match → jump to exit
+        ori  $v0, $zero, TGT_MODEL  ; (delay slot) set target model
+      Exit:
+        jr   $ra
+        addiu $sp, $sp, 16          ; (delay slot)
+    """
+    if not transmogs:
+        return []
+
+    N = len(transmogs)
+    base = CODE_CAVE_BASE
+    exit_addr = base + 4 + N * 28
+
     lines = []
 
-    for entry_idx in source_weapon["entries"]:
-        model_addr = weapon_base + entry_idx * entry_size + model_offset
-        offset = model_addr - CWCHEAT_BASE
-        code = f"_L 0x1{offset:07X} 0x0000{target_model:04X}"
-        lines.append(("", code))
+    # Original instruction: lhu v0, 0(v0)
+    lines.append(f"_L 0x2{base - CWCHEAT_BASE:07X} 0x94420000")
+
+    for i, (type_id, src_model, tgt_model) in enumerate(transmogs):
+        ca = base + 4 + i * 28  # check block address
+
+        # ori $at, $zero, type_id
+        lines.append(f"_L 0x2{ca - CWCHEAT_BASE:07X} 0x{0x34010000 | type_id:08X}")
+
+        # bne $a1, $at, next_check_or_exit
+        target = (ca + 28) if i < N - 1 else exit_addr
+        off = (target - (ca + 4) - 4) // 4
+        lines.append(f"_L 0x2{ca + 4 - CWCHEAT_BASE:07X} 0x{0x14A10000 | (off & 0xFFFF):08X}")
+
+        # ori $at, $zero, src_model (delay slot of bne above)
+        lines.append(f"_L 0x2{ca + 8 - CWCHEAT_BASE:07X} 0x{0x34010000 | src_model:08X}")
+
+        # bne $v0, $at, exit
+        off = (exit_addr - (ca + 12) - 4) // 4
+        lines.append(f"_L 0x2{ca + 12 - CWCHEAT_BASE:07X} 0x{0x14410000 | (off & 0xFFFF):08X}")
+
+        # nop
+        lines.append(f"_L 0x2{ca + 16 - CWCHEAT_BASE:07X} 0x00000000")
+
+        # beq $zero, $zero, exit
+        off = (exit_addr - (ca + 20) - 4) // 4
+        lines.append(f"_L 0x2{ca + 20 - CWCHEAT_BASE:07X} 0x{0x10000000 | (off & 0xFFFF):08X}")
+
+        # ori $v0, $zero, tgt_model (delay slot of beq)
+        lines.append(f"_L 0x2{ca + 24 - CWCHEAT_BASE:07X} 0x{0x34020000 | tgt_model:08X}")
+
+    # Exit: jr $ra
+    lines.append(f"_L 0x2{exit_addr - CWCHEAT_BASE:07X} 0x03E00008")
+    # addiu $sp, $sp, 16 (delay slot)
+    lines.append(f"_L 0x2{exit_addr + 4 - CWCHEAT_BASE:07X} 0x27BD0010")
+
+    # Hook1 (wrapper1): j CODE_CAVE_BASE
+    jt = (base >> 2) & 0x03FFFFFF
+    lines.append(f"_L 0x2{HOOK1_ADDR - CWCHEAT_BASE:07X} 0x{0x08000000 | jt:08X}")
+    # Hook2 (wrapper2): j CODE_CAVE_BASE
+    lines.append(f"_L 0x2{HOOK2_ADDR - CWCHEAT_BASE:07X} 0x{0x08000000 | jt:08X}")
 
     return lines
 
@@ -241,8 +313,11 @@ def gen_weapon_codes(data, weapon_type, source_weapon, target_weapon):
 def format_cheat_block(title, lines, enabled=False):
     prefix = "_C1" if enabled else "_C0"
     result = [f"{prefix} {title}"]
-    for _, code in lines:
-        result.append(code)
+    for line in lines:
+        if isinstance(line, tuple):
+            result.append(line[1])
+        else:
+            result.append(line)
     return "\n".join(result)
 
 
@@ -286,12 +361,31 @@ def output_codes(blocks):
 
 # ── Flows ───────────────────────────────────────────────────────────────────
 
-def weapon_flow(data, preset_search=None):
-    """Weapon transmog selection flow."""
-    os.system("cls" if os.name == "nt" else "clear")
-    print(f"\n{header('Weapon Transmog')}")
+def _get_weapon_name(weapon):
+    """Get display name from weapon data (handles both 'name' and 'names' keys)."""
+    if "name" in weapon:
+        return weapon["name"]
+    names = weapon.get("names", [])
+    return names[0] if names else "Unknown"
 
-    # Select weapon type
+
+def _build_weapon_items(wdata):
+    """Build selectable items list from weapon type data."""
+    items = []
+    for model_str, weapon in wdata["weapons"].items():
+        name = _get_weapon_name(weapon)
+        if name in ("Model 0", "No Equipment"):
+            continue
+        items.append({
+            "name": name,
+            "entries": weapon.get("entries", []),
+            "model": model_str,
+        })
+    return items
+
+
+def _select_weapon_transmog(data):
+    """Select one weapon type + source + target. Returns tuple or None."""
     weapon_types = sorted(data["weapons"].keys(), key=lambda k: int(k))
     print(f"\n{bold('Select weapon type:')}")
     type_map = {}
@@ -303,39 +397,91 @@ def weapon_flow(data, preset_search=None):
     choice = input(f"\n{bold('Type:')} ").strip()
     if choice not in type_map:
         print(error("Invalid choice."))
-        return
+        return None
 
     weapon_type = type_map[choice]
     wdata = data["weapons"][weapon_type]
-    print(success(f"Type: {wdata['type_name']}"))
+    type_name = wdata["type_name"]
+    print(success(f"Type: {type_name}"))
 
-    # Build items list
-    items = []
-    for model_str, weapon in wdata["weapons"].items():
-        if weapon["name"] in ("Model 0", "No Equipment"):
-            continue
-        items.append({
-            "name": weapon["name"],
-            "entries": weapon["entries"],
-            "model": model_str,
-        })
+    items = _build_weapon_items(wdata)
 
-    # Select source
     search = prompt_search_or_enter("Source weapon (equipped)")
     source = select_equipment(items, "Select SOURCE weapon", preset_search=search)
     if source == "cancel" or source is None:
-        return
+        return None
     print(success(f"Source: {source['name']}"))
 
-    # Select target
     search = prompt_search_or_enter("Target weapon (visual)")
     target = select_equipment(items, "Select TARGET weapon visual", preset_search=search)
     if target == "cancel" or target is None:
-        return
+        return None
     print(success(f"Target: {target['name']}"))
 
-    lines = gen_weapon_codes(data, weapon_type, source, target)
-    title = f"Weapon Transmog: {source['name']} -> {target['name']}"
+    return (int(weapon_type), int(source["model"]), int(target["model"]),
+            source["name"], target["name"], type_name)
+
+
+def weapon_flow(data, preset_search=None):
+    """Weapon transmog selection flow with multi-weapon code cave support.
+
+    All weapon transmogs share one code cave — only one combined cheat can
+    be active. This flow lets the user configure multiple weapon transmogs
+    and generates a single cheat block.
+    """
+    os.system("cls" if os.name == "nt" else "clear")
+    print(f"\n{header('Weapon Transmog')}")
+    print(f"{dim('All active weapon transmogs are combined into one cheat.')}")
+    print(f"{dim('(They share a single code cave in memory.)')}")
+
+    transmogs = []  # (type_id, src_model, tgt_model, src_name, tgt_name, type_name)
+
+    while True:
+        if transmogs:
+            print(f"\n{bold('Current transmogs:')}")
+            for i, (tid, sm, tm, sn, tn, tname) in enumerate(transmogs, 1):
+                print(f"  {key(f'[{i}]')} {tname}: {sn} \u2192 {tn}")
+
+        print()
+        print(f"{key('[a]')} Add weapon transmog")
+        if transmogs:
+            print(f"{key('[r]')} Remove transmog")
+            print(f"{key('[g]')} Generate code")
+        print(f"{key('[q]')} Cancel")
+
+        choice = input(f"\n{bold('Choice:')} ").strip().lower()
+
+        if choice == "q":
+            return
+        elif choice == "a":
+            result = _select_weapon_transmog(data)
+            if result:
+                transmogs.append(result)
+        elif choice == "r" and transmogs:
+            idx = input(f"{bold('Remove #:')} ").strip()
+            if idx.isdigit() and 1 <= int(idx) <= len(transmogs):
+                transmogs.pop(int(idx) - 1)
+        elif choice == "g" and transmogs:
+            break
+        else:
+            print(error("Invalid choice."))
+
+    # Generate combined code cave cheat
+    cave_entries = [(tid, sm, tm) for tid, sm, tm, sn, tn, tname in transmogs]
+    lines = gen_weapon_cave_codes(cave_entries)
+
+    if len(transmogs) == 1:
+        _, _, _, sn, tn, tname = transmogs[0]
+        title = f"{tname}: {sn} -> {tn}"
+    else:
+        parts = []
+        for _, _, _, sn, tn, tname in transmogs:
+            abbr = "".join(c for c in tname if c.isupper()) or tname[:3]
+            parts.append(f"{abbr}:{sn}->{tn}")
+        title = " | ".join(parts)
+        if len(title) > 70:
+            title = f"Weapon Transmog ({len(transmogs)} weapons)"
+
     block = format_cheat_block(title, lines)
     output_codes([block])
 
