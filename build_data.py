@@ -63,55 +63,39 @@ ARMOR_INI = {
 }
 
 # Weapon tables — keyed by EQUIPMENT TYPE BYTE (from save data / Ram Research PDF)
-# NOT the internal jump table index (which differs for several types).
-# 28-byte entries: model_id(u16) at +0
-# 80-byte entries: model_id(u16) at +0
+# Table bases verified by reading jump table handlers at 0x08966184 indexed by type byte.
+# Entry sizes verified from sll multiply patterns in each handler.
 WEAPON_TABLES = {
-    5:  {"base": 0x08992168, "entry_size": 28, "name": "Great Sword"},      # JT 5
-    6:  {"base": 0x0898FA78, "entry_size": 28, "name": "Sword & Shield"},   # JT 6
-    7:  {"base": 0x08990D64, "entry_size": 28, "name": "Hammer"},           # JT 8
-    8:  {"base": 0x0898E71C, "entry_size": 28, "name": "Lance"},            # JT 7
-    9:  {"base": 0x0898C01C, "entry_size": 80, "name": "Heavy Bowgun"},     # JT 10
-    11: {"base": 0x0898AB2C, "entry_size": 80, "name": "Light Bowgun"},     # JT 9
-    12: {"base": 0x08991800, "entry_size": 28, "name": "Long Sword"},       # JT 12
-    13: {"base": 0x089891DC, "entry_size": 80, "name": "Switch Axe"},       # JT 15
-    14: {"base": 0x089904DC, "entry_size": 28, "name": "Gunlance"},         # JT 14
-    15: {"base": 0x0898DDB4, "entry_size": 28, "name": "Bow"},              # JT 17
-    16: {"base": 0x0898D5D4, "entry_size": 28, "name": "Dual Blades"},      # JT 13
-    17: {"base": 0x0898F164, "entry_size": 28, "name": "Hunting Horn"},     # JT 16
+    5:  {"base": 0x08992168, "entry_size": 28, "name": "Great Sword"},
+    6:  {"base": 0x0898FA78, "entry_size": 28, "name": "Sword & Shield"},
+    7:  {"base": 0x0898E71C, "entry_size": 28, "name": "Hammer"},
+    8:  {"base": 0x08990D64, "entry_size": 28, "name": "Lance"},
+    9:  {"base": 0x0898AB2C, "entry_size": 80, "name": "Heavy Bowgun"},
+    11: {"base": 0x0898C01C, "entry_size": 80, "name": "Light Bowgun"},
+    12: {"base": 0x08991800, "entry_size": 28, "name": "Long Sword"},
+    13: {"base": 0x0898D5D4, "entry_size": 28, "name": "Switch Axe"},
+    14: {"base": 0x089904DC, "entry_size": 28, "name": "Gunlance"},
+    15: {"base": 0x089891DC, "entry_size": 80, "name": "Bow"},
+    16: {"base": 0x0898F164, "entry_size": 28, "name": "Dual Blades"},
+    17: {"base": 0x0898DDB4, "entry_size": 28, "name": "Hunting Horn"},
 }
 
-# Weapon INI mapping (type_id → INI filename) — used as fallback for model names
-WEAPON_INI = {
-    5: "GS.ini",
-    6: "SNS.ini",
-    7: "HMR.ini",
-    8: "LNC.ini",
-    9: "HBG.ini",
-    11: "LBG.ini",
-    12: "LS.ini",
-    13: "SAXE.ini",
-    14: "GL.ini",
-    15: "BOW.ini",
-    16: "DB.ini",
-    17: "HH.ini",
-}
-
-# Weapon name string tables in memory (null-terminated strings, one per table entry)
-# These follow the jump table, so the addresses stay with their JT index, remapped to type bytes.
-WEAPON_NAME_TABLES = {
-    5:  0x08A5D05F,   # Great Sword (JT 5)
-    6:  0x08A5EB66,   # Sword & Shield (JT 6)
-    7:  0x08A60498,   # Hammer (JT 8)
-    8:  0x08A61E8B,   # Lance (JT 7)
-    9:  0x08A6386D,   # Heavy Bowgun (JT 10)
-    11: 0x08A64C53,   # Light Bowgun (JT 9)
-    12: 0x08A65F53,   # Long Sword (JT 12)
-    13: 0x08A67662,   # Switch Axe (JT 15)
-    14: 0x08A6873E,   # Gunlance (JT 14)
-    15: 0x08A69B1B,   # Bow (JT 17)
-    16: 0x08A6B266,   # Dual Blades (JT 13)
-    17: 0x08A6C6E4,   # Hunting Horn (JT 16)
+# Weapon file list — maps section headers to equipment type bytes
+# Source: https://github.com/Kurogami2134/MHP3rd-Game-FIle-List/blob/main/weapons.md
+WEAPON_FILE_LIST = os.path.join(SCRIPT_DIR, "weapons_filelist.md")
+WEAPON_FILELIST_SECTIONS = {
+    "Great Sword": 5,
+    "Sword and Shield": 6,
+    "Hammer": 7,
+    "Lance": 8,
+    "Heavy Bowgun": 9,
+    "Light Bowgun": 11,
+    "Long Sword": 12,
+    "Switch Axe": 13,
+    "Gunlance": 14,
+    "Bow": 15,
+    "Dual Blades": 16,
+    "Hunting Horn": 17,
 }
 
 
@@ -137,38 +121,22 @@ def parse_ini_entries(ini_path):
         content = f.read()
 
     entries = []
-    # Combine all files/files2/files3/... lines
-    # Use greedy match to handle quoted weapon names like Reaver "Cruelty"
     for m in re.finditer(r'files\d*="(.+)"', content):
         for item in m.group(1).split(";"):
             item = item.strip()
             if not item:
                 continue
-            # Format: "Name FXXXX" or "Name MXXXX"
-            # Last 5 chars are gender+hex (F/M + 4 hex digits)
-            # But some names have spaces, so we split from right
             match = re.match(r'^(.+?)\s+([FM])([0-9A-Fa-f]{4})$', item)
             if match:
                 name = match.group(1)
                 gender = match.group(2)
                 file_id = int(match.group(3), 16)
                 entries.append((name, file_id, gender))
-            else:
-                # Fallback: try 4 hex chars at end
-                match2 = re.match(r'^(.+?)([0-9A-Fa-f]{4})$', item)
-                if match2:
-                    name = match2.group(1).rstrip()
-                    file_id = int(match2.group(2), 16)
-                    entries.append((name, file_id, None))
     return entries
 
 
 def build_model_name_map(ini_path, f_base, m_base):
-    """Build model_id → name mapping from INI file and file ID bases.
-
-    model_id 0 = invisible/nothing. model_id 1+ maps to files:
-    file_id = base + (model_id - 1), so model_id = (file_id - base) + 1.
-    """
+    """Build model_id → name mapping from INI file and file ID bases."""
     entries = parse_ini_entries(ini_path)
     model_names = {}
 
@@ -189,38 +157,40 @@ def build_model_name_map(ini_path, f_base, m_base):
     return model_names
 
 
-def build_weapon_model_names(ini_path):
-    """Build model_id → name mapping for weapons from INI file.
+def parse_weapon_file_list(filepath):
+    """Parse the weapon file list markdown into per-type model name mappings.
 
-    Weapon INI entries are indexed by position (model_id = position index).
+    Returns: {type_byte: {model_index: [weapon_names]}}
+    where model_index is 0-based (row index within each section).
     """
-    entries = parse_ini_entries(ini_path)
-    model_names = {}
+    result = {}
+    current_type = None
 
-    # For weapons, INI entries are just "Name XXXX" without F/M prefix
-    # Re-parse with simpler logic
-    with open(ini_path) as f:
-        content = f.read()
+    with open(filepath) as f:
+        for line in f:
+            line = line.strip()
+            if line.startswith("## "):
+                section_name = line[3:].strip()
+                current_type = WEAPON_FILELIST_SECTIONS.get(section_name)
+                if current_type is not None:
+                    result[current_type] = {}
+                continue
 
-    all_items = []
-    for m in re.finditer(r'files\d*="(.+)"', content):
-        for item in m.group(1).split(";"):
-            item = item.strip()
-            if item:
-                all_items.append(item)
+            if current_type is None:
+                continue
+            if not line.startswith("|") or line.startswith("|File") or line.startswith("|-"):
+                continue
 
-    for idx, item in enumerate(all_items):
-        # Remove hex ID at the end
-        match = re.match(r'^(.+?)\s*[0-9A-Fa-f]{4}$', item)
-        if match:
-            name = match.group(1).rstrip()
-        else:
-            name = item
-        # model_id maps directly to INI index:
-        # file_id = model_id + base_offset, INI index 0 = file base = model_id 0
-        model_names[idx] = name
+            cols = [c.strip() for c in line.split("|")]
+            # cols: ['', file, file_id, hd_file, hd_file_id, weapons, '']
+            if len(cols) < 6:
+                continue
+            weapons_col = cols[5]
+            names = [n.strip() for n in weapons_col.split("<br>") if n.strip()]
+            model_index = len(result[current_type])
+            result[current_type][model_index] = names
 
-    return model_names
+    return result
 
 
 # ── Main Build ──────────────────────────────────────────────────────────────
@@ -392,26 +362,15 @@ def get_weapon_table_max_entries():
     return limits
 
 
-def read_weapon_names(data, type_id, num_entries):
-    """Read weapon names from the in-memory name string table."""
-    name_addr = WEAPON_NAME_TABLES.get(type_id)
-    if not name_addr:
-        return {}
-    off = addr_to_off(name_addr)
-    names = {}
-    for i in range(num_entries):
-        end = data.find(b"\x00", off)
-        raw = data[off:end]
-        try:
-            names[i] = raw.decode("ascii").strip()
-        except UnicodeDecodeError:
-            names[i] = ""
-        off = end + 1
-    return names
 
 
-def build_weapon_data(data, type_id, max_entries):
-    """Extract weapon table data for one type."""
+def build_weapon_data(data, type_id, max_entries, filelist_models):
+    """Extract weapon table data for one type.
+
+    filelist_models: {model_index: [weapon_names]} from the file list (ground truth).
+    Names and grouping come from the file list. Entries (eids) come from the data table
+    grouped by model_id (which equals file list model_index).
+    """
     info = WEAPON_TABLES[type_id]
     base = info["base"]
     entry_size = info["entry_size"]
@@ -429,40 +388,25 @@ def build_weapon_data(data, type_id, max_entries):
             break
         num_entries = i + 1
 
-    # Read per-entry weapon names from memory
-    entry_names = read_weapon_names(data, type_id, num_entries)
-
-    # Build model name map from INI as fallback
-    ini_file = WEAPON_INI.get(type_id)
-    model_names_ini = {}
-    if ini_file:
-        ini_path = os.path.join(EQUIPMENT_LIST_DIR, ini_file)
-        if os.path.exists(ini_path):
-            model_names_ini = build_weapon_model_names(ini_path)
-
-    # Group by model_id, collecting all weapon names per model
-    model_groups = {}  # model_id → {"entries": [...], "names": [...]}
+    # Group entries by model_id from data table
+    model_entries = {}  # model_id → [eid, ...]
     for i in range(num_entries):
         off = off_base + i * entry_size
         model_id = struct.unpack_from("<H", data, off)[0]
-        if model_id not in model_groups:
-            model_groups[model_id] = {"entries": [], "names": []}
-        model_groups[model_id]["entries"].append(i)
-        name = entry_names.get(i, "")
-        if name and name not in model_groups[model_id]["names"]:
-            model_groups[model_id]["names"].append(name)
+        if model_id not in model_entries:
+            model_entries[model_id] = []
+        model_entries[model_id].append(i)
 
-    # Build weapon items
+    # Build weapon items using file list names, data table entries
     weapons = {}
-    for model_id, group in sorted(model_groups.items()):
-        names = group["names"]
-        if not names:
-            # Fallback to INI name
-            ini_name = model_names_ini.get(model_id, f"Model {model_id}")
-            names = [ini_name]
+    # Include all models from file list (authoritative source)
+    all_model_ids = set(model_entries.keys()) | set(filelist_models.keys())
+    for model_id in sorted(all_model_ids):
+        names = filelist_models.get(model_id, [f"Model {model_id}"])
+        entries = model_entries.get(model_id, [])
         weapons[str(model_id)] = {
             "names": names,
-            "entries": group["entries"],
+            "entries": entries,
         }
 
     return {
@@ -510,12 +454,22 @@ def main():
         n_entries = result["armor"][slot]["entries"]
         print(f"  {n_entries} entries, {n_sets} unique models")
 
+    # Parse weapon file list (authoritative source for names/grouping)
+    if os.path.exists(WEAPON_FILE_LIST):
+        print(f"Parsing weapon file list: {WEAPON_FILE_LIST}")
+        filelist = parse_weapon_file_list(WEAPON_FILE_LIST)
+    else:
+        print(f"WARNING: Weapon file list not found: {WEAPON_FILE_LIST}")
+        print("  Weapon names will fall back to 'Model N'")
+        filelist = {}
+
     # Build weapon data
     max_entries = get_weapon_table_max_entries()
     for type_id in sorted(WEAPON_TABLES.keys()):
         type_name = WEAPON_TABLES[type_id]["name"]
         print(f"Building {type_name} weapon data (type {type_id})...")
-        result["weapons"][str(type_id)] = build_weapon_data(data, type_id, max_entries[type_id])
+        fl_models = filelist.get(type_id, {})
+        result["weapons"][str(type_id)] = build_weapon_data(data, type_id, max_entries[type_id], fl_models)
         n_weapons = len(result["weapons"][str(type_id)]["weapons"])
         n_entries = result["weapons"][str(type_id)]["total_entries"]
         print(f"  {n_entries} entries, {n_weapons} unique models")
