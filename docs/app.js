@@ -783,7 +783,7 @@
             var block = formatCheatBlock(title, allLines);
             var summary = results.map(function (r) {
                 return SLOT_LABELS[r.slot] + ': ' + r.srcName + ' -> ' + r.tgtName;
-            }).join(' | ');
+            }).join('\n');
 
             container.innerHTML =
                 '<div class="wizard-header">' +

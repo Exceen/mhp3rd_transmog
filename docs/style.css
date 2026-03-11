@@ -573,6 +573,7 @@ main {
     font-size: 0.84rem;
     color: var(--text-dim);
     margin-bottom: 14px;
+    white-space: pre-line;
 }
 
 #output-codes {
