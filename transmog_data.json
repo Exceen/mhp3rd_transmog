@@ -11706,20 +11706,11 @@
             75
           ]
         },
-        "20": {
+        "21": {
           "names": [
             "Dirty Baron",
             "Dirty Baron+",
             "Dirty Marquis"
-          ],
-          "entries": []
-        },
-        "21": {
-          "names": [
-            "Rusted Sword",
-            "Tarnished Sword",
-            "Worn Sword",
-            "Weathered Sword"
           ],
           "entries": [
             5,
@@ -11729,8 +11720,10 @@
         },
         "22": {
           "names": [
-            "Eternal Strife",
-            "Eternal Hate"
+            "Rusted Sword",
+            "Tarnished Sword",
+            "Worn Sword",
+            "Weathered Sword"
           ],
           "entries": [
             76,
@@ -11741,8 +11734,8 @@
         },
         "23": {
           "names": [
-            "Alatreon Sword",
-            "Alatreon Star"
+            "Eternal Strife",
+            "Eternal Hate"
           ],
           "entries": [
             78,
@@ -11751,9 +11744,8 @@
         },
         "24": {
           "names": [
-            "Royal Claw",
-            "Royal Claw+",
-            "Royal Ludroth Claw"
+            "Alatreon Sword",
+            "Alatreon Star"
           ],
           "entries": [
             93,
@@ -11762,7 +11754,9 @@
         },
         "25": {
           "names": [
-            "Divine Exodus"
+            "Royal Claw",
+            "Royal Claw+",
+            "Royal Ludroth Claw"
           ],
           "entries": [
             41,
@@ -11772,8 +11766,7 @@
         },
         "26": {
           "names": [
-            "Rex Talon",
-            "Tigrex Sword"
+            "Divine Exodus"
           ],
           "entries": [
             82
@@ -11781,8 +11774,8 @@
         },
         "27": {
           "names": [
-            "Hidden Edge",
-            "Flash in the Night"
+            "Rex Talon",
+            "Tigrex Sword"
           ],
           "entries": [
             48,
@@ -11791,7 +11784,8 @@
         },
         "28": {
           "names": [
-            "Ukanlos Soul Hatchet"
+            "Hidden Edge",
+            "Flash in the Night"
           ],
           "entries": [
             46,
@@ -11800,13 +11794,21 @@
         },
         "29": {
           "names": [
-            "Doomed Soul"
+            "Ukanlos Soul Hatchet"
           ],
           "entries": [
             92
           ]
         },
         "30": {
+          "names": [
+            "Doomed Soul"
+          ],
+          "entries": [
+            55
+          ]
+        },
+        "31": {
           "names": [
             "Old Yukumo Saber",
             "Yukumo Saber",
@@ -11815,15 +11817,6 @@
             "True Yukumo Saber",
             "True Yukumo Saber+",
             "Divine Dance Saber"
-          ],
-          "entries": [
-            55
-          ]
-        },
-        "31": {
-          "names": [
-            "Usurper's Firebolt",
-            "Despot's Crookbolt"
           ],
           "entries": [
             1,
@@ -11837,7 +11830,8 @@
         },
         "32": {
           "names": [
-            "Evil Jade Storm"
+            "Usurper's Firebolt",
+            "Despot's Crookbolt"
           ],
           "entries": [
             89,
@@ -11846,8 +11840,7 @@
         },
         "33": {
           "names": [
-            "Baumf\u00e4ller",
-            "Dendrotomy"
+            "Evil Jade Storm"
           ],
           "entries": [
             91
@@ -11855,9 +11848,8 @@
         },
         "34": {
           "names": [
-            "Hypnos Knife",
-            "Hypnos Knife+",
-            "Morpheus Knife"
+            "Baumf\u00e4ller",
+            "Dendrotomy"
           ],
           "entries": [
             35,
@@ -11866,8 +11858,9 @@
         },
         "35": {
           "names": [
-            "Amethyst Claw",
-            "Harmethyst"
+            "Hypnos Knife",
+            "Hypnos Knife+",
+            "Morpheus Knife"
           ],
           "entries": [
             25,
@@ -11877,8 +11870,8 @@
         },
         "36": {
           "names": [
-            "Spiked Saber",
-            "Clawed Saber"
+            "Amethyst Claw",
+            "Harmethyst"
           ],
           "entries": [
             44,
@@ -11887,8 +11880,8 @@
         },
         "37": {
           "names": [
-            "Black Talon",
-            "Black Rex Sword"
+            "Spiked Saber",
+            "Clawed Saber"
           ],
           "entries": [
             14,
@@ -11897,7 +11890,8 @@
         },
         "38": {
           "names": [
-            "Model 38"
+            "Black Talon",
+            "Black Rex Sword"
           ],
           "entries": [
             50,
@@ -13156,20 +13150,12 @@
             33
           ]
         },
-        "5": {
+        "6": {
           "names": [
             "Rathling Gun",
             "Rathling Gun+",
             "Rathling Doombringer",
             "Rathling Phoenix"
-          ],
-          "entries": []
-        },
-        "6": {
-          "names": [
-            "Blizzard Cannon",
-            "Blizzard Volley",
-            "Tabula Blizzara"
           ],
           "entries": [
             23,
@@ -13180,10 +13166,9 @@
         },
         "7": {
           "names": [
-            "Poison Stinger",
-            "Poison Stinger+",
-            "Poison Aftermath",
-            "Immortal Shackle"
+            "Blizzard Cannon",
+            "Blizzard Volley",
+            "Tabula Blizzara"
           ],
           "entries": [
             21,
@@ -13193,9 +13178,10 @@
         },
         "8": {
           "names": [
-            "Barro Barrel",
-            "Barro Barrel+",
-            "Barrozooka"
+            "Poison Stinger",
+            "Poison Stinger+",
+            "Poison Aftermath",
+            "Immortal Shackle"
           ],
           "entries": [
             15,
@@ -13206,8 +13192,9 @@
         },
         "9": {
           "names": [
-            "Devil's Grin",
-            "Devil's Madness"
+            "Barro Barrel",
+            "Barro Barrel+",
+            "Barrozooka"
           ],
           "entries": [
             9,
@@ -13217,10 +13204,8 @@
         },
         "10": {
           "names": [
-            "Demon's Isle",
-            "God's Isle",
-            "Demon's Island",
-            "God's Island"
+            "Devil's Grin",
+            "Devil's Madness"
           ],
           "entries": [
             59,
@@ -13229,8 +13214,10 @@
         },
         "11": {
           "names": [
-            "Tigrex Tank",
-            "Tigrex Wargun"
+            "Demon's Isle",
+            "God's Isle",
+            "Demon's Island",
+            "God's Island"
           ],
           "entries": [
             17,
@@ -13241,9 +13228,8 @@
         },
         "12": {
           "names": [
-            "Hidden Eye",
-            "Hidden Eye+",
-            "Night Owl"
+            "Tigrex Tank",
+            "Tigrex Wargun"
           ],
           "entries": [
             27,
@@ -13252,7 +13238,9 @@
         },
         "13": {
           "names": [
-            "Ukanlos Growl"
+            "Hidden Eye",
+            "Hidden Eye+",
+            "Night Owl"
           ],
           "entries": [
             22,
@@ -13262,9 +13250,7 @@
         },
         "14": {
           "names": [
-            "Valkyrie Fire",
-            "Valkyrie Flame",
-            "Valkyrie Blaze"
+            "Ukanlos Growl"
           ],
           "entries": [
             66
@@ -13272,7 +13258,9 @@
         },
         "15": {
           "names": [
-            "Blossomayhem"
+            "Valkyrie Fire",
+            "Valkyrie Flame",
+            "Valkyrie Blaze"
           ],
           "entries": [
             16,
@@ -13282,11 +13270,7 @@
         },
         "16": {
           "names": [
-            "Old Yukumo Crossbow",
-            "Yukumo Crossbow",
-            "Yukumo Crossbow+",
-            "Yukumo Rifle",
-            "Yukumo Bullet Rain"
+            "Blossomayhem"
           ],
           "entries": [
             62
@@ -13294,8 +13278,11 @@
         },
         "17": {
           "names": [
-            "Usurper's Crime",
-            "Despot's Wildfire"
+            "Old Yukumo Crossbow",
+            "Yukumo Crossbow",
+            "Yukumo Crossbow+",
+            "Yukumo Rifle",
+            "Yukumo Bullet Rain"
           ],
           "entries": [
             1,
@@ -13307,7 +13294,8 @@
         },
         "18": {
           "names": [
-            "Evil Flash Flood"
+            "Usurper's Crime",
+            "Despot's Wildfire"
           ],
           "entries": [
             24,
@@ -13316,10 +13304,7 @@
         },
         "19": {
           "names": [
-            "Durambarrel",
-            "Durambarrel+",
-            "Taurambarrel",
-            "Aldebaran Dreadgun"
+            "Evil Flash Flood"
           ],
           "entries": [
             67
@@ -13327,8 +13312,10 @@
         },
         "20": {
           "names": [
-            "Aurora Flare",
-            "Avalauncher"
+            "Durambarrel",
+            "Durambarrel+",
+            "Taurambarrel",
+            "Aldebaran Dreadgun"
           ],
           "entries": [
             28,
@@ -13339,8 +13326,8 @@
         },
         "21": {
           "names": [
-            "Bloodthirsty Binder",
-            "Crimson Seeker"
+            "Aurora Flare",
+            "Avalauncher"
           ],
           "entries": [
             40,
@@ -13349,8 +13336,8 @@
         },
         "22": {
           "names": [
-            "Black Tigrex Tank",
-            "Black Tigrex Panzer"
+            "Bloodthirsty Binder",
+            "Crimson Seeker"
           ],
           "entries": [
             44,
@@ -13359,9 +13346,8 @@
         },
         "23": {
           "names": [
-            "Gourd Shot",
-            "Teasel Shot",
-            "Crookneck Shot"
+            "Black Tigrex Tank",
+            "Black Tigrex Panzer"
           ],
           "entries": [
             57,
@@ -13370,8 +13356,9 @@
         },
         "24": {
           "names": [
-            "Kettleblower",
-            "Kettleblower Deluxe"
+            "Gourd Shot",
+            "Teasel Shot",
+            "Crookneck Shot"
           ],
           "entries": [
             8,
@@ -13381,12 +13368,19 @@
         },
         "25": {
           "names": [
-            "Unused"
+            "Kettleblower",
+            "Kettleblower Deluxe"
           ],
           "entries": [
             29,
             61
           ]
+        },
+        "26": {
+          "names": [
+            "Unused"
+          ],
+          "entries": []
         }
       }
     },

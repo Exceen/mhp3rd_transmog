@@ -160,11 +160,12 @@ def build_model_name_map(ini_path, f_base, m_base):
 def parse_weapon_file_list(filepath):
     """Parse the weapon file list markdown into per-type model name mappings.
 
-    Returns: {type_byte: {model_index: [weapon_names]}}
-    where model_index is 0-based (row index within each section).
+    Returns: {type_byte: {model_id: [weapon_names]}}
+    where model_id = file_number - base_file_number (handles gaps in file numbering).
     """
     result = {}
     current_type = None
+    base_file_num = None
 
     with open(filepath) as f:
         for line in f:
@@ -174,6 +175,7 @@ def parse_weapon_file_list(filepath):
                 current_type = WEAPON_FILELIST_SECTIONS.get(section_name)
                 if current_type is not None:
                     result[current_type] = {}
+                    base_file_num = None
                 continue
 
             if current_type is None:
@@ -185,10 +187,21 @@ def parse_weapon_file_list(filepath):
             # cols: ['', file, file_id, hd_file, hd_file_id, weapons, '']
             if len(cols) < 6:
                 continue
+
+            # Extract file number (e.g., "1467.pak" → 1467)
+            file_col = cols[1]
+            match = re.match(r'(\d+)\.pak', file_col)
+            if not match:
+                continue
+            file_num = int(match.group(1))
+
+            if base_file_num is None:
+                base_file_num = file_num
+
+            model_id = file_num - base_file_num
             weapons_col = cols[5]
             names = [n.strip() for n in weapons_col.split("<br>") if n.strip()]
-            model_index = len(result[current_type])
-            result[current_type][model_index] = names
+            result[current_type][model_id] = names
 
     return result
 
