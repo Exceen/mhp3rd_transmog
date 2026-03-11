@@ -93,7 +93,7 @@
             var w = wtype.weapons[modelStr];
             var names = w.names || ['Model ' + modelStr];
             if (names.length === 1 && (names[0] === 'No Equipment' || names[0] === 'Model 0')) continue;
-            items.push({ names: names, model: modelStr, typeId: typeId });
+            items.push({ names: names, model: modelStr, typeId: typeId, entries: w.entries || [] });
         }
         items.sort(function (a, b) { return displayName(a.names).toLowerCase().localeCompare(displayName(b.names).toLowerCase()); });
         return items;
@@ -112,40 +112,26 @@
 
     // ── Code Generation ──────────────────────────────────────────────────────
 
-    // ASM code hook approach: patches weapon model lookup code to substitute model_id at runtime.
-    // Hook code lives at 0x08800100, replaces lhu instructions at two call sites with j to hook.
-    var HOOK_BASE = 0x08800100;
-    var HOOK_POINT_1 = 0x0886927C; // lhu $v0, 0($v0) in path 1
-    var HOOK_POINT_2 = 0x088692A0; // lhu $v0, 0($v0) in path 2
+    // Direct data write approach: writes target model_id directly to weapon data table entries.
+    // Each source weapon's entries get the target model_id written to offset +0 (u16).
+    // This allows multiple weapon transmogs to be active simultaneously.
 
     function genWeaponCodes(typeId, sourceWeapon, targetWeapon) {
-        var sourceModel = parseInt(sourceWeapon.model);
         var targetModel = parseInt(targetWeapon.model);
-        var weaponType = parseInt(typeId);
+        var wtype = DATA.weapons[typeId];
+        var tableBase = parseInt(wtype.table_base, 16);
+        var entrySize = wtype.entry_size;
+        var modelOffset = wtype.model_offset || 0;
+        var sourceEntries = sourceWeapon.entries || [];
 
-        // Fixed lines: hook skeleton + call site patches (9 lines)
-        // These are always the same regardless of weapon type/model.
-        var jHook = 0x08000000 | (HOOK_BASE >>> 2);
-        var fixed = [
-            '_L 0x20000100 0x94420000',  // lhu $v0, 0($v0) — original instruction
-            '_L 0x20000108 0x14A10005',  // bne $a1, $at, done — skip if wrong type
-            '_L 0x2000010C 0x00000000',  // nop
-            '_L 0x20000114 0x14410002',  // bne $v0, $at, done — skip if wrong model
-            '_L 0x20000118 0x00000000',  // nop
-            '_L 0x20000120 0x03E00008',  // jr $ra
-            '_L 0x20000124 0x27BD0010',  // addiu $sp, $sp, 16 — stack cleanup
-            '_L 0x2' + hex(HOOK_POINT_1 - CWCHEAT_BASE, 7) + ' 0x' + hex(jHook, 8),  // patch call site 1
-            '_L 0x2' + hex(HOOK_POINT_2 - CWCHEAT_BASE, 7) + ' 0x' + hex(jHook, 8),  // patch call site 2
-        ];
-
-        // Variable lines: weapon type, source model, target model (3 lines)
-        var variable = [
-            '_L 0x20000104 0x' + hex(0x34010000 | (weaponType & 0xFFFF), 8),   // ori $at, $zero, type
-            '_L 0x20000110 0x' + hex(0x34010000 | (sourceModel & 0xFFFF), 8),  // ori $at, $zero, source
-            '_L 0x2000011C 0x' + hex(0x34020000 | (targetModel & 0xFFFF), 8),  // ori $v0, $zero, target
-        ];
-
-        return fixed.concat(variable);
+        var lines = [];
+        for (var i = 0; i < sourceEntries.length; i++) {
+            var eid = sourceEntries[i];
+            var entryAddr = tableBase + eid * entrySize + modelOffset;
+            var offset = entryAddr - CWCHEAT_BASE;
+            lines.push('_L 0x1' + hex(offset, 7) + ' 0x0000' + hex(targetModel, 4));
+        }
+        return lines;
     }
 
     function genArmorCodes(slot, sourceSet, targetSet, forceVariant, swapGender) {

@@ -62,54 +62,56 @@ ARMOR_INI = {
     "legs": "LEGS.ini",
 }
 
-# Weapon tables
+# Weapon tables — keyed by EQUIPMENT TYPE BYTE (from save data / Ram Research PDF)
+# NOT the internal jump table index (which differs for several types).
 # 28-byte entries: model_id(u16) at +0
 # 80-byte entries: model_id(u16) at +0
 WEAPON_TABLES = {
-    5:  {"base": 0x08992168, "entry_size": 28, "name": "Great Sword"},
-    6:  {"base": 0x0898FA78, "entry_size": 28, "name": "Sword & Shield"},
-    7:  {"base": 0x0898E71C, "entry_size": 28, "name": "Lance"},
-    8:  {"base": 0x08990D64, "entry_size": 28, "name": "Hammer"},
-    9:  {"base": 0x0898AB2C, "entry_size": 80, "name": "Light Bowgun"},
-    10: {"base": 0x0898C01C, "entry_size": 80, "name": "Heavy Bowgun"},
-    12: {"base": 0x08991800, "entry_size": 28, "name": "Long Sword"},
-    13: {"base": 0x0898D5D4, "entry_size": 28, "name": "Dual Blades"},
-    14: {"base": 0x089904DC, "entry_size": 28, "name": "Gunlance"},
-    15: {"base": 0x089891DC, "entry_size": 80, "name": "Switch Axe"},
-    16: {"base": 0x0898F164, "entry_size": 28, "name": "Hunting Horn"},
-    17: {"base": 0x0898DDB4, "entry_size": 28, "name": "Bow"},
+    5:  {"base": 0x08992168, "entry_size": 28, "name": "Great Sword"},      # JT 5
+    6:  {"base": 0x0898FA78, "entry_size": 28, "name": "Sword & Shield"},   # JT 6
+    7:  {"base": 0x08990D64, "entry_size": 28, "name": "Hammer"},           # JT 8
+    8:  {"base": 0x0898E71C, "entry_size": 28, "name": "Lance"},            # JT 7
+    9:  {"base": 0x0898C01C, "entry_size": 80, "name": "Heavy Bowgun"},     # JT 10
+    11: {"base": 0x0898AB2C, "entry_size": 80, "name": "Light Bowgun"},     # JT 9
+    12: {"base": 0x08991800, "entry_size": 28, "name": "Long Sword"},       # JT 12
+    13: {"base": 0x089891DC, "entry_size": 80, "name": "Switch Axe"},       # JT 15
+    14: {"base": 0x089904DC, "entry_size": 28, "name": "Gunlance"},         # JT 14
+    15: {"base": 0x0898DDB4, "entry_size": 28, "name": "Bow"},              # JT 17
+    16: {"base": 0x0898D5D4, "entry_size": 28, "name": "Dual Blades"},      # JT 13
+    17: {"base": 0x0898F164, "entry_size": 28, "name": "Hunting Horn"},     # JT 16
 }
 
 # Weapon INI mapping (type_id → INI filename) — used as fallback for model names
 WEAPON_INI = {
     5: "GS.ini",
     6: "SNS.ini",
-    7: "LNC.ini",
-    8: "HMR.ini",
-    9: "LBG.ini",
-    10: "HBG.ini",
+    7: "HMR.ini",
+    8: "LNC.ini",
+    9: "HBG.ini",
+    11: "LBG.ini",
     12: "LS.ini",
-    13: "DB.ini",
+    13: "SAXE.ini",
     14: "GL.ini",
-    15: "SAXE.ini",
-    16: "HH.ini",
-    17: "BOW.ini",
+    15: "BOW.ini",
+    16: "DB.ini",
+    17: "HH.ini",
 }
 
 # Weapon name string tables in memory (null-terminated strings, one per table entry)
+# These follow the jump table, so the addresses stay with their JT index, remapped to type bytes.
 WEAPON_NAME_TABLES = {
-    5:  0x08A5D05F,   # Great Sword
-    6:  0x08A5EB66,   # Sword & Shield
-    7:  0x08A61E8B,   # Lance
-    8:  0x08A60498,   # Hammer
-    9:  0x08A64C53,   # Light Bowgun
-    10: 0x08A6386D,   # Heavy Bowgun
-    12: 0x08A65F53,   # Long Sword
-    13: 0x08A6B266,   # Dual Blades
-    14: 0x08A6873E,   # Gunlance
-    15: 0x08A67662,   # Switch Axe
-    16: 0x08A6C6E4,   # Hunting Horn
-    17: 0x08A69B1B,   # Bow
+    5:  0x08A5D05F,   # Great Sword (JT 5)
+    6:  0x08A5EB66,   # Sword & Shield (JT 6)
+    7:  0x08A60498,   # Hammer (JT 8)
+    8:  0x08A61E8B,   # Lance (JT 7)
+    9:  0x08A6386D,   # Heavy Bowgun (JT 10)
+    11: 0x08A64C53,   # Light Bowgun (JT 9)
+    12: 0x08A65F53,   # Long Sword (JT 12)
+    13: 0x08A67662,   # Switch Axe (JT 15)
+    14: 0x08A6873E,   # Gunlance (JT 14)
+    15: 0x08A69B1B,   # Bow (JT 17)
+    16: 0x08A6B266,   # Dual Blades (JT 13)
+    17: 0x08A6C6E4,   # Hunting Horn (JT 16)
 }
 
 
