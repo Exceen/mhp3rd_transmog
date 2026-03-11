@@ -174,30 +174,6 @@ main {
     font-weight: 500;
 }
 
-.toggle-label {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 0.78rem;
-    color: var(--text-dim);
-    cursor: pointer;
-    margin-top: 14px;
-    transition: color var(--transition);
-}
-.toggle-label:hover {
-    color: var(--text);
-}
-.toggle-label:has(input:disabled) {
-    opacity: 0.4;
-    cursor: not-allowed;
-    pointer-events: none;
-}
-.toggle-label input[type="checkbox"] {
-    accent-color: var(--accent);
-    width: 14px;
-    height: 14px;
-    cursor: pointer;
-}
 
 .search-input {
     width: 100%;
