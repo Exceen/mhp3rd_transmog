@@ -83,15 +83,18 @@ header h1 {
     font-style: italic;
     text-transform: uppercase;
     letter-spacing: 2px;
-    background: linear-gradient(180deg, #f7e08e 0%, #daa438 50%, #c07e20 100%);
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.title-text {
+    background: linear-gradient(180deg, #fdf0a8 0%, #f0cc55 50%, #e0b440 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
     -webkit-text-stroke: 0.5px rgba(100, 55, 0, 0.3);
-    filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.35));
-    display: inline-flex;
-    align-items: center;
-    gap: 14px;
+    filter: drop-shadow(0 0 2.5px rgba(210, 25, 15, 1)) drop-shadow(0 0 2px rgba(210, 25, 15, 1));
 }
 
 /* ── Mode Tabs ───────────────────────────────────────────── */
