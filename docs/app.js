@@ -22,6 +22,7 @@
     const outputInfo = document.getElementById('output-info');
     const btnCopy = document.getElementById('btn-copy');
     const btnDownload = document.getElementById('btn-download');
+    const btnNew = document.getElementById('btn-new');
     const loadingOverlay = document.getElementById('loading-overlay');
 
     // ── Data Loading ─────────────────────────────────────────────────────────
@@ -283,6 +284,11 @@
         URL.revokeObjectURL(url);
     });
 
+    btnNew.addEventListener('click', function () {
+        renderMode(currentMode);
+        modePanel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+
     // ── Equipment Selector Component ─────────────────────────────────────────
 
     function createSelector(container, items, options) {
@@ -532,53 +538,56 @@
         });
     }
 
+    function disabledOptionHtml(label) {
+        return '<div class="option-group disabled"><div class="option-group-label">' + label + '</div><p class="dim" style="font-size:0.84rem">Select a target armor to configure</p></div>';
+    }
+
     function renderArmorOptions(optContainer, targetItem, isInvisible, state) {
-        optContainer.innerHTML = '';
         state.forceVariant = null;
         state.swapGender = false;
 
-        if (isInvisible || !targetItem) return;
+        var vHtml = disabledOptionHtml('Variant');
+        var gHtml = disabledOptionHtml('Gender');
 
-        // Variant prompt (BM/GN)
-        if (targetItem.variants && targetItem.variants.length >= 2) {
-            var setNames = targetItem.names || [];
-            var label0 = variantLabel(targetItem.variants[0], 0, setNames);
-            var label1 = variantLabel(targetItem.variants[1], 1, setNames);
+        if (!isInvisible && targetItem) {
+            if (targetItem.variants && targetItem.variants.length >= 2) {
+                var setNames = targetItem.names || [];
+                var label0 = variantLabel(targetItem.variants[0], 0, setNames);
+                var label1 = variantLabel(targetItem.variants[1], 1, setNames);
 
-            var vHtml =
-                '<div class="option-group">' +
-                    '<div class="option-group-label">Variant</div>' +
-                    '<label><input type="radio" name="' + state.radioPrefix + '-variant" value="match" checked> Match armor type <span class="option-detail">(' + escapeHtml(label0) + ' \u2192 ' + escapeHtml(label0) + ', ' + escapeHtml(label1) + ' \u2192 ' + escapeHtml(label1) + ')</span></label>' +
-                    '<label><input type="radio" name="' + state.radioPrefix + '-variant" value="0"> ' + escapeHtml(label0) + ' <span class="option-detail">(all pieces)</span></label>' +
-                    '<label><input type="radio" name="' + state.radioPrefix + '-variant" value="1"> ' + escapeHtml(label1) + ' <span class="option-detail">(all pieces)</span></label>' +
-                '</div>';
-            optContainer.innerHTML += vHtml;
+                vHtml =
+                    '<div class="option-group">' +
+                        '<div class="option-group-label">Variant</div>' +
+                        '<label><input type="radio" name="' + state.radioPrefix + '-variant" value="match" checked> Match armor type <span class="option-detail">(' + escapeHtml(label0) + ' \u2192 ' + escapeHtml(label0) + ', ' + escapeHtml(label1) + ' \u2192 ' + escapeHtml(label1) + ')</span></label>' +
+                        '<label><input type="radio" name="' + state.radioPrefix + '-variant" value="0"> ' + escapeHtml(label0) + ' <span class="option-detail">(all pieces)</span></label>' +
+                        '<label><input type="radio" name="' + state.radioPrefix + '-variant" value="1"> ' + escapeHtml(label1) + ' <span class="option-detail">(all pieces)</span></label>' +
+                    '</div>';
+            }
 
-            var radios = optContainer.querySelectorAll('input[name="' + state.radioPrefix + '-variant"]');
-            for (var i = 0; i < radios.length; i++) {
-                radios[i].addEventListener('change', function () {
-                    if (this.value === 'match') state.forceVariant = null;
-                    else state.forceVariant = parseInt(this.value);
-                });
+            if (hasGenderDiff(targetItem)) {
+                gHtml =
+                    '<div class="option-group">' +
+                        '<div class="option-group-label">Gender</div>' +
+                        '<label><input type="radio" name="' + state.radioPrefix + '-gender" value="default" checked> Default</label>' +
+                        '<label><input type="radio" name="' + state.radioPrefix + '-gender" value="swap"> Opposite gender model</label>' +
+                    '</div>';
             }
         }
 
-        // Gender prompt
-        if (hasGenderDiff(targetItem)) {
-            var gHtml =
-                '<div class="option-group">' +
-                    '<div class="option-group-label">Gender</div>' +
-                    '<label><input type="radio" name="' + state.radioPrefix + '-gender" value="default" checked> Default</label>' +
-                    '<label><input type="radio" name="' + state.radioPrefix + '-gender" value="swap"> Opposite gender model</label>' +
-                '</div>';
-            optContainer.innerHTML += gHtml;
+        optContainer.innerHTML = vHtml + gHtml;
 
-            var gradios = optContainer.querySelectorAll('input[name="' + state.radioPrefix + '-gender"]');
-            for (var j = 0; j < gradios.length; j++) {
-                gradios[j].addEventListener('change', function () {
-                    state.swapGender = this.value === 'swap';
-                });
-            }
+        var variantRadios = optContainer.querySelectorAll('input[name="' + state.radioPrefix + '-variant"]');
+        for (var i = 0; i < variantRadios.length; i++) {
+            variantRadios[i].addEventListener('change', function () {
+                if (this.value === 'match') state.forceVariant = null;
+                else state.forceVariant = parseInt(this.value);
+            });
+        }
+        var genderRadios = optContainer.querySelectorAll('input[name="' + state.radioPrefix + '-gender"]');
+        for (var j = 0; j < genderRadios.length; j++) {
+            genderRadios[j].addEventListener('change', function () {
+                state.swapGender = this.value === 'swap';
+            });
         }
     }
 
@@ -596,7 +605,10 @@
                     '<div id="armor-target"></div>' +
                 '</div>' +
             '</div>' +
-            '<div id="armor-options"></div>' +
+            '<div id="armor-options">' +
+                disabledOptionHtml('Variant') +
+                disabledOptionHtml('Gender') +
+            '</div>' +
             '<div class="option-group">' +
                 '<label><input type="checkbox" id="armor-pigment"> Enable pigment color</label>' +
             '</div>' +
@@ -671,7 +683,9 @@
             this.disabled = true;
             document.getElementById('set-source-filter').disabled = true;
             document.getElementById('set-target-filter').disabled = true;
-            runArmorSetWizard(document.getElementById('set-wizard'), sourceFilter, targetFilter);
+            var wizard = document.getElementById('set-wizard');
+            runArmorSetWizard(wizard, sourceFilter, targetFilter);
+            wizard.scrollIntoView({ behavior: 'smooth', block: 'start' });
         });
     }
 
@@ -798,7 +812,10 @@
                     '<div id="wiz-target"></div>' +
                 '</div>' +
             '</div>' +
-            '<div id="wiz-options"></div>';
+            '<div id="wiz-options">' +
+                disabledOptionHtml('Variant') +
+                disabledOptionHtml('Gender') +
+            '</div>';
 
         createSelector(document.getElementById('wiz-source'), items, {
             presetSearch: sourceFilter,
