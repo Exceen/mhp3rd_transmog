@@ -2,12 +2,12 @@
 """
 MHP3rd (ULJM-05800) Monster HP Display CWCheat Generator
 
-Based on the confirmed working cheat, with CODE_BASE moved to 0x097F0000
-to avoid overlapping game heap memory (which caused crashes during combat).
-
 Hook point: 0x09D63E0C (dynamic render code), return: 0x09D63A64
 Render context: $fp-relative (LW $a0, 0x9F18($fp))
-Code injection: 0x097F0000 (confirmed empty region)
+Code injection: 0x08A8CA00 (EBOOT BSS, confirmed zero across all save states)
+
+Previous CODE_BASE 0x097F0000 was in dynamic heap — crashed with new save data.
+0x08A8C900-0x08AACA00 (131KB) verified zero across 16 save states.
 """
 
 import struct
@@ -26,20 +26,20 @@ MAX_MONSTERS = 3       # Max monsters to display (MONSTER_POINTER has 3 quest ta
 # GAME-SPECIFIC CONSTANTS (MHP3rd ULJM-05800)
 # =============================================================================
 
-# Memory layout - 0x097F region (confirmed empty, avoids game heap)
-CODE_BASE       = 0x097F0000   # Start of injected code
-DATA_BASE       = 0x097F2000   # Start of format strings
-BITMASK_BASE    = 0x097F2040   # Large monster bitmask
+# Memory layout - EBOOT BSS region (confirmed zero across all save states)
+# 0x08A8C900-0x08AACA00 = 131KB free. LUI base 0x08A9, all offsets < 0x8000.
+CODE_BASE       = 0x08A90000   # Start of injected code (LUI-aligned)
+DATA_BASE       = 0x08A90280   # Start of format strings
+BITMASK_BASE    = 0x08A902C0   # Large monster bitmask
 
-# LUI base = CODE_BASE >> 16 << 16 = 0x097F0000
-# All offsets below are relative to this LUI base
-SAVE_AREA       = 0x097F1FE8   # Register save area (s0-s5, 6 words)
-REENTRY_FLAG    = 0x097F0FFD   # Re-entry guard byte (0=not running, 1=running)
-INIT_FLAG_ADDR  = 0x097F0FFE   # Initialized flag (0=fresh start, 1=initialized)
-FONT_SIZE_ADDR  = 0x097F0FFA   # Font size byte
-DISPLAY_MODE_ADDR = 0x097F0FF8 # Display mode flag (0=absolute, 1=percent)
-TOGGLE_FLAG_ADDR = 0x097F0FFC  # Toggle flag byte (0=OFF, non-zero=ON)
-COLOR_ADDR      = 0x097F0FFB   # Color/style byte
+# LUI base = 0x08A9 — all offsets 0x0000-0x0300, safe for both ORI and load/store
+SAVE_AREA       = 0x08A902D0   # Register save area (s0-s5, 6 words)
+REENTRY_FLAG    = 0x08A902F0   # Re-entry guard byte (0=not running, 1=running)
+INIT_FLAG_ADDR  = 0x08A902F1   # Initialized flag (0=fresh start, 1=initialized)
+FONT_SIZE_ADDR  = 0x08A902F4   # Font size byte
+DISPLAY_MODE_ADDR = 0x08A902F8 # Display mode flag (0=absolute, 1=percent)
+TOGGLE_FLAG_ADDR = 0x08A902FC  # Toggle flag byte (0=OFF, non-zero=ON)
+COLOR_ADDR      = 0x08A90300   # Color/style byte
 
 # Hook (dynamic render code - confirmed working for visible text)
 HOOK_ADDR       = 0x09D63E0C   # Where we place our jump (in render pipeline)
@@ -222,7 +222,7 @@ def generate():
     # Uses $fp for render context (same as original working cheat)
     # Args: $a1=font_size, $a2=x, $a3=y, $t0=fmt, $t1-$t6=varargs
     # =========================================================================
-    TEXT_RENDER_WRAPPER = CODE_BASE + 0x0A00  # 0x097F0A00
+    TEXT_RENDER_WRAPPER = CODE_BASE + 0x01A0
     cb.org(TEXT_RENDER_WRAPPER)
     cb.emit(LW('$a0', 0x9F18, '$fp'))        # $a0 = render context via $fp
     cb.emit(NOP())
@@ -243,7 +243,7 @@ def generate():
     # SUBROUTINE: get_monster_name
     # Args: $t1=type_id, Returns: $t1=name_string_ptr
     # =========================================================================
-    GET_NAME = CODE_BASE + 0x0A58  # 0x097F0A58
+    GET_NAME = CODE_BASE + 0x01E0
     cb.org(GET_NAME)
     cb.emit(LUI('$at', (NAME_TABLE_BASE >> 16) & 0xFFFF))
     cb.emit(ORI('$at', '$at', NAME_TABLE_BASE & 0xFFFF))
@@ -289,7 +289,7 @@ def generate():
     # =========================================================================
     # BAIL: clear re-entry flag and return (used by all bail paths)
     # =========================================================================
-    BAIL_ADDR = CODE_BASE + 0x0990  # 0x097F0990
+    BAIL_ADDR = CODE_BASE + 0x0140
     cb.org(BAIL_ADDR)
     cb.emit(LUI('$v0', LUI_BASE))
     cb.emit(SB('$zero', REENTRY_FLAG & 0xFFFF, '$v0'))
@@ -301,7 +301,7 @@ def generate():
     # =========================================================================
     # EXIT: clear re-entry flag, restore registers and return to game
     # =========================================================================
-    EXIT_ADDR = CODE_BASE + 0x09BC  # 0x097F09BC
+    EXIT_ADDR = CODE_BASE + 0x0160
     cb.org(EXIT_ADDR)
     cb.emit(LUI('$v0', LUI_BASE))
     cb.emit(SB('$zero', REENTRY_FLAG & 0xFFFF, '$v0'))
