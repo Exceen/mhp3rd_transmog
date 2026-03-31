@@ -251,40 +251,19 @@
         },
         {
           "names": [
-            "Jaggi Helm",
-            "Chainmail Headgear"
+            "Jaggi Cap"
           ],
           "variants": [
             {
-              "model_m": 3,
-              "model_f": 3,
+              "model_m": 4,
+              "model_f": 4,
               "eids": [
-                14,
-                101
-              ],
-              "flags": [
                 15,
-                15
-              ],
-              "names": [
-                "Jaggi Helm"
-              ]
-            },
-            {
-              "model_m": 2,
-              "model_f": 2,
-              "eids": [
-                3,
-                89,
-                90
+                102
               ],
               "flags": [
                 31,
-                15,
                 31
-              ],
-              "names": [
-                "Chainmail Headgear"
               ]
             }
           ]
@@ -292,7 +271,7 @@
         {
           "names": [
             "Baggi Helm",
-            "Jaggi Cap"
+            "Baggi Cap"
           ],
           "variants": [
             {
@@ -311,28 +290,6 @@
               ]
             },
             {
-              "model_m": 4,
-              "model_f": 4,
-              "eids": [
-                15,
-                102
-              ],
-              "flags": [
-                31,
-                31
-              ],
-              "names": [
-                "Jaggi Cap"
-              ]
-            }
-          ]
-        },
-        {
-          "names": [
-            "Baggi Cap"
-          ],
-          "variants": [
-            {
               "model_m": 6,
               "model_f": 6,
               "eids": [
@@ -342,6 +299,9 @@
               "flags": [
                 31,
                 31
+              ],
+              "names": [
+                "Baggi Cap"
               ]
             }
           ]
@@ -606,40 +566,19 @@
         },
         {
           "names": [
-            "Rhenoplos Helm",
-            "Yukumo Kasa"
+            "Rhenoplos Cap"
           ],
           "variants": [
             {
-              "model_m": 23,
-              "model_f": 23,
+              "model_m": 24,
+              "model_f": 24,
               "eids": [
-                12,
-                99
-              ],
-              "flags": [
-                15,
-                15
-              ],
-              "names": [
-                "Rhenoplos Helm"
-              ]
-            },
-            {
-              "model_m": 22,
-              "model_f": 22,
-              "eids": [
-                1,
-                85,
-                86
+                13,
+                100
               ],
               "flags": [
                 31,
-                15,
                 31
-              ],
-              "names": [
-                "Yukumo Kasa"
               ]
             }
           ]
@@ -647,7 +586,7 @@
         {
           "names": [
             "Qurupeco Helm",
-            "Rhenoplos Cap"
+            "Qurupeco Cap"
           ],
           "variants": [
             {
@@ -663,44 +602,6 @@
               ],
               "names": [
                 "Qurupeco Helm"
-              ]
-            },
-            {
-              "model_m": 24,
-              "model_f": 24,
-              "eids": [
-                13,
-                100
-              ],
-              "flags": [
-                31,
-                31
-              ],
-              "names": [
-                "Rhenoplos Cap"
-              ]
-            }
-          ]
-        },
-        {
-          "names": [
-            "Bnahabra Hat",
-            "Qurupeco Cap"
-          ],
-          "variants": [
-            {
-              "model_m": 27,
-              "model_f": 27,
-              "eids": [
-                10,
-                97
-              ],
-              "flags": [
-                15,
-                15
-              ],
-              "names": [
-                "Bnahabra Hat"
               ]
             },
             {
@@ -722,23 +623,23 @@
         },
         {
           "names": [
-            "Tigrex Helm",
+            "Bnahabra Hat",
             "Bnahabra Headpiece"
           ],
           "variants": [
             {
-              "model_m": 29,
-              "model_f": 29,
+              "model_m": 27,
+              "model_f": 27,
               "eids": [
-                52,
-                141
+                10,
+                97
               ],
               "flags": [
                 15,
                 15
               ],
               "names": [
-                "Tigrex Helm"
+                "Bnahabra Hat"
               ]
             },
             {
@@ -760,23 +661,23 @@
         },
         {
           "names": [
-            "Barroth Helm",
+            "Tigrex Helm",
             "Tigrex Cap"
           ],
           "variants": [
             {
-              "model_m": 31,
-              "model_f": 31,
+              "model_m": 29,
+              "model_f": 29,
               "eids": [
-                26,
-                113
+                52,
+                141
               ],
               "flags": [
                 15,
                 15
               ],
               "names": [
-                "Barroth Helm"
+                "Tigrex Helm"
               ]
             },
             {
@@ -798,23 +699,23 @@
         },
         {
           "names": [
-            "Gigginox Helm",
+            "Barroth Helm",
             "Barroth Cap"
           ],
           "variants": [
             {
-              "model_m": 33,
-              "model_f": 33,
+              "model_m": 31,
+              "model_f": 31,
               "eids": [
-                38,
-                125
+                26,
+                113
               ],
               "flags": [
                 15,
                 15
               ],
               "names": [
-                "Gigginox Helm"
+                "Barroth Helm"
               ]
             },
             {
@@ -836,23 +737,23 @@
         },
         {
           "names": [
-            "Rathian Helm",
+            "Gigginox Helm",
             "Gigginox Cap"
           ],
           "variants": [
             {
-              "model_m": 35,
-              "model_f": 35,
+              "model_m": 33,
+              "model_f": 33,
               "eids": [
-                34,
-                121
+                38,
+                125
               ],
               "flags": [
                 15,
                 15
               ],
               "names": [
-                "Rathian Helm"
+                "Gigginox Helm"
               ]
             },
             {
@@ -874,21 +775,23 @@
         },
         {
           "names": [
-            "Ranger's Headgear",
+            "Rathian Helm",
             "Rathian Cap"
           ],
           "variants": [
             {
-              "model_m": 37,
-              "model_f": 37,
+              "model_m": 35,
+              "model_f": 35,
               "eids": [
-                173
+                34,
+                121
               ],
               "flags": [
+                15,
                 15
               ],
               "names": [
-                "Ranger's Headgear"
+                "Rathian Helm"
               ]
             },
             {
@@ -910,23 +813,21 @@
         },
         {
           "names": [
-            "Nargacuga Helm",
+            "Ranger's Headgear",
             "Archer's Turban"
           ],
           "variants": [
             {
-              "model_m": 39,
-              "model_f": 39,
+              "model_m": 37,
+              "model_f": 37,
               "eids": [
-                40,
-                127
+                173
               ],
               "flags": [
-                15,
                 15
               ],
               "names": [
-                "Nargacuga Helm"
+                "Ranger's Headgear"
               ]
             },
             {
@@ -946,23 +847,23 @@
         },
         {
           "names": [
-            "Rathalos Helm",
+            "Nargacuga Helm",
             "Nargacuga Cap"
           ],
           "variants": [
             {
-              "model_m": 41,
-              "model_f": 41,
+              "model_m": 39,
+              "model_f": 39,
               "eids": [
-                44,
-                131
+                40,
+                127
               ],
               "flags": [
                 15,
                 15
               ],
               "names": [
-                "Rathalos Helm"
+                "Nargacuga Helm"
               ]
             },
             {
@@ -984,23 +885,23 @@
         },
         {
           "names": [
-            "Diablos Helm",
+            "Rathalos Helm",
             "Rathalos Cap"
           ],
           "variants": [
             {
-              "model_m": 43,
-              "model_f": 43,
+              "model_m": 41,
+              "model_f": 41,
               "eids": [
-                50,
-                139
+                44,
+                131
               ],
               "flags": [
                 15,
                 15
               ],
               "names": [
-                "Diablos Helm"
+                "Rathalos Helm"
               ]
             },
             {
@@ -1022,23 +923,23 @@
         },
         {
           "names": [
-            "Barioth Helm",
+            "Diablos Helm",
             "Diablos Cap"
           ],
           "variants": [
             {
-              "model_m": 45,
-              "model_f": 45,
+              "model_m": 43,
+              "model_f": 43,
               "eids": [
-                42,
-                129
+                50,
+                139
               ],
               "flags": [
                 15,
                 15
               ],
               "names": [
-                "Barioth Helm"
+                "Diablos Helm"
               ]
             },
             {
@@ -1060,23 +961,23 @@
         },
         {
           "names": [
-            "Uragaan Helm",
+            "Barioth Helm",
             "Barioth Cap"
           ],
           "variants": [
             {
-              "model_m": 47,
-              "model_f": 47,
+              "model_m": 45,
+              "model_f": 45,
               "eids": [
-                46,
-                133
+                42,
+                129
               ],
               "flags": [
                 15,
                 15
               ],
               "names": [
-                "Uragaan Helm"
+                "Barioth Helm"
               ]
             },
             {
@@ -1098,21 +999,23 @@
         },
         {
           "names": [
-            "Dark Akantor Mask",
+            "Uragaan Helm",
             "Uragaan Cap"
           ],
           "variants": [
             {
-              "model_m": 49,
-              "model_f": 49,
+              "model_m": 47,
+              "model_f": 47,
               "eids": [
-                197
+                46,
+                133
               ],
               "flags": [
+                15,
                 15
               ],
               "names": [
-                "Dark Akantor Mask"
+                "Uragaan Helm"
               ]
             },
             {
@@ -1134,23 +1037,21 @@
         },
         {
           "names": [
-            "Agnaktor Helm",
+            "Dark Akantor Mask",
             "Dark Akantor Fangs"
           ],
           "variants": [
             {
-              "model_m": 51,
-              "model_f": 51,
+              "model_m": 49,
+              "model_f": 49,
               "eids": [
-                54,
-                143
+                197
               ],
               "flags": [
-                15,
                 15
               ],
               "names": [
-                "Agnaktor Helm"
+                "Dark Akantor Mask"
               ]
             },
             {
@@ -1170,21 +1071,23 @@
         },
         {
           "names": [
-            "Vangis Helm",
+            "Agnaktor Helm",
             "Agnaktor Cap"
           ],
           "variants": [
             {
-              "model_m": 53,
-              "model_f": 53,
+              "model_m": 51,
+              "model_f": 51,
               "eids": [
-                171
+                54,
+                143
               ],
               "flags": [
+                15,
                 15
               ],
               "names": [
-                "Vangis Helm"
+                "Agnaktor Helm"
               ]
             },
             {
@@ -1206,23 +1109,21 @@
         },
         {
           "names": [
-            "Hyuga Hachigane",
+            "Vangis Helm",
             "Vangis Cap"
           ],
           "variants": [
             {
-              "model_m": 55,
-              "model_f": 0,
+              "model_m": 53,
+              "model_f": 53,
               "eids": [
-                72,
-                193
+                171
               ],
               "flags": [
-                13,
-                13
+                15
               ],
               "names": [
-                "Hyuga Hachigane"
+                "Vangis Helm"
               ]
             },
             {
@@ -1242,21 +1143,23 @@
         },
         {
           "names": [
-            "Escadora Wisdom",
+            "Hyuga Hachigane",
             "Amagi Hachigane"
           ],
           "variants": [
             {
-              "model_m": 57,
-              "model_f": 57,
+              "model_m": 55,
+              "model_f": 0,
               "eids": [
-                201
+                72,
+                193
               ],
               "flags": [
-                15
+                13,
+                13
               ],
               "names": [
-                "Escadora Wisdom"
+                "Hyuga Hachigane"
               ]
             },
             {
@@ -1278,8 +1181,41 @@
         },
         {
           "names": [
-            "Scholar's Beret",
+            "Escadora Wisdom",
             "Escadora Sagesse"
+          ],
+          "variants": [
+            {
+              "model_m": 57,
+              "model_f": 57,
+              "eids": [
+                201
+              ],
+              "flags": [
+                15
+              ],
+              "names": [
+                "Escadora Wisdom"
+              ]
+            },
+            {
+              "model_m": 58,
+              "model_f": 58,
+              "eids": [
+                202
+              ],
+              "flags": [
+                31
+              ],
+              "names": [
+                "Escadora Sagesse"
+              ]
+            }
+          ]
+        },
+        {
+          "names": [
+            "Scholar's Beret"
           ],
           "variants": [
             {
@@ -1296,22 +1232,6 @@
                 29,
                 13,
                 29
-              ],
-              "names": [
-                "Scholar's Beret"
-              ]
-            },
-            {
-              "model_m": 58,
-              "model_f": 58,
-              "eids": [
-                202
-              ],
-              "flags": [
-                31
-              ],
-              "names": [
-                "Escadora Sagesse"
               ]
             }
           ]
@@ -1951,10 +1871,30 @@
               "model_m": 99,
               "model_f": 99,
               "eids": [
+                1,
+                3,
+                12,
+                14,
                 48,
+                85,
+                86,
+                89,
+                90,
+                99,
+                101,
                 137
               ],
               "flags": [
+                31,
+                31,
+                15,
+                15,
+                15,
+                15,
+                31,
+                15,
+                31,
+                15,
                 15,
                 15
               ],
@@ -2124,25 +2064,9 @@
         },
         {
           "names": [
-            "Pirate J Hat",
             "Gargwa Mask"
           ],
           "variants": [
-            {
-              "model_m": 110,
-              "model_f": 110,
-              "eids": [
-                221,
-                222
-              ],
-              "flags": [
-                15,
-                31
-              ],
-              "names": [
-                "Pirate J Hat"
-              ]
-            },
             {
               "model_m": 109,
               "model_f": 109,
@@ -2155,9 +2079,25 @@
                 31,
                 7,
                 27
+              ]
+            }
+          ]
+        },
+        {
+          "names": [
+            "Pirate J Hat"
+          ],
+          "variants": [
+            {
+              "model_m": 110,
+              "model_f": 110,
+              "eids": [
+                221,
+                222
               ],
-              "names": [
-                "Gargwa Mask"
+              "flags": [
+                15,
+                31
               ]
             }
           ]
@@ -2538,44 +2478,6 @@
         },
         {
           "names": [
-            "Jaggi Mail",
-            "Jaggi Vest"
-          ],
-          "variants": [
-            {
-              "model_m": 3,
-              "model_f": 3,
-              "eids": [
-                15,
-                102
-              ],
-              "flags": [
-                7,
-                7
-              ],
-              "names": [
-                "Jaggi Mail"
-              ]
-            },
-            {
-              "model_m": 4,
-              "model_f": 4,
-              "eids": [
-                16,
-                103
-              ],
-              "flags": [
-                27,
-                27
-              ],
-              "names": [
-                "Jaggi Vest"
-              ]
-            }
-          ]
-        },
-        {
-          "names": [
             "Baggi Mail",
             "Baggi Vest"
           ],
@@ -2614,8 +2516,29 @@
         },
         {
           "names": [
-            "Hunter's Mail",
             "Loc Lac Shawl"
+          ],
+          "variants": [
+            {
+              "model_m": 7,
+              "model_f": 7,
+              "eids": [
+                6,
+                92,
+                93
+              ],
+              "flags": [
+                31,
+                7,
+                27
+              ]
+            }
+          ]
+        },
+        {
+          "names": [
+            "Hunter's Mail",
+            "Hunter's Vest"
           ],
           "variants": [
             {
@@ -2631,46 +2554,6 @@
               ],
               "names": [
                 "Hunter's Mail"
-              ]
-            },
-            {
-              "model_m": 7,
-              "model_f": 7,
-              "eids": [
-                6,
-                92,
-                93
-              ],
-              "flags": [
-                31,
-                7,
-                27
-              ],
-              "names": [
-                "Loc Lac Shawl"
-              ]
-            }
-          ]
-        },
-        {
-          "names": [
-            "Bone Mail",
-            "Hunter's Vest"
-          ],
-          "variants": [
-            {
-              "model_m": 10,
-              "model_f": 10,
-              "eids": [
-                7,
-                94
-              ],
-              "flags": [
-                7,
-                7
-              ],
-              "names": [
-                "Bone Mail"
               ]
             },
             {
@@ -2692,21 +2575,23 @@
         },
         {
           "names": [
-            "Dober Mail",
+            "Bone Mail",
             "Bone Vest"
           ],
           "variants": [
             {
-              "model_m": 12,
-              "model_f": 12,
+              "model_m": 10,
+              "model_f": 10,
               "eids": [
-                137
+                7,
+                94
               ],
               "flags": [
+                7,
                 7
               ],
               "names": [
-                "Dober Mail"
+                "Bone Mail"
               ]
             },
             {
@@ -2728,23 +2613,21 @@
         },
         {
           "names": [
-            "Ludroth Mail",
+            "Dober Mail",
             "Dober Vest"
           ],
           "variants": [
             {
-              "model_m": 14,
-              "model_f": 14,
+              "model_m": 12,
+              "model_f": 12,
               "eids": [
-                26,
-                113
+                137
               ],
               "flags": [
-                7,
                 7
               ],
               "names": [
-                "Ludroth Mail"
+                "Dober Mail"
               ]
             },
             {
@@ -2764,23 +2647,23 @@
         },
         {
           "names": [
-            "Alloy Mail",
+            "Ludroth Mail",
             "Ludroth Vest"
           ],
           "variants": [
             {
-              "model_m": 16,
-              "model_f": 16,
+              "model_m": 14,
+              "model_f": 14,
               "eids": [
-                9,
-                96
+                26,
+                113
               ],
               "flags": [
                 7,
                 7
               ],
               "names": [
-                "Alloy Mail"
+                "Ludroth Mail"
               ]
             },
             {
@@ -2802,23 +2685,23 @@
         },
         {
           "names": [
-            "Ingot Mail",
+            "Alloy Mail",
             "Alloy Vest"
           ],
           "variants": [
             {
-              "model_m": 18,
-              "model_f": 18,
+              "model_m": 16,
+              "model_f": 16,
               "eids": [
-                30,
-                117
+                9,
+                96
               ],
               "flags": [
                 7,
                 7
               ],
               "names": [
-                "Ingot Mail"
+                "Alloy Mail"
               ]
             },
             {
@@ -2840,21 +2723,23 @@
         },
         {
           "names": [
-            "Damascus Mail",
+            "Ingot Mail",
             "Ingot Vest"
           ],
           "variants": [
             {
-              "model_m": 20,
-              "model_f": 20,
+              "model_m": 18,
+              "model_f": 18,
               "eids": [
-                195
+                30,
+                117
               ],
               "flags": [
+                7,
                 7
               ],
               "names": [
-                "Damascus Mail"
+                "Ingot Mail"
               ]
             },
             {
@@ -2876,38 +2761,17 @@
         },
         {
           "names": [
-            "Damascus Vest",
-            "Yukumo Dogi"
+            "Damascus Mail"
           ],
           "variants": [
             {
-              "model_m": 21,
-              "model_f": 21,
+              "model_m": 20,
+              "model_f": 20,
               "eids": [
-                196
+                195
               ],
               "flags": [
-                27
-              ],
-              "names": [
-                "Damascus Vest"
-              ]
-            },
-            {
-              "model_m": 22,
-              "model_f": 22,
-              "eids": [
-                1,
-                84,
-                85
-              ],
-              "flags": [
-                31,
-                7,
-                27
-              ],
-              "names": [
-                "Yukumo Dogi"
+                7
               ]
             }
           ]
@@ -4013,8 +3877,7 @@
         },
         {
           "names": [
-            "Nargacuga Mail U",
-            "Nargacuga Vest U"
+            "Nargacuga Mail U"
           ],
           "variants": [
             {
@@ -4025,22 +3888,43 @@
               ],
               "flags": [
                 7
-              ],
-              "names": [
-                "Nargacuga Mail U"
               ]
-            },
+            }
+          ]
+        },
+        {
+          "names": [
+            "Nargacuga Vest U"
+          ],
+          "variants": [
             {
               "model_m": 89,
               "model_f": 89,
               "eids": [
-                158
+                1,
+                15,
+                16,
+                50,
+                84,
+                85,
+                102,
+                103,
+                139,
+                158,
+                196
               ],
               "flags": [
+                31,
+                7,
+                27,
+                7,
+                7,
+                27,
+                7,
+                27,
+                7,
+                27,
                 27
-              ],
-              "names": [
-                "Nargacuga Vest U"
               ]
             }
           ]
@@ -4230,25 +4114,9 @@
         },
         {
           "names": [
-            "Zinogre Mail",
             "Zinogre Vest"
           ],
           "variants": [
-            {
-              "model_m": 99,
-              "model_f": 99,
-              "eids": [
-                50,
-                139
-              ],
-              "flags": [
-                7,
-                7
-              ],
-              "names": [
-                "Zinogre Mail"
-              ]
-            },
             {
               "model_m": 100,
               "model_f": 100,
@@ -4259,9 +4127,6 @@
               "flags": [
                 27,
                 27
-              ],
-              "names": [
-                "Zinogre Vest"
               ]
             }
           ]
@@ -4325,8 +4190,30 @@
         },
         {
           "names": [
-            "Mosgharl Ribplate",
             "Artian Mail"
+          ],
+          "variants": [
+            {
+              "model_m": 104,
+              "model_f": 104,
+              "eids": [
+                74,
+                75,
+                191,
+                192
+              ],
+              "flags": [
+                7,
+                27,
+                7,
+                27
+              ]
+            }
+          ]
+        },
+        {
+          "names": [
+            "Mosgharl Ribplate"
           ],
           "variants": [
             {
@@ -4343,28 +4230,6 @@
                 25,
                 5,
                 25
-              ],
-              "names": [
-                "Mosgharl Ribplate"
-              ]
-            },
-            {
-              "model_m": 104,
-              "model_f": 104,
-              "eids": [
-                74,
-                75,
-                191,
-                192
-              ],
-              "flags": [
-                7,
-                27,
-                7,
-                27
-              ],
-              "names": [
-                "Artian Mail"
               ]
             }
           ]
@@ -4453,8 +4318,26 @@
         },
         {
           "names": [
-            "The Boss Suit",
             "MonHan Jacket"
+          ],
+          "variants": [
+            {
+              "model_m": 111,
+              "model_f": 111,
+              "eids": [
+                231,
+                232
+              ],
+              "flags": [
+                7,
+                27
+              ]
+            }
+          ]
+        },
+        {
+          "names": [
+            "The Boss Suit"
           ],
           "variants": [
             {
@@ -4467,24 +4350,6 @@
               "flags": [
                 5,
                 25
-              ],
-              "names": [
-                "The Boss Suit"
-              ]
-            },
-            {
-              "model_m": 111,
-              "model_f": 111,
-              "eids": [
-                231,
-                232
-              ],
-              "flags": [
-                7,
-                27
-              ],
-              "names": [
-                "MonHan Jacket"
               ]
             }
           ]
@@ -4810,44 +4675,6 @@
         },
         {
           "names": [
-            "Jaggi Vambraces",
-            "Jaggi Guards"
-          ],
-          "variants": [
-            {
-              "model_m": 3,
-              "model_f": 3,
-              "eids": [
-                14,
-                96
-              ],
-              "flags": [
-                7,
-                7
-              ],
-              "names": [
-                "Jaggi Vambraces"
-              ]
-            },
-            {
-              "model_m": 4,
-              "model_f": 4,
-              "eids": [
-                15,
-                97
-              ],
-              "flags": [
-                27,
-                27
-              ],
-              "names": [
-                "Jaggi Guards"
-              ]
-            }
-          ]
-        },
-        {
-          "names": [
             "Baggi Vambraces",
             "Baggi Guards"
           ],
@@ -5144,40 +4971,19 @@
         },
         {
           "names": [
-            "Rhenoplos Vambraces",
-            "Yukumo Kote"
+            "Rhenoplos Guards"
           ],
           "variants": [
             {
-              "model_m": 23,
-              "model_f": 23,
+              "model_m": 24,
+              "model_f": 24,
               "eids": [
-                12,
-                94
+                13,
+                95
               ],
               "flags": [
-                7,
-                7
-              ],
-              "names": [
-                "Rhenoplos Vambraces"
-              ]
-            },
-            {
-              "model_m": 22,
-              "model_f": 22,
-              "eids": [
-                1,
-                80,
-                81
-              ],
-              "flags": [
-                31,
-                7,
+                27,
                 27
-              ],
-              "names": [
-                "Yukumo Kote"
               ]
             }
           ]
@@ -5185,7 +4991,7 @@
         {
           "names": [
             "Qurupeco Vambraces",
-            "Rhenoplos Guards"
+            "Qurupeco Guards"
           ],
           "variants": [
             {
@@ -5201,44 +5007,6 @@
               ],
               "names": [
                 "Qurupeco Vambraces"
-              ]
-            },
-            {
-              "model_m": 24,
-              "model_f": 24,
-              "eids": [
-                13,
-                95
-              ],
-              "flags": [
-                27,
-                27
-              ],
-              "names": [
-                "Rhenoplos Guards"
-              ]
-            }
-          ]
-        },
-        {
-          "names": [
-            "Bnahabra Gloves",
-            "Qurupeco Guards"
-          ],
-          "variants": [
-            {
-              "model_m": 27,
-              "model_f": 27,
-              "eids": [
-                10,
-                92
-              ],
-              "flags": [
-                7,
-                7
-              ],
-              "names": [
-                "Bnahabra Gloves"
               ]
             },
             {
@@ -5260,23 +5028,23 @@
         },
         {
           "names": [
-            "Tigrex Vambraces",
+            "Bnahabra Gloves",
             "Bnahabra Sleeves"
           ],
           "variants": [
             {
-              "model_m": 29,
-              "model_f": 29,
+              "model_m": 27,
+              "model_f": 27,
               "eids": [
-                53,
-                137
+                10,
+                92
               ],
               "flags": [
                 7,
                 7
               ],
               "names": [
-                "Tigrex Vambraces"
+                "Bnahabra Gloves"
               ]
             },
             {
@@ -5298,23 +5066,23 @@
         },
         {
           "names": [
-            "Barroth Vambraces",
+            "Tigrex Vambraces",
             "Tigrex Guards"
           ],
           "variants": [
             {
-              "model_m": 31,
-              "model_f": 31,
+              "model_m": 29,
+              "model_f": 29,
               "eids": [
-                27,
-                109
+                53,
+                137
               ],
               "flags": [
                 7,
                 7
               ],
               "names": [
-                "Barroth Vambraces"
+                "Tigrex Vambraces"
               ]
             },
             {
@@ -5336,23 +5104,23 @@
         },
         {
           "names": [
-            "Gigginox Vambraces",
+            "Barroth Vambraces",
             "Barroth Guards"
           ],
           "variants": [
             {
-              "model_m": 33,
-              "model_f": 33,
+              "model_m": 31,
+              "model_f": 31,
               "eids": [
-                39,
-                121
+                27,
+                109
               ],
               "flags": [
                 7,
                 7
               ],
               "names": [
-                "Gigginox Vambraces"
+                "Barroth Vambraces"
               ]
             },
             {
@@ -5374,23 +5142,23 @@
         },
         {
           "names": [
-            "Rathian Vambraces",
+            "Gigginox Vambraces",
             "Gigginox Guards"
           ],
           "variants": [
             {
-              "model_m": 35,
-              "model_f": 35,
+              "model_m": 33,
+              "model_f": 33,
               "eids": [
-                35,
-                117
+                39,
+                121
               ],
               "flags": [
                 7,
                 7
               ],
               "names": [
-                "Rathian Vambraces"
+                "Gigginox Vambraces"
               ]
             },
             {
@@ -5412,21 +5180,23 @@
         },
         {
           "names": [
-            "Ranger's Gauntlets",
+            "Rathian Vambraces",
             "Rathian Guards"
           ],
           "variants": [
             {
-              "model_m": 37,
-              "model_f": 37,
+              "model_m": 35,
+              "model_f": 35,
               "eids": [
-                169
+                35,
+                117
               ],
               "flags": [
+                7,
                 7
               ],
               "names": [
-                "Ranger's Gauntlets"
+                "Rathian Vambraces"
               ]
             },
             {
@@ -5448,23 +5218,21 @@
         },
         {
           "names": [
-            "Nargacuga Braces",
+            "Ranger's Gauntlets",
             "Archer's Gauntlets"
           ],
           "variants": [
             {
-              "model_m": 39,
-              "model_f": 39,
+              "model_m": 37,
+              "model_f": 37,
               "eids": [
-                41,
-                123
+                169
               ],
               "flags": [
-                7,
                 7
               ],
               "names": [
-                "Nargacuga Braces"
+                "Ranger's Gauntlets"
               ]
             },
             {
@@ -5484,23 +5252,23 @@
         },
         {
           "names": [
-            "Rathalos Vambraces",
+            "Nargacuga Braces",
             "Nargacuga Guards"
           ],
           "variants": [
             {
-              "model_m": 41,
-              "model_f": 41,
+              "model_m": 39,
+              "model_f": 39,
               "eids": [
-                45,
-                127
+                41,
+                123
               ],
               "flags": [
                 7,
                 7
               ],
               "names": [
-                "Rathalos Vambraces"
+                "Nargacuga Braces"
               ]
             },
             {
@@ -5522,23 +5290,23 @@
         },
         {
           "names": [
-            "Diablos Vambraces",
+            "Rathalos Vambraces",
             "Rathalos Guards"
           ],
           "variants": [
             {
-              "model_m": 43,
-              "model_f": 43,
+              "model_m": 41,
+              "model_f": 41,
               "eids": [
-                51,
-                135
+                45,
+                127
               ],
               "flags": [
                 7,
                 7
               ],
               "names": [
-                "Diablos Vambraces"
+                "Rathalos Vambraces"
               ]
             },
             {
@@ -5560,23 +5328,23 @@
         },
         {
           "names": [
-            "Barioth Vambraces",
+            "Diablos Vambraces",
             "Diablos Guards"
           ],
           "variants": [
             {
-              "model_m": 45,
-              "model_f": 45,
+              "model_m": 43,
+              "model_f": 43,
               "eids": [
-                43,
-                125
+                51,
+                135
               ],
               "flags": [
                 7,
                 7
               ],
               "names": [
-                "Barioth Vambraces"
+                "Diablos Vambraces"
               ]
             },
             {
@@ -5598,23 +5366,23 @@
         },
         {
           "names": [
-            "Uragaan Vambraces",
+            "Barioth Vambraces",
             "Barioth Guards"
           ],
           "variants": [
             {
-              "model_m": 47,
-              "model_f": 47,
+              "model_m": 45,
+              "model_f": 45,
               "eids": [
-                47,
-                129
+                43,
+                125
               ],
               "flags": [
                 7,
                 7
               ],
               "names": [
-                "Uragaan Vambraces"
+                "Barioth Vambraces"
               ]
             },
             {
@@ -5636,21 +5404,23 @@
         },
         {
           "names": [
-            "Dark Akantor Claw",
+            "Uragaan Vambraces",
             "Uragaan Guards"
           ],
           "variants": [
             {
-              "model_m": 49,
-              "model_f": 49,
+              "model_m": 47,
+              "model_f": 47,
               "eids": [
-                195
+                47,
+                129
               ],
               "flags": [
+                7,
                 7
               ],
               "names": [
-                "Dark Akantor Claw"
+                "Uragaan Vambraces"
               ]
             },
             {
@@ -5672,23 +5442,21 @@
         },
         {
           "names": [
-            "Agnaktor Vambraces",
+            "Dark Akantor Claw",
             "Dark Akantor Gauntlet"
           ],
           "variants": [
             {
-              "model_m": 51,
-              "model_f": 51,
+              "model_m": 49,
+              "model_f": 49,
               "eids": [
-                55,
-                139
+                195
               ],
               "flags": [
-                7,
                 7
               ],
               "names": [
-                "Agnaktor Vambraces"
+                "Dark Akantor Claw"
               ]
             },
             {
@@ -5708,21 +5476,23 @@
         },
         {
           "names": [
-            "Vangis Vambraces",
+            "Agnaktor Vambraces",
             "Agnaktor Guards"
           ],
           "variants": [
             {
-              "model_m": 53,
-              "model_f": 53,
+              "model_m": 51,
+              "model_f": 51,
               "eids": [
-                167
+                55,
+                139
               ],
               "flags": [
+                7,
                 7
               ],
               "names": [
-                "Vangis Vambraces"
+                "Agnaktor Vambraces"
               ]
             },
             {
@@ -5744,23 +5514,21 @@
         },
         {
           "names": [
-            "Hyuga Kote",
+            "Vangis Vambraces",
             "Vangis Guards"
           ],
           "variants": [
             {
-              "model_m": 55,
-              "model_f": 0,
+              "model_m": 53,
+              "model_f": 53,
               "eids": [
-                75,
-                191
+                167
               ],
               "flags": [
-                5,
-                5
+                7
               ],
               "names": [
-                "Hyuga Kote"
+                "Vangis Vambraces"
               ]
             },
             {
@@ -5780,21 +5548,23 @@
         },
         {
           "names": [
-            "Escadora Arms",
+            "Hyuga Kote",
             "Amagi Kote"
           ],
           "variants": [
             {
-              "model_m": 57,
-              "model_f": 57,
+              "model_m": 55,
+              "model_f": 0,
               "eids": [
-                199
+                75,
+                191
               ],
               "flags": [
-                7
+                5,
+                5
               ],
               "names": [
-                "Escadora Arms"
+                "Hyuga Kote"
               ]
             },
             {
@@ -5816,8 +5586,41 @@
         },
         {
           "names": [
-            "Scholar's Gloves",
+            "Escadora Arms",
             "Escadora Arma"
+          ],
+          "variants": [
+            {
+              "model_m": 57,
+              "model_f": 57,
+              "eids": [
+                199
+              ],
+              "flags": [
+                7
+              ],
+              "names": [
+                "Escadora Arms"
+              ]
+            },
+            {
+              "model_m": 58,
+              "model_f": 58,
+              "eids": [
+                200
+              ],
+              "flags": [
+                27
+              ],
+              "names": [
+                "Escadora Arma"
+              ]
+            }
+          ]
+        },
+        {
+          "names": [
+            "Scholar's Gloves"
           ],
           "variants": [
             {
@@ -5834,22 +5637,6 @@
                 25,
                 5,
                 25
-              ],
-              "names": [
-                "Scholar's Gloves"
-              ]
-            },
-            {
-              "model_m": 58,
-              "model_f": 58,
-              "eids": [
-                200
-              ],
-              "flags": [
-                27
-              ],
-              "names": [
-                "Escadora Arma"
               ]
             }
           ]
@@ -6272,9 +6059,31 @@
               "model_m": 88,
               "model_f": 88,
               "eids": [
+                1,
+                12,
+                14,
+                15,
+                49,
+                80,
+                81,
+                94,
+                96,
+                97,
+                133,
                 151
               ],
               "flags": [
+                31,
+                7,
+                7,
+                27,
+                7,
+                7,
+                27,
+                7,
+                7,
+                27,
+                7,
                 7
               ],
               "names": [
@@ -6481,25 +6290,9 @@
         },
         {
           "names": [
-            "Zinogre Vambraces",
             "Zinogre Guards"
           ],
           "variants": [
-            {
-              "model_m": 99,
-              "model_f": 99,
-              "eids": [
-                49,
-                133
-              ],
-              "flags": [
-                7,
-                7
-              ],
-              "names": [
-                "Zinogre Vambraces"
-              ]
-            },
             {
               "model_m": 100,
               "model_f": 100,
@@ -6510,9 +6303,6 @@
               "flags": [
                 27,
                 27
-              ],
-              "names": [
-                "Zinogre Guards"
               ]
             }
           ]
@@ -6576,8 +6366,30 @@
         },
         {
           "names": [
-            "Mosgharl Creeper",
             "Artian Vambraces"
+          ],
+          "variants": [
+            {
+              "model_m": 104,
+              "model_f": 104,
+              "eids": [
+                73,
+                74,
+                185,
+                186
+              ],
+              "flags": [
+                7,
+                27,
+                7,
+                27
+              ]
+            }
+          ]
+        },
+        {
+          "names": [
+            "Mosgharl Creeper"
           ],
           "variants": [
             {
@@ -6594,28 +6406,6 @@
                 25,
                 5,
                 25
-              ],
-              "names": [
-                "Mosgharl Creeper"
-              ]
-            },
-            {
-              "model_m": 104,
-              "model_f": 104,
-              "eids": [
-                73,
-                74,
-                185,
-                186
-              ],
-              "flags": [
-                7,
-                27,
-                7,
-                27
-              ],
-              "names": [
-                "Artian Vambraces"
               ]
             }
           ]
@@ -6937,44 +6727,6 @@
         },
         {
           "names": [
-            "Jaggi Faulds",
-            "Jaggi Coat"
-          ],
-          "variants": [
-            {
-              "model_m": 3,
-              "model_f": 3,
-              "eids": [
-                15,
-                96
-              ],
-              "flags": [
-                7,
-                7
-              ],
-              "names": [
-                "Jaggi Faulds"
-              ]
-            },
-            {
-              "model_m": 4,
-              "model_f": 4,
-              "eids": [
-                16,
-                97
-              ],
-              "flags": [
-                27,
-                27
-              ],
-              "names": [
-                "Jaggi Coat"
-              ]
-            }
-          ]
-        },
-        {
-          "names": [
             "Baggi Coil",
             "Baggi Coat"
           ],
@@ -7013,8 +6765,29 @@
         },
         {
           "names": [
-            "Hunter's Faulds",
             "Loc Lac Kilt"
+          ],
+          "variants": [
+            {
+              "model_m": 7,
+              "model_f": 7,
+              "eids": [
+                6,
+                86,
+                87
+              ],
+              "flags": [
+                31,
+                7,
+                27
+              ]
+            }
+          ]
+        },
+        {
+          "names": [
+            "Hunter's Faulds",
+            "Hunter's Coat"
           ],
           "variants": [
             {
@@ -7030,46 +6803,6 @@
               ],
               "names": [
                 "Hunter's Faulds"
-              ]
-            },
-            {
-              "model_m": 7,
-              "model_f": 7,
-              "eids": [
-                6,
-                86,
-                87
-              ],
-              "flags": [
-                31,
-                7,
-                27
-              ],
-              "names": [
-                "Loc Lac Kilt"
-              ]
-            }
-          ]
-        },
-        {
-          "names": [
-            "Bone Faulds",
-            "Hunter's Coat"
-          ],
-          "variants": [
-            {
-              "model_m": 10,
-              "model_f": 10,
-              "eids": [
-                7,
-                88
-              ],
-              "flags": [
-                7,
-                7
-              ],
-              "names": [
-                "Bone Faulds"
               ]
             },
             {
@@ -7091,21 +6824,23 @@
         },
         {
           "names": [
-            "Dober Coil",
+            "Bone Faulds",
             "Bone Coat"
           ],
           "variants": [
             {
-              "model_m": 12,
-              "model_f": 12,
+              "model_m": 10,
+              "model_f": 10,
               "eids": [
-                131
+                7,
+                88
               ],
               "flags": [
+                7,
                 7
               ],
               "names": [
-                "Dober Coil"
+                "Bone Faulds"
               ]
             },
             {
@@ -7127,23 +6862,21 @@
         },
         {
           "names": [
-            "Ludroth Faulds",
+            "Dober Coil",
             "Dober Coat"
           ],
           "variants": [
             {
-              "model_m": 14,
-              "model_f": 14,
+              "model_m": 12,
+              "model_f": 12,
               "eids": [
-                26,
-                107
+                131
               ],
               "flags": [
-                7,
                 7
               ],
               "names": [
-                "Ludroth Faulds"
+                "Dober Coil"
               ]
             },
             {
@@ -7163,23 +6896,23 @@
         },
         {
           "names": [
-            "Alloy Coil",
+            "Ludroth Faulds",
             "Ludroth Coat"
           ],
           "variants": [
             {
-              "model_m": 16,
-              "model_f": 16,
+              "model_m": 14,
+              "model_f": 14,
               "eids": [
-                9,
-                90
+                26,
+                107
               ],
               "flags": [
                 7,
                 7
               ],
               "names": [
-                "Alloy Coil"
+                "Ludroth Faulds"
               ]
             },
             {
@@ -7201,23 +6934,23 @@
         },
         {
           "names": [
-            "Ingot Coil",
+            "Alloy Coil",
             "Alloy Coat"
           ],
           "variants": [
             {
-              "model_m": 18,
-              "model_f": 18,
+              "model_m": 16,
+              "model_f": 16,
               "eids": [
-                30,
-                111
+                9,
+                90
               ],
               "flags": [
                 7,
                 7
               ],
               "names": [
-                "Ingot Coil"
+                "Alloy Coil"
               ]
             },
             {
@@ -7239,21 +6972,23 @@
         },
         {
           "names": [
-            "Damascus Coil",
+            "Ingot Coil",
             "Ingot Coat"
           ],
           "variants": [
             {
-              "model_m": 20,
-              "model_f": 20,
+              "model_m": 18,
+              "model_f": 18,
               "eids": [
-                187
+                30,
+                111
               ],
               "flags": [
+                7,
                 7
               ],
               "names": [
-                "Damascus Coil"
+                "Ingot Coil"
               ]
             },
             {
@@ -7275,38 +7010,17 @@
         },
         {
           "names": [
-            "Damascus Coat",
-            "Yukumo Obi"
+            "Damascus Coil"
           ],
           "variants": [
             {
-              "model_m": 21,
-              "model_f": 21,
+              "model_m": 20,
+              "model_f": 20,
               "eids": [
-                188
+                187
               ],
               "flags": [
-                27
-              ],
-              "names": [
-                "Damascus Coat"
-              ]
-            },
-            {
-              "model_m": 22,
-              "model_f": 22,
-              "eids": [
-                1,
-                78,
-                79
-              ],
-              "flags": [
-                31,
-                7,
-                27
-              ],
-              "names": [
-                "Yukumo Obi"
+                7
               ]
             }
           ]
@@ -8420,10 +8134,30 @@
               "model_m": 88,
               "model_f": 88,
               "eids": [
-                151
+                1,
+                15,
+                16,
+                50,
+                78,
+                79,
+                96,
+                97,
+                133,
+                151,
+                188
               ],
               "flags": [
-                7
+                31,
+                7,
+                27,
+                7,
+                7,
+                27,
+                7,
+                27,
+                7,
+                7,
+                27
               ],
               "names": [
                 "Nargacuga Faulds U"
@@ -8629,25 +8363,9 @@
         },
         {
           "names": [
-            "Zinogre Faulds",
             "Zinogre Coat"
           ],
           "variants": [
-            {
-              "model_m": 99,
-              "model_f": 99,
-              "eids": [
-                50,
-                133
-              ],
-              "flags": [
-                7,
-                7
-              ],
-              "names": [
-                "Zinogre Faulds"
-              ]
-            },
             {
               "model_m": 100,
               "model_f": 100,
@@ -8658,9 +8376,6 @@
               "flags": [
                 27,
                 27
-              ],
-              "names": [
-                "Zinogre Coat"
               ]
             }
           ]
@@ -9041,40 +8756,19 @@
         },
         {
           "names": [
-            "Jaggi Greaves",
-            "Chainmail Pants"
+            "Jaggi Leggings"
           ],
           "variants": [
             {
-              "model_m": 3,
-              "model_f": 3,
+              "model_m": 4,
+              "model_f": 4,
               "eids": [
-                15,
-                98
+                16,
+                99
               ],
               "flags": [
-                7,
-                7
-              ],
-              "names": [
-                "Jaggi Greaves"
-              ]
-            },
-            {
-              "model_m": 2,
-              "model_f": 2,
-              "eids": [
-                3,
-                84,
-                85
-              ],
-              "flags": [
-                31,
-                7,
+                27,
                 27
-              ],
-              "names": [
-                "Chainmail Pants"
               ]
             }
           ]
@@ -9082,7 +8776,7 @@
         {
           "names": [
             "Baggi Greaves",
-            "Jaggi Leggings"
+            "Baggi Leggings"
           ],
           "variants": [
             {
@@ -9101,29 +8795,6 @@
               ]
             },
             {
-              "model_m": 4,
-              "model_f": 4,
-              "eids": [
-                16,
-                99
-              ],
-              "flags": [
-                27,
-                27
-              ],
-              "names": [
-                "Jaggi Leggings"
-              ]
-            }
-          ]
-        },
-        {
-          "names": [
-            "Baggi Leggings",
-            "Loc Lac Boots"
-          ],
-          "variants": [
-            {
               "model_m": 6,
               "model_f": 6,
               "eids": [
@@ -9137,7 +8808,14 @@
               "names": [
                 "Baggi Leggings"
               ]
-            },
+            }
+          ]
+        },
+        {
+          "names": [
+            "Loc Lac Boots"
+          ],
+          "variants": [
             {
               "model_m": 7,
               "model_f": 7,
@@ -9150,9 +8828,6 @@
                 31,
                 7,
                 27
-              ],
-              "names": [
-                "Loc Lac Boots"
               ]
             }
           ]
@@ -9417,40 +9092,19 @@
         },
         {
           "names": [
-            "Rhenoplos Greaves",
-            "Yukumo Hakama"
+            "Rhenoplos Leggings"
           ],
           "variants": [
             {
-              "model_m": 23,
-              "model_f": 23,
+              "model_m": 24,
+              "model_f": 24,
               "eids": [
-                13,
-                96
+                14,
+                97
               ],
               "flags": [
-                7,
-                7
-              ],
-              "names": [
-                "Rhenoplos Greaves"
-              ]
-            },
-            {
-              "model_m": 22,
-              "model_f": 22,
-              "eids": [
-                1,
-                80,
-                81
-              ],
-              "flags": [
-                31,
-                7,
+                27,
                 27
-              ],
-              "names": [
-                "Yukumo Hakama"
               ]
             }
           ]
@@ -9458,7 +9112,7 @@
         {
           "names": [
             "Qurupeco Greaves",
-            "Rhenoplos Leggings"
+            "Qurupeco Leggings"
           ],
           "variants": [
             {
@@ -9474,44 +9128,6 @@
               ],
               "names": [
                 "Qurupeco Greaves"
-              ]
-            },
-            {
-              "model_m": 24,
-              "model_f": 24,
-              "eids": [
-                14,
-                97
-              ],
-              "flags": [
-                27,
-                27
-              ],
-              "names": [
-                "Rhenoplos Leggings"
-              ]
-            }
-          ]
-        },
-        {
-          "names": [
-            "Bnahabra Boots",
-            "Qurupeco Leggings"
-          ],
-          "variants": [
-            {
-              "model_m": 27,
-              "model_f": 27,
-              "eids": [
-                11,
-                94
-              ],
-              "flags": [
-                7,
-                7
-              ],
-              "names": [
-                "Bnahabra Boots"
               ]
             },
             {
@@ -9533,23 +9149,23 @@
         },
         {
           "names": [
-            "Tigrex Greaves",
+            "Bnahabra Boots",
             "Bnahabra Pants"
           ],
           "variants": [
             {
-              "model_m": 29,
-              "model_f": 29,
+              "model_m": 27,
+              "model_f": 27,
               "eids": [
-                53,
-                138
+                11,
+                94
               ],
               "flags": [
                 7,
                 7
               ],
               "names": [
-                "Tigrex Greaves"
+                "Bnahabra Boots"
               ]
             },
             {
@@ -9571,23 +9187,23 @@
         },
         {
           "names": [
-            "Barroth Greaves",
+            "Tigrex Greaves",
             "Tigrex Leggings"
           ],
           "variants": [
             {
-              "model_m": 31,
-              "model_f": 31,
+              "model_m": 29,
+              "model_f": 29,
               "eids": [
-                27,
-                110
+                53,
+                138
               ],
               "flags": [
                 7,
                 7
               ],
               "names": [
-                "Barroth Greaves"
+                "Tigrex Greaves"
               ]
             },
             {
@@ -9609,23 +9225,23 @@
         },
         {
           "names": [
-            "Gigginox Greaves",
+            "Barroth Greaves",
             "Barroth Leggings"
           ],
           "variants": [
             {
-              "model_m": 33,
-              "model_f": 33,
+              "model_m": 31,
+              "model_f": 31,
               "eids": [
-                39,
-                122
+                27,
+                110
               ],
               "flags": [
                 7,
                 7
               ],
               "names": [
-                "Gigginox Greaves"
+                "Barroth Greaves"
               ]
             },
             {
@@ -9647,23 +9263,23 @@
         },
         {
           "names": [
-            "Rathian Greaves",
+            "Gigginox Greaves",
             "Gigginox Leggings"
           ],
           "variants": [
             {
-              "model_m": 35,
-              "model_f": 35,
+              "model_m": 33,
+              "model_f": 33,
               "eids": [
-                35,
-                118
+                39,
+                122
               ],
               "flags": [
                 7,
                 7
               ],
               "names": [
-                "Rathian Greaves"
+                "Gigginox Greaves"
               ]
             },
             {
@@ -9685,21 +9301,23 @@
         },
         {
           "names": [
-            "Ranger's Espadrilles",
+            "Rathian Greaves",
             "Rathian Leggings"
           ],
           "variants": [
             {
-              "model_m": 37,
-              "model_f": 37,
+              "model_m": 35,
+              "model_f": 35,
               "eids": [
-                170
+                35,
+                118
               ],
               "flags": [
+                7,
                 7
               ],
               "names": [
-                "Ranger's Espadrilles"
+                "Rathian Greaves"
               ]
             },
             {
@@ -9721,23 +9339,21 @@
         },
         {
           "names": [
-            "Nargacuga Greaves",
+            "Ranger's Espadrilles",
             "Archer's Espadrilles"
           ],
           "variants": [
             {
-              "model_m": 39,
-              "model_f": 39,
+              "model_m": 37,
+              "model_f": 37,
               "eids": [
-                41,
-                124
+                170
               ],
               "flags": [
-                7,
                 7
               ],
               "names": [
-                "Nargacuga Greaves"
+                "Ranger's Espadrilles"
               ]
             },
             {
@@ -9757,23 +9373,23 @@
         },
         {
           "names": [
-            "Rathalos Greaves",
+            "Nargacuga Greaves",
             "Nargacuga Leggings"
           ],
           "variants": [
             {
-              "model_m": 41,
-              "model_f": 41,
+              "model_m": 39,
+              "model_f": 39,
               "eids": [
-                45,
-                128
+                41,
+                124
               ],
               "flags": [
                 7,
                 7
               ],
               "names": [
-                "Rathalos Greaves"
+                "Nargacuga Greaves"
               ]
             },
             {
@@ -9795,23 +9411,23 @@
         },
         {
           "names": [
-            "Diablos Greaves",
+            "Rathalos Greaves",
             "Rathalos Leggings"
           ],
           "variants": [
             {
-              "model_m": 43,
-              "model_f": 43,
+              "model_m": 41,
+              "model_f": 41,
               "eids": [
-                51,
-                136
+                45,
+                128
               ],
               "flags": [
                 7,
                 7
               ],
               "names": [
-                "Diablos Greaves"
+                "Rathalos Greaves"
               ]
             },
             {
@@ -9833,23 +9449,23 @@
         },
         {
           "names": [
-            "Barioth Greaves",
+            "Diablos Greaves",
             "Diablos Leggings"
           ],
           "variants": [
             {
-              "model_m": 45,
-              "model_f": 45,
+              "model_m": 43,
+              "model_f": 43,
               "eids": [
-                43,
-                126
+                51,
+                136
               ],
               "flags": [
                 7,
                 7
               ],
               "names": [
-                "Barioth Greaves"
+                "Diablos Greaves"
               ]
             },
             {
@@ -9871,23 +9487,23 @@
         },
         {
           "names": [
-            "Uragaan Greaves",
+            "Barioth Greaves",
             "Barioth Leggings"
           ],
           "variants": [
             {
-              "model_m": 47,
-              "model_f": 47,
+              "model_m": 45,
+              "model_f": 45,
               "eids": [
-                47,
-                130
+                43,
+                126
               ],
               "flags": [
                 7,
                 7
               ],
               "names": [
-                "Uragaan Greaves"
+                "Barioth Greaves"
               ]
             },
             {
@@ -9909,21 +9525,23 @@
         },
         {
           "names": [
-            "Dark Akantor Hessian",
+            "Uragaan Greaves",
             "Uragaan Leggings"
           ],
           "variants": [
             {
-              "model_m": 49,
-              "model_f": 49,
+              "model_m": 47,
+              "model_f": 47,
               "eids": [
-                196
+                47,
+                130
               ],
               "flags": [
+                7,
                 7
               ],
               "names": [
-                "Dark Akantor Hessian"
+                "Uragaan Greaves"
               ]
             },
             {
@@ -9945,23 +9563,21 @@
         },
         {
           "names": [
-            "Agnaktor Greaves",
+            "Dark Akantor Hessian",
             "Dark Akantor Boots"
           ],
           "variants": [
             {
-              "model_m": 51,
-              "model_f": 51,
+              "model_m": 49,
+              "model_f": 49,
               "eids": [
-                55,
-                140
+                196
               ],
               "flags": [
-                7,
                 7
               ],
               "names": [
-                "Agnaktor Greaves"
+                "Dark Akantor Hessian"
               ]
             },
             {
@@ -9981,21 +9597,23 @@
         },
         {
           "names": [
-            "Vangis Greaves",
+            "Agnaktor Greaves",
             "Agnaktor Leggings"
           ],
           "variants": [
             {
-              "model_m": 53,
-              "model_f": 53,
+              "model_m": 51,
+              "model_f": 51,
               "eids": [
-                168
+                55,
+                140
               ],
               "flags": [
+                7,
                 7
               ],
               "names": [
-                "Vangis Greaves"
+                "Agnaktor Greaves"
               ]
             },
             {
@@ -10017,23 +9635,21 @@
         },
         {
           "names": [
-            "Hyuga Hakama",
+            "Vangis Greaves",
             "Vangis Leggings"
           ],
           "variants": [
             {
-              "model_m": 55,
-              "model_f": 0,
+              "model_m": 53,
+              "model_f": 53,
               "eids": [
-                75,
-                192
+                168
               ],
               "flags": [
-                5,
-                5
+                7
               ],
               "names": [
-                "Hyuga Hakama"
+                "Vangis Greaves"
               ]
             },
             {
@@ -10053,21 +9669,23 @@
         },
         {
           "names": [
-            "Escadora Scale",
+            "Hyuga Hakama",
             "Amagi Hakama"
           ],
           "variants": [
             {
-              "model_m": 57,
-              "model_f": 57,
+              "model_m": 55,
+              "model_f": 0,
               "eids": [
-                200
+                75,
+                192
               ],
               "flags": [
-                7
+                5,
+                5
               ],
               "names": [
-                "Escadora Scale"
+                "Hyuga Hakama"
               ]
             },
             {
@@ -10089,8 +9707,41 @@
         },
         {
           "names": [
-            "Scholar's Socks",
+            "Escadora Scale",
             "Escadora Scala"
+          ],
+          "variants": [
+            {
+              "model_m": 57,
+              "model_f": 57,
+              "eids": [
+                200
+              ],
+              "flags": [
+                7
+              ],
+              "names": [
+                "Escadora Scale"
+              ]
+            },
+            {
+              "model_m": 58,
+              "model_f": 58,
+              "eids": [
+                201
+              ],
+              "flags": [
+                27
+              ],
+              "names": [
+                "Escadora Scala"
+              ]
+            }
+          ]
+        },
+        {
+          "names": [
+            "Scholar's Socks"
           ],
           "variants": [
             {
@@ -10107,22 +9758,6 @@
                 25,
                 5,
                 25
-              ],
-              "names": [
-                "Scholar's Socks"
-              ]
-            },
-            {
-              "model_m": 58,
-              "model_f": 58,
-              "eids": [
-                201
-              ],
-              "flags": [
-                27
-              ],
-              "names": [
-                "Escadora Scala"
               ]
             }
           ]
@@ -10545,9 +10180,33 @@
               "model_m": 88,
               "model_f": 88,
               "eids": [
+                1,
+                3,
+                13,
+                15,
+                49,
+                80,
+                81,
+                84,
+                85,
+                96,
+                98,
+                134,
                 152
               ],
               "flags": [
+                31,
+                31,
+                7,
+                7,
+                7,
+                7,
+                27,
+                7,
+                27,
+                7,
+                7,
+                7,
                 7
               ],
               "names": [
@@ -10754,25 +10413,9 @@
         },
         {
           "names": [
-            "Zinogre Greaves",
             "Zinogre Leggings"
           ],
           "variants": [
-            {
-              "model_m": 99,
-              "model_f": 99,
-              "eids": [
-                49,
-                134
-              ],
-              "flags": [
-                7,
-                7
-              ],
-              "names": [
-                "Zinogre Greaves"
-              ]
-            },
             {
               "model_m": 100,
               "model_f": 100,
@@ -10783,9 +10426,6 @@
               "flags": [
                 27,
                 27
-              ],
-              "names": [
-                "Zinogre Leggings"
               ]
             }
           ]
@@ -10849,8 +10489,30 @@
         },
         {
           "names": [
-            "Mosgharl Roots",
             "Artian Greaves"
+          ],
+          "variants": [
+            {
+              "model_m": 104,
+              "model_f": 104,
+              "eids": [
+                73,
+                74,
+                186,
+                187
+              ],
+              "flags": [
+                7,
+                27,
+                7,
+                27
+              ]
+            }
+          ]
+        },
+        {
+          "names": [
+            "Mosgharl Roots"
           ],
           "variants": [
             {
@@ -10867,28 +10529,6 @@
                 25,
                 5,
                 25
-              ],
-              "names": [
-                "Mosgharl Roots"
-              ]
-            },
-            {
-              "model_m": 104,
-              "model_f": 104,
-              "eids": [
-                73,
-                74,
-                186,
-                187
-              ],
-              "flags": [
-                7,
-                27,
-                7,
-                27
-              ],
-              "names": [
-                "Artian Greaves"
               ]
             }
           ]
@@ -11069,10 +10709,7 @@
             "Ravager Blade",
             "Ravager Blade+"
           ],
-          "entries": [
-            11,
-            12
-          ]
+          "entries": []
         },
         "3": {
           "names": [
@@ -11090,11 +10727,7 @@
             "Buster Sword+",
             "Buster Blade"
           ],
-          "entries": [
-            8,
-            9,
-            10
-          ]
+          "entries": []
         },
         "5": {
           "names": [
@@ -11115,9 +10748,21 @@
             "Blade of Talos"
           ],
           "entries": [
+            1,
+            2,
+            3,
+            4,
+            8,
+            9,
+            10,
+            11,
+            12,
             36,
             37,
-            38
+            38,
+            79,
+            80,
+            81
           ]
         },
         "7": {
@@ -11360,15 +11005,7 @@
             "True Yukumo Grt Swd+",
             "Cloudcleaver Grt Swd"
           ],
-          "entries": [
-            1,
-            2,
-            3,
-            4,
-            79,
-            80,
-            81
-          ]
+          "entries": []
         },
         "30": {
           "names": [
@@ -11494,8 +11131,15 @@
             "Odyssey"
           ],
           "entries": [
+            1,
+            2,
+            3,
+            4,
             16,
-            17
+            17,
+            86,
+            87,
+            88
           ]
         },
         "2": {
@@ -11818,15 +11462,7 @@
             "True Yukumo Saber+",
             "Divine Dance Saber"
           ],
-          "entries": [
-            1,
-            2,
-            3,
-            4,
-            86,
-            87,
-            88
-          ]
+          "entries": []
         },
         "32": {
           "names": [
@@ -12354,8 +11990,18 @@
             "Millennium"
           ],
           "entries": [
+            1,
+            2,
+            3,
+            4,
+            7,
+            8,
+            9,
             12,
-            13
+            13,
+            86,
+            87,
+            88
           ]
         },
         "2": {
@@ -12364,11 +12010,7 @@
             "Thane Lance+",
             "Knight Lance"
           ],
-          "entries": [
-            7,
-            8,
-            9
-          ]
+          "entries": []
         },
         "3": {
           "names": [
@@ -12672,15 +12314,7 @@
             "True Yukumo Lance+",
             "Divine Lance"
           ],
-          "entries": [
-            1,
-            2,
-            3,
-            4,
-            86,
-            87,
-            88
-          ]
+          "entries": []
         },
         "31": {
           "names": [
@@ -15224,11 +14858,7 @@
             "Metal Bagpipe+",
             "Great Bagpipe"
           ],
-          "entries": [
-            9,
-            10,
-            11
-          ]
+          "entries": []
         },
         "6": {
           "names": [
@@ -15260,15 +14890,7 @@
             "True Yukumo Whistle+",
             "Chidori Whistle"
           ],
-          "entries": [
-            1,
-            2,
-            3,
-            4,
-            75,
-            76,
-            77
-          ]
+          "entries": []
         },
         "9": {
           "names": [
@@ -15531,9 +15153,19 @@
             "Fortissimo"
           ],
           "entries": [
+            1,
+            2,
+            3,
+            4,
+            9,
+            10,
+            11,
             12,
             13,
-            14
+            14,
+            75,
+            76,
+            77
           ]
         }
       }

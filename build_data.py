@@ -325,13 +325,9 @@ def build_armor_data(data, slot):
         next_model = v["model_m"] + 1
         if next_model in by_model_m:
             j, v2 = by_model_m[next_model]
-            if j not in used and v["flag"] != v2["flag"]:
-                # Paired: first variant is lower flag (BM), second is higher (GN)
-                # In MHP3rd, BM flag < GN flag (0x07<0x1B, 0x0F<0x1F)
-                if v["flag"] < v2["flag"]:
-                    first, second = v, v2
-                else:
-                    first, second = v2, v
+            if j not in used and v["flag"] < v2["flag"]:
+                # Paired: v is BM (lower flag), v2 is GN (higher flag)
+                first, second = v, v2
 
                 names = [first["name"], second["name"]]
                 variants = [
