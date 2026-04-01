@@ -2,71 +2,96 @@
 """
 MHP3rd (ULJM-05800) Monster HP Display CWCheat Generator
 
-Hook point: 0x09D63E0C (dynamic render code), return: 0x09D63A64
-Render context: $fp-relative (LW $a0, 0x9F18($fp))
-Code injection: 0x08A8CA00 (EBOOT BSS, confirmed zero across all save states)
+Hook: 0x088E6D64 — replaces `jal 0x088EBAB8` in EBOOT render loop
+  - EBOOT address (static, always present)
+  - Proper jal replacement (no instruction destruction)
+  - NOP delay slot
+  - $s2 = 0x09BF0000 at hook point (render context base)
+  - Called every frame in the render loop (bne at 0x088E6D7C loops)
 
-Previous CODE_BASE 0x097F0000 was in dynamic heap — crashed with new save data.
-0x08A8C900-0x08AACA00 (131KB) verified zero across 16 save states.
+Code cave: 0x08A90000 (EBOOT BSS, verified zero across save states)
+
+Toggle: branch instruction inside code cave (not at hook site)
+  - L+Select = NOP at toggle addr (HP display ON)
+  - R+Select = BEQ at toggle addr (HP display OFF, skip to exit)
+  - Default: NOP (ON) since BSS is zeroed
+
+Exit: chains through kurogami's HP bar code at 0x08801DA4 if present
+      (runtime check), otherwise tail-calls original function 0x088EBAB8.
+      Both paths return to 0x088E6D6C via $ra set by the hook's jal.
 """
 
 import struct
+import sys
 
 # =============================================================================
 # CONFIGURABLE PARAMETERS
 # =============================================================================
 
-FONT_HEIGHT = 14        # Font size byte written to render context +0x12E
-LINE_SPACE = -10 & 0xFFFF  # Default: stack up 10px (0xFFF6 signed)
-X_POS = 0x38            # Default X position
-Y_POS = 258             # Default Y position (0x102)
-MAX_MONSTERS = 3       # Max monsters to display (MONSTER_POINTER has 3 quest target slots)
+FONT_HEIGHT = 14
+LINE_SPACE = -10 & 0xFFFF
+X_POS = 0x38
+Y_POS = 258
+MAX_MONSTERS = 3
 
 # =============================================================================
 # GAME-SPECIFIC CONSTANTS (MHP3rd ULJM-05800)
 # =============================================================================
 
-# Memory layout - EBOOT BSS region (confirmed zero across all save states)
-# 0x08A8C900-0x08AACA00 = 131KB free. LUI base 0x08A9, all offsets < 0x8000.
-CODE_BASE       = 0x08A90000   # Start of injected code (LUI-aligned)
-DATA_BASE       = 0x08A90280   # Start of format strings
-BITMASK_BASE    = 0x08A902C0   # Large monster bitmask
+# Hook point — jal in EBOOT render loop function (0x088E6C40)
+HOOK_ADDR       = 0x088E6D64   # Original: jal 0x088EBAB8
+ORIG_FUNC       = 0x088EBAB8   # Function we're replacing the call to
+# After our code cave runs, we tail-call ORIG_FUNC (or chain target).
+# ORIG_FUNC does jr $ra → 0x088E6D6C (set by the jal at HOOK_ADDR).
 
-# LUI base = 0x08A9 — all offsets 0x0000-0x0300, safe for both ORI and load/store
-SAVE_AREA       = 0x08A902D0   # Register save area (s0-s5, 6 words)
-REENTRY_FLAG    = 0x08A902F0   # Re-entry guard byte (0=not running, 1=running)
-INIT_FLAG_ADDR  = 0x08A902F1   # Initialized flag (0=fresh start, 1=initialized)
-FONT_SIZE_ADDR  = 0x08A902F4   # Font size byte
-DISPLAY_MODE_ADDR = 0x08A902F8 # Display mode flag (0=absolute, 1=percent)
-TOGGLE_FLAG_ADDR = 0x08A902FC  # Toggle flag byte (0=OFF, non-zero=ON)
-COLOR_ADDR      = 0x08A90300   # Color/style byte
+# Kurogami's HP bar code (baked into save states via mhp3rd_monster_hp_bar).
+# Also hooks 0x088E6D64. We chain through it so both HP bar + damage numbers work.
+CHAIN_TARGET    = 0x08801DA4   # kurogami's code cave entry point
 
-# Hook (dynamic render code - confirmed working for visible text)
-HOOK_ADDR       = 0x09D63E0C   # Where we place our jump (in render pipeline)
-RETURN_ADDR     = 0x09D63A64   # Where we return after our code
-GUARD_ADDR      = 0x08C57C90   # Quest active flag address (CW offset 0x457C90)
-GUARD_VALUE     = 0x5FA0       # If != this value, we're in quest
+# Code cave in EBOOT BSS (verified zero across save states)
+CODE_BASE       = 0x08A90000
+DATA_BASE       = 0x08A90280
+BITMASK_BASE    = 0x08A902C0
+
+LUI_BASE        = (CODE_BASE >> 16) & 0xFFFF  # 0x08A9
+
+# Register save area
+SAVE_AREA       = 0x08A902D0   # s0-s5 (6 words, 0x2D0-0x2E7)
+SAVE_RA         = 0x08A902E8   # $ra
+SAVE_A0         = 0x08A902EC   # $a0
+
+# Configurable data addresses
+FONT_SIZE_ADDR  = 0x08A902F0
+DISPLAY_MODE_ADDR = 0x08A902F4
+COLOR_ADDR      = 0x08A902F8
+
+# Overlay sentinel (verify quest is active)
+GUARD_ADDR      = 0x09C57CA0
+GUARD_VALUE     = 0x6167       # halfword at GUARD_ADDR when overlay loaded
 
 # Game functions
-SET_FONT_SIZE   = 0x088E6FF0   # set_font_size(context, size, style)
-TEXT_RENDER     = 0x088EAA64   # text_render(context, fmt, ...)
+SET_FONT_SIZE   = 0x088E6FF0
+TEXT_RENDER     = 0x088EAA64
+
+# Render context base (loaded via lui + lw, not register-dependent)
+RENDER_CTX_HI   = 0x09BF
+RENDER_CTX_OFF  = 0x9F18       # sign-extended: 0x09BF0000 + (-0x60E8) = 0x09BE9F18
 
 # Button input
-BUTTON_ADDR     = 0x08B3885C   # Button input register (halfword)
-BTN_TOGGLE_ON   = 0x0101       # L + Select = show HP
-BTN_TOGGLE_OFF  = 0x0201       # R + Select = hide HP
+BUTTON_ADDR     = 0x08B3885C
+BTN_TOGGLE_ON   = 0x0101       # L + Select
+BTN_TOGGLE_OFF  = 0x0201       # R + Select
 
 # Game data
-ENTITY_TABLE    = 0x09DA9860   # Monster entity pointer table (5 entries)
-NAME_TABLE_BASE = 0x08A39F4C   # Monster name pointer table base
-NAME_BIAS       = 382          # Index bias for name lookup
+ENTITY_TABLE    = 0x09DA9860
+NAME_TABLE_BASE = 0x08A39F4C
+NAME_BIAS       = 382
 
 # Entity struct offsets
-ENT_TYPE_ID     = 0x062        # u8: monster type ID
-ENT_HP_CUR      = 0x246        # s16: current HP
-ENT_HP_MAX      = 0x288        # s16: max HP
+ENT_TYPE_ID     = 0x062
+ENT_HP_CUR      = 0x246
+ENT_HP_MAX      = 0x288
 
-# CWCheat base
 CW_BASE = 0x08800000
 
 # =============================================================================
@@ -85,8 +110,7 @@ _REG = {
 }
 
 def reg(name):
-    if isinstance(name, int):
-        return name
+    if isinstance(name, int): return name
     return _REG[name]
 
 def _r_type(rs, rt, rd, shamt, funct):
@@ -173,25 +197,16 @@ def to_cw_offset(psp_addr):
     return psp_addr - CW_BASE
 
 def cw_line_32(psp_addr, value):
-    offset = to_cw_offset(psp_addr)
-    return f"_L 0x2{offset:07X} 0x{value & 0xFFFFFFFF:08X}"
+    return f"_L 0x2{to_cw_offset(psp_addr):07X} 0x{value & 0xFFFFFFFF:08X}"
 
 def cw_line_16(psp_addr, value):
-    offset = to_cw_offset(psp_addr)
-    return f"_L 0x1{offset:07X} 0x0000{value & 0xFFFF:04X}"
+    return f"_L 0x1{to_cw_offset(psp_addr):07X} 0x0000{value & 0xFFFF:04X}"
 
 def cw_line_8(psp_addr, value):
-    offset = to_cw_offset(psp_addr)
-    return f"_L 0x0{offset:07X} 0x000000{value & 0xFF:02X}"
+    return f"_L 0x0{to_cw_offset(psp_addr):07X} 0x000000{value & 0xFF:02X}"
 
 def cw_cond_16(psp_addr, value):
-    """D-type 16-bit equal: execute next line if halfword == value."""
-    offset = to_cw_offset(psp_addr)
-    return f"_L 0xD0{offset:06X} 0x0000{value & 0xFFFF:04X}"
-
-def cw_cond_16_ne(psp_addr, value):
-    offset = to_cw_offset(psp_addr)
-    return f"_L 0xD1{offset:06X} 0x0000{value & 0xFFFF:04X}"
+    return f"_L 0xD0{to_cw_offset(psp_addr):06X} 0x0000{value & 0xFFFF:04X}"
 
 
 # =============================================================================
@@ -200,7 +215,6 @@ def cw_cond_16_ne(psp_addr, value):
 
 def generate():
     cb = CodeBuilder(CODE_BASE)
-    LUI_BASE = (CODE_BASE >> 16) & 0xFFFF  # 0x097F
 
     # =========================================================================
     # FORMAT STRINGS at DATA_BASE
@@ -219,24 +233,29 @@ def generate():
 
     # =========================================================================
     # SUBROUTINE: text_render_wrapper
-    # Uses $fp for render context (same as original working cheat)
+    # Loads render context via direct LUI/LW (not register-dependent).
     # Args: $a1=font_size, $a2=x, $a3=y, $t0=fmt, $t1-$t6=varargs
     # =========================================================================
     TEXT_RENDER_WRAPPER = CODE_BASE + 0x01A0
     cb.org(TEXT_RENDER_WRAPPER)
-    cb.emit(LW('$a0', 0x9F18, '$fp'))        # $a0 = render context via $fp
+    cb.emit(LUI('$a0', RENDER_CTX_HI))              # $a0 = 0x09BF0000
+    cb.emit(LW('$a0', RENDER_CTX_OFF, '$a0'))        # $a0 = render context ptr
+    cb.emit(BEQ('$a0', '$zero', 3))                  # skip render if null
     cb.emit(NOP())
-    cb.emit(SB('$a1', 0x012E, '$a0'))        # style byte
-    cb.emit(SH('$a2', 0x0120, '$a0'))        # X pos
-    cb.emit(SH('$a3', 0x0122, '$a0'))        # Y pos
-    cb.emit(MOVE('$a1', '$t0'))              # fmt string
-    cb.emit(MOVE('$a2', '$t1'))              # arg1 (name)
-    cb.emit(MOVE('$a3', '$t2'))              # arg2 (hp_cur)
-    cb.emit(MOVE('$t0', '$t3'))              # arg3 (hp_max)
+    cb.emit(SB('$a1', 0x012E, '$a0'))                # style byte
+    cb.emit(SH('$a2', 0x0120, '$a0'))                # X pos
+    cb.emit(SH('$a3', 0x0122, '$a0'))                # Y pos
+    cb.emit(MOVE('$a1', '$t0'))                       # fmt string
+    cb.emit(MOVE('$a2', '$t1'))                       # arg1 (name)
+    cb.emit(MOVE('$a3', '$t2'))                       # arg2 (hp_cur)
+    cb.emit(MOVE('$t0', '$t3'))                       # arg3 (hp_max)
     cb.emit(MOVE('$t1', '$t4'))
     cb.emit(MOVE('$t2', '$t5'))
     cb.emit(MOVE('$t3', '$t6'))
-    cb.emit(J(TEXT_RENDER))                  # tail call
+    cb.emit(J(TEXT_RENDER))                           # tail call
+    cb.emit(NOP())
+    # null context: just return
+    cb.emit(JR('$ra'))
     cb.emit(NOP())
 
     # =========================================================================
@@ -262,10 +281,9 @@ def generate():
     # =========================================================================
     IS_LARGE = cb.addr()
     cb.emit(LBU('$t6', ENT_TYPE_ID, '$s2'))
-    # Bounds check: type_id >= 64 → not large (bitmask only covers 0-63)
     cb.emit(SLTI('$v0', '$t6', 64))
     is_large_oob = cb.addr()
-    cb.emit(0)  # placeholder BEQ $v0, $zero → return 0
+    cb.emit(0)  # placeholder
     cb.emit(NOP())
     cb.emit(ORI('$v0', '$s5', BITMASK_BASE & 0xFFFF))
     cb.emit(SRL('$t7', '$t6', 3))
@@ -278,74 +296,76 @@ def generate():
     cb.emit(AND('$v0', '$v0', '$v1'))
     cb.emit(JR('$ra'))
     cb.emit(NOP())
-    # Out-of-bounds: return 0
     is_large_ret0 = cb.addr()
     cb.emit(LI('$v0', 0))
     cb.emit(JR('$ra'))
     cb.emit(NOP())
-    cb.emit_at(sllv_addr, _r_type('$t6', '$v0', '$v0', 0, 0x04))  # SLLV $v0,$v0,$t6
+    cb.emit_at(sllv_addr, _r_type('$t6', '$v0', '$v0', 0, 0x04))
     cb.emit_at(is_large_oob, BEQ('$v0', '$zero', cb.branch_offset(is_large_oob, is_large_ret0)))
 
     # =========================================================================
-    # BAIL: clear re-entry flag and return (used by all bail paths)
+    # EXIT: restore s0-s5, $ra, $a0, chain to kurogami or tail-call original
     # =========================================================================
-    BAIL_ADDR = CODE_BASE + 0x0140
-    cb.org(BAIL_ADDR)
+    EXIT_RESTORE = CODE_BASE + 0x0140
+    cb.org(EXIT_RESTORE)
+    # Restore s0-s5
     cb.emit(LUI('$v0', LUI_BASE))
-    cb.emit(SB('$zero', REENTRY_FLAG & 0xFFFF, '$v0'))
-    cb.emit(J(RETURN_ADDR))
-    cb.emit(NOP())
-    # BAIL_CLEAR is now the same as BAIL (merged)
-    BAIL_CLEAR_ADDR = BAIL_ADDR
-
-    # =========================================================================
-    # EXIT: clear re-entry flag, restore registers and return to game
-    # =========================================================================
-    EXIT_ADDR = CODE_BASE + 0x0160
-    cb.org(EXIT_ADDR)
-    cb.emit(LUI('$v0', LUI_BASE))
-    cb.emit(SB('$zero', REENTRY_FLAG & 0xFFFF, '$v0'))
     cb.emit(LW('$s5', (SAVE_AREA + 20) & 0xFFFF, '$v0'))
     cb.emit(LW('$s4', (SAVE_AREA + 16) & 0xFFFF, '$v0'))
     cb.emit(LW('$s3', (SAVE_AREA + 12) & 0xFFFF, '$v0'))
     cb.emit(LW('$s2', (SAVE_AREA +  8) & 0xFFFF, '$v0'))
     cb.emit(LW('$s1', (SAVE_AREA +  4) & 0xFFFF, '$v0'))
     cb.emit(LW('$s0', (SAVE_AREA +  0) & 0xFFFF, '$v0'))
-    cb.emit(J(RETURN_ADDR))                  # return to game render code
+    # Fall through to EXIT_TAILCALL
+
+    EXIT_TAILCALL = cb.addr()
+    # Restore $ra and $a0
+    # ($v0 still = LUI_BASE from above, or reloaded below)
+    cb.emit(LUI('$v0', LUI_BASE))
+    cb.emit(LW('$ra', SAVE_RA & 0xFFFF, '$v0'))
+    cb.emit(LW('$a0', SAVE_A0 & 0xFFFF, '$v0'))
+    cb.emit(MOVE('$a1', '$zero'))                     # a1 = 0
+    # Check if kurogami's code is present at CHAIN_TARGET
+    cb.emit(LUI('$v1', (CHAIN_TARGET >> 16) & 0xFFFF))
+    cb.emit(LW('$v0', CHAIN_TARGET & 0xFFFF, '$v1'))
+    chain_branch = cb.addr()
+    cb.emit(0)                                        # placeholder BNE → chain_kuro
+    cb.emit(LI('$a2', 1))                             # delay slot (always runs)
+    # No chain target — call original function directly
+    cb.emit(J(ORIG_FUNC))
     cb.emit(NOP())
+    # Chain through kurogami's code (it calls ORIG_FUNC itself)
+    chain_kuro = cb.addr()
+    cb.emit(J(CHAIN_TARGET))
+    cb.emit(NOP())
+    cb.emit_at(chain_branch, BNE('$v0', '$zero', cb.branch_offset(chain_branch, chain_kuro)))
 
     # =========================================================================
     # MAIN CODE @ CODE_BASE
     # =========================================================================
     cb.org(CODE_BASE)
 
-    # Re-entry guard — bail if already running (prevents double execution)
+    # Save $ra and $a0 (needed for tail-call exit)
     cb.emit(LUI('$v0', LUI_BASE))
-    cb.emit(LBU('$v1', REENTRY_FLAG & 0xFFFF, '$v0'))
-    reentry_bail = cb.addr()
-    cb.emit(0)  # placeholder BNE $v1, $zero, BAIL
-    cb.emit(NOP())
-    # Set re-entry flag (v0 still = LUI_BASE)
-    cb.emit(LI('$v1', 1))
-    cb.emit(SB('$v1', REENTRY_FLAG & 0xFFFF, '$v0'))
+    cb.emit(SW('$ra', SAVE_RA & 0xFFFF, '$v0'))
+    cb.emit(SW('$a0', SAVE_A0 & 0xFFFF, '$v0'))
 
-    # Validate $fp — if invalid, bail
-    cb.emit(LUI('$v0', 0x0880))
-    cb.emit(SLTU('$v0', '$fp', '$v0'))
-    fp_bail = cb.addr()
-    cb.emit(0)  # placeholder BNE $v0, $zero, BAIL (clears reentry flag)
-    cb.emit(NOP())
+    # Toggle instruction at CODE_BASE + 0x0C
+    # Emitted as branch (OFF by default). L+Select writes NOP (ON).
+    TOGGLE_ADDR = cb.addr()  # CODE_BASE + 0x0C
+    assert TOGGLE_ADDR == CODE_BASE + 0x0C
+    # Placeholder — patched after EXIT_TAILCALL address is known
+    cb.emit(0)
 
-    # Verify overlay sentinel is still valid
-    TC_SENTINEL = 0x09C57CA0
-    cb.emit(LUI('$v0', (TC_SENTINEL >> 16) & 0xFFFF))
-    cb.emit(LH('$v0', TC_SENTINEL & 0xFFFF, '$v0'))
-    cb.emit(ADDIU('$v0', '$v0', -0x6167 & 0xFFFF))
+    # Overlay sentinel guard (skip HP rendering if not in quest)
+    cb.emit(LUI('$v0', (GUARD_ADDR >> 16) & 0xFFFF))
+    cb.emit(LH('$v0', GUARD_ADDR & 0xFFFF, '$v0'))
+    cb.emit(ADDIU('$v0', '$v0', (-GUARD_VALUE) & 0xFFFF))
     sentinel_bail = cb.addr()
-    cb.emit(0)  # placeholder BNE $v0, $zero, BAIL
+    cb.emit(0)  # placeholder BNE → EXIT_TAILCALL
     cb.emit(NOP())
 
-    # Save registers to fixed memory area
+    # Save s0-s5 to fixed memory
     cb.emit(LUI('$v0', LUI_BASE))
     cb.emit(SW('$s5', (SAVE_AREA + 20) & 0xFFFF, '$v0'))
     cb.emit(SW('$s4', (SAVE_AREA + 16) & 0xFFFF, '$v0'))
@@ -354,25 +374,28 @@ def generate():
     cb.emit(SW('$s1', (SAVE_AREA +  4) & 0xFFFF, '$v0'))
     cb.emit(SW('$s0', (SAVE_AREA +  0) & 0xFFFF, '$v0'))
 
-    # Initialize counters
-    cb.emit(LI('$s0', 0))                                      # loop counter
-    cb.emit(LI('$s1', 0))                                      # Y offset
-    cb.emit(LBU('$s4', FONT_SIZE_ADDR & 0xFFFF, '$v0'))        # font size
-    cb.emit(LUI('$s5', LUI_BASE))                              # $s5 = base for data refs
+    # Initialize loop counters
+    cb.emit(LI('$s0', 0))                             # loop counter
+    cb.emit(LI('$s1', 0))                             # Y offset
+    cb.emit(LBU('$s4', FONT_SIZE_ADDR & 0xFFFF, '$v0'))  # font size
+    cb.emit(LUI('$s5', LUI_BASE))                     # base for data refs
 
-    # Monster loop start
+    # =========================================================================
+    # Monster loop
+    # =========================================================================
     loop_start = cb.addr()
 
-    # Validate render context each iteration
-    cb.emit(LW('$a0', 0x9F18, '$fp'))                          # $a0 = render context
+    # Load and validate render context each iteration
+    cb.emit(LUI('$a0', RENDER_CTX_HI))
+    cb.emit(LW('$a0', RENDER_CTX_OFF, '$a0'))
     skip_bad_ctx = cb.addr()
-    cb.emit(0)  # placeholder BEQ $a0, $zero, EXIT
+    cb.emit(0)  # placeholder BEQ $a0, $zero → EXIT_RESTORE
     cb.emit(NOP())
 
-    # Font setup
-    cb.emit(MOVE('$a1', '$s4'))                                 # font size
+    # Set font size
+    cb.emit(MOVE('$a1', '$s4'))
     cb.emit(JAL(SET_FONT_SIZE))
-    cb.emit(MOVE('$a2', '$s4'))                                 # delay slot: style
+    cb.emit(MOVE('$a2', '$s4'))                        # delay slot
 
     # Entity table lookup
     cb.emit(LUI('$v0', (ENTITY_TABLE >> 16) & 0xFFFF))
@@ -383,62 +406,62 @@ def generate():
 
     # Skip null entities
     skip_monster = cb.addr()
-    cb.emit(0)  # placeholder BEQ $s2, $zero, loop_ctrl
+    cb.emit(0)  # placeholder BEQ $s2, $zero → loop_ctrl
     cb.emit(NOP())
 
-    # Validate entity pointer range (>= 0x08800000)
+    # Validate entity pointer range
     cb.emit(LUI('$v0', 0x0880))
     cb.emit(SLTU('$v0', '$s2', '$v0'))
     skip_invalid = cb.addr()
-    cb.emit(0)  # placeholder BNE $v0, $zero, loop_ctrl
+    cb.emit(0)  # placeholder BNE → loop_ctrl
     cb.emit(NOP())
 
-    # HP check: skip dead monsters (HP <= 0)
+    # Skip dead monsters (HP <= 0)
     cb.emit(LH('$v0', ENT_HP_CUR, '$s2'))
     skip_dead = cb.addr()
-    cb.emit(0)  # placeholder: BLEZ $v0, loop_ctrl
+    cb.emit(0)  # placeholder BLEZ → loop_ctrl
     cb.emit(NOP())
 
     # Large monster filter
     cb.emit(JAL(IS_LARGE))
     cb.emit(NOP())
     skip_not_large = cb.addr()
-    cb.emit(0)  # placeholder BEQ $v0, $zero, loop_ctrl
+    cb.emit(0)  # placeholder BEQ $v0, $zero → loop_ctrl
     cb.emit(NOP())
 
     # Get monster name
     cb.emit(JAL(GET_NAME))
-    cb.emit(LBU('$t1', ENT_TYPE_ID, '$s2'))                    # delay slot
+    cb.emit(LBU('$t1', ENT_TYPE_ID, '$s2'))           # delay slot
 
-    # Validate name pointer (must be >= 0x08800000)
+    # Validate name pointer
     cb.emit(LUI('$v0', 0x0880))
     cb.emit(SLTU('$v0', '$t1', '$v0'))
     skip_bad_name = cb.addr()
-    cb.emit(0)  # placeholder BNE $v0, $zero, loop_ctrl
+    cb.emit(0)  # placeholder BNE → loop_ctrl
     cb.emit(NOP())
 
-    # Load HP
+    # Load HP values
     cb.emit(LH('$t2', ENT_HP_CUR, '$s2'))
     cb.emit(LH('$t3', ENT_HP_MAX, '$s2'))
 
     # Prepare render args
     x_pos_addr = cb.addr()
-    cb.emit(LI('$a2', X_POS & 0xFFFF))                         # X
+    cb.emit(LI('$a2', X_POS & 0xFFFF))                # X
     y_pos_addr = cb.addr()
-    cb.emit(LI('$a3', Y_POS & 0xFFFF))                         # base Y
-    cb.emit(ADDU('$a3', '$a3', '$s1'))                          # Y + offset
+    cb.emit(LI('$a3', Y_POS & 0xFFFF))                # base Y
+    cb.emit(ADDU('$a3', '$a3', '$s1'))                 # Y + offset
 
-    cb.emit(LBU('$a1', COLOR_ADDR & 0xFFFF, '$s5'))             # color/style byte
+    cb.emit(LBU('$a1', COLOR_ADDR & 0xFFFF, '$s5'))   # color/style
 
-    # Load format string (absolute mode)
+    # Format string (absolute mode default)
     cb.emit(ORI('$t0', '$s5', fmt_absolute & 0xFFFF))
 
     # Check display mode
     cb.emit(LBU('$t7', DISPLAY_MODE_ADDR & 0xFFFF, '$s5'))
     mode_branch = cb.addr()
-    cb.emit(0)  # placeholder BEQ $t7, $zero, do_render
+    cb.emit(0)  # placeholder BEQ $t7, $zero → do_render
 
-    # Line spacing (delay slot - always executes)
+    # Line spacing (delay slot — always executes)
     line_spacing_addr = cb.addr()
     cb.emit(ADDIU('$s1', '$s1', LINE_SPACE & 0xFFFF))
 
@@ -460,57 +483,84 @@ def generate():
     cb.emit(SLTI('$v0', '$s0', MAX_MONSTERS - 1))
     loop_back_addr = cb.addr()
     cb.emit(BNE('$v0', '$zero', cb.branch_offset(loop_back_addr, loop_start)))
-    cb.emit(ADDIU('$s0', '$s0', 1))                            # delay slot
+    cb.emit(ADDIU('$s0', '$s0', 1))                   # delay slot
 
-    # Jump to exit
-    cb.emit(J(EXIT_ADDR))
+    # Done — jump to EXIT_RESTORE (restores s0-s5, then tail-calls)
+    cb.emit(J(EXIT_RESTORE))
     cb.emit(NOP())
 
-    # Fix placeholders
-    # reentry_bail: bail if already running (no regs modified yet)
-    cb.emit_at(reentry_bail, BNE('$v1', '$zero', cb.branch_offset(reentry_bail, BAIL_ADDR)))
-    # fp_bail / sentinel_bail: bail + clear reentry flag
-    cb.emit_at(fp_bail, BNE('$v0', '$zero', cb.branch_offset(fp_bail, BAIL_ADDR)))
-    cb.emit_at(sentinel_bail, BNE('$v0', '$zero', cb.branch_offset(sentinel_bail, BAIL_ADDR)))
-    cb.emit_at(skip_bad_ctx, BEQ('$a0', '$zero', cb.branch_offset(skip_bad_ctx, EXIT_ADDR)))
-    cb.emit_at(skip_bad_name, BNE('$v0', '$zero', cb.branch_offset(skip_bad_name, loop_ctrl)))
+    # =========================================================================
+    # Fix all placeholder branches
+    # =========================================================================
+    cb.emit_at(sentinel_bail, BNE('$v0', '$zero', cb.branch_offset(sentinel_bail, EXIT_TAILCALL)))
+    cb.emit_at(skip_bad_ctx, BEQ('$a0', '$zero', cb.branch_offset(skip_bad_ctx, EXIT_RESTORE)))
     cb.emit_at(skip_monster, BEQ('$s2', '$zero', cb.branch_offset(skip_monster, loop_ctrl)))
     cb.emit_at(skip_invalid, BNE('$v0', '$zero', cb.branch_offset(skip_invalid, loop_ctrl)))
     cb.emit_at(skip_dead, BLEZ('$v0', cb.branch_offset(skip_dead, loop_ctrl)))
     cb.emit_at(skip_not_large, BEQ('$v0', '$zero', cb.branch_offset(skip_not_large, loop_ctrl)))
+    cb.emit_at(skip_bad_name, BNE('$v0', '$zero', cb.branch_offset(skip_bad_name, loop_ctrl)))
     cb.emit_at(mode_branch, BEQ('$t7', '$zero', cb.branch_offset(mode_branch, do_render)))
+
+    # Compute toggle branch (BEQ $zero,$zero → EXIT_TAILCALL)
+    toggle_off_branch = BEQ('$zero', '$zero', cb.branch_offset(TOGGLE_ADDR, EXIT_TAILCALL))
+    # Emit toggle into code builder (default OFF). The code writes are guarded
+    # by an E-type conditional so they only run once (when cave not yet written).
+    # After initial write, only button D-type presses modify the toggle.
+    cb.emit_at(TOGGLE_ADDR, toggle_off_branch)
 
     # =========================================================================
     # GENERATE CWCheat OUTPUT
     # =========================================================================
-    import sys
+    print(f"Hook: 0x{HOOK_ADDR:08X} (jal 0x{ORIG_FUNC:08X})", file=sys.stderr)
+    print(f"Toggle: 0x{TOGGLE_ADDR:08X} (OFF=0x{toggle_off_branch:08X})", file=sys.stderr)
     print(f"Addresses: X=0x{x_pos_addr:08X} Y=0x{y_pos_addr:08X} LS=0x{line_spacing_addr:08X}", file=sys.stderr)
 
     lines = []
 
-    # Part 0: Guard + hook + button → flag byte writes
-    # Flag at TOGGLE_FLAG_ADDR: 0=OFF, 1=ON. Code reads flag and branches.
-    # No patchable instruction — all code is in bulk writes, no garbage memory risk.
-    part0 = []
-    # MHFU-style: install/uninstall hook via button press
-    # L+Select = install hook (enable HP display)
-    TC_SENTINEL = 0x09C57CA0
-    TC_SENTINEL_CW = to_cw_offset(TC_SENTINEL)
-    part0.append(cw_cond_16(BUTTON_ADDR, BTN_TOGGLE_ON))
-    part0.append(cw_line_32(HOOK_ADDR, J(CODE_BASE)))
-    # R+Select = uninstall hook (disable HP display) — write NOP to skip
-    part0.append(cw_cond_16(BUTTON_ADDR, BTN_TOGGLE_OFF))
-    part0.append(cw_line_32(HOOK_ADDR, NOP()))
+    # Part 0: Hook install (guarded) + button toggle (always)
+    # Hook must NOT be installed before code cave is written — game would
+    # jump to zeroed memory and crash. Use E-type to guard the hook write.
+    #
+    # E-type: if halfword at CODE_BASE+2 != 0x3C02, skip next N lines
+    # (0x3C02 = upper half of "lui $v0, 0x08A9", the first cave instruction)
 
-    # Collect all code/data writes (toggle is now code, not a gap)
+    # Collect all code/data writes (includes toggle default OFF)
     all_writes = cb.get_all_writes()
     code_lines = [cw_line_32(addr, val) for addr, val in all_writes]
 
-    # Build parts: part0 first, then code write chunks
+    # Sentinel: use the LAST written address. All E-type guards check this.
+    # Parts 2..N-1 write earlier addresses → sentinel stays 0 → guards pass.
+    # Part N writes the last chunk including sentinel → guards fail on next frame.
+    last_addr, last_val = all_writes[-1]
+    sentinel_hw = (last_val >> 16) & 0xFFFF  # upper halfword of last word
+    sentinel_offset = to_cw_offset(last_addr)
+
+    def etype_not_written(n_lines):
+        """E-type: execute next n_lines only if sentinel NOT yet written."""
+        return f"_L 0xE0{n_lines:02X}{sentinel_hw:04X} 0x1{sentinel_offset + 2:07X}"
+
+    def etype_is_written(n_lines):
+        """E-type: execute next n_lines only if sentinel IS written."""
+        return f"_L 0xE1{n_lines:02X}{sentinel_hw:04X} 0x1{sentinel_offset + 2:07X}"
+
+    part0 = []
+    # Hook install — only after code cave is fully written
+    part0.append(etype_is_written(1))
+    part0.append(cw_line_32(HOOK_ADDR, JAL(CODE_BASE)))
+    # L+Select = enable HP display (NOP at toggle)
+    part0.append(cw_cond_16(BUTTON_ADDR, BTN_TOGGLE_ON))
+    part0.append(cw_line_32(TOGGLE_ADDR, NOP()))
+    # R+Select = disable HP display (branch at toggle)
+    part0.append(cw_cond_16(BUTTON_ADDR, BTN_TOGGLE_OFF))
+    part0.append(cw_line_32(TOGGLE_ADDR, toggle_off_branch))
+
     MAX_PER_PART = 20
     parts = [part0]
     for i in range(0, len(code_lines), MAX_PER_PART):
-        parts.append(code_lines[i:i+MAX_PER_PART])
+        chunk = code_lines[i:i+MAX_PER_PART]
+        n_lines = len(chunk)
+        etype_line = etype_not_written(n_lines)
+        parts.append([etype_line] + chunk)
 
     total_parts = len(parts)
     for i, part in enumerate(parts):
@@ -524,7 +574,6 @@ def generate():
     # =========================================================================
     lines.append("")
 
-    # Font size
     for label, val, default in [
         ("HP Font 6",  0x06, False),
         ("HP Font 8",  0x08, False),
@@ -536,7 +585,6 @@ def generate():
 
     lines.append("")
 
-    # X position
     for label, val, default in [
         ("HP X=6",   0x0006, False),
         ("HP X=20",  0x0014, False),
@@ -548,7 +596,6 @@ def generate():
 
     lines.append("")
 
-    # Y position
     for label, val, default in [
         ("HP Y=20",  0x0014, False),
         ("HP Y=100", 0x0064, False),
@@ -561,7 +608,6 @@ def generate():
 
     lines.append("")
 
-    # Line spacing
     for label, val, default in [
         ("HP Stack Down 10px", 0x000A, False),
         ("HP Stack Down 14px", 0x000E, False),
@@ -573,7 +619,6 @@ def generate():
 
     lines.append("")
 
-    # Color
     for label, val, default in [
         ("HP Color White", 0x00, True),
         ("HP Color Grey",  0x0A, False),
@@ -583,7 +628,6 @@ def generate():
 
     lines.append("")
 
-    # Display mode
     lines.append("_C0 HP Absolute")
     lines.append(cw_line_8(DISPLAY_MODE_ADDR, 0x00))
     lines.append("_C1 HP Percent")
