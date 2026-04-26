@@ -218,9 +218,10 @@ def gen_universal_invisible_codes(data, slot):
     lines = []
 
     for armor_set in data["armor"][slot]["sets"]:
-        if armor_set["model_m"] == 0 and armor_set["model_f"] == 0:
-            continue
-        for eid in armor_set["eids"]:
+        for v in armor_set["variants"]:
+            if v["model_m"] == 0 and v["model_f"] == 0:
+                continue
+            for eid in v["eids"]:
             entry_addr = table_base + eid * entry_size
             offset = entry_addr - CWCHEAT_BASE
             code = f"_L 0x2{offset:07X} 0x00000000"
@@ -491,7 +492,19 @@ def armor_slot_flow(data, slot, preset_source_search=None, preset_search=None):
     sets = data["armor"][slot]["sets"]
     label = SLOT_LABELS[slot]
 
-    items = [s for s in sets if s["name"] != "Nothing Equipped"]
+    items = []
+    for s in sets:
+        for v in s["variants"]:
+            if v["model_m"] == 0 and v["model_f"] == 0:
+                continue
+            name = (v["names"][0] if "names" in v else None) or s["names"][0]
+            items.append({
+                "name": name,
+                "model_m": v["model_m"],
+                "model_f": v["model_f"],
+                "eids": v["eids"],
+                "flags": v["flags"],
+            })
 
     os.system("cls" if os.name == "nt" else "clear")
     print(f"\n{header(f'{label} Armor Transmog')}")
@@ -508,7 +521,7 @@ def armor_slot_flow(data, slot, preset_source_search=None, preset_search=None):
 
     # Select target (with invisible option)
     search = preset_search or prompt_search_or_enter(f"Target {label.lower()} visual")
-    target = select_equipment(sets, f"Select TARGET {label.lower()} visual",
+    target = select_equipment(items, f"Select TARGET {label.lower()} visual",
                               allow_invisible=True, preset_search=search)
     if target == "cancel":
         return None

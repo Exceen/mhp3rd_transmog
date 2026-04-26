@@ -1871,30 +1871,10 @@
               "model_m": 99,
               "model_f": 99,
               "eids": [
-                1,
-                3,
-                12,
-                14,
                 48,
-                85,
-                86,
-                89,
-                90,
-                99,
-                101,
                 137
               ],
               "flags": [
-                31,
-                31,
-                15,
-                15,
-                15,
-                15,
-                31,
-                15,
-                31,
-                15,
                 15,
                 15
               ],
@@ -4114,9 +4094,25 @@
         },
         {
           "names": [
+            "Zinogre Mail",
             "Zinogre Vest"
           ],
           "variants": [
+            {
+              "model_m": 99,
+              "model_f": 99,
+              "eids": [
+                50,
+                139
+              ],
+              "flags": [
+                7,
+                7
+              ],
+              "names": [
+                "Zinogre Mail"
+              ]
+            },
             {
               "model_m": 100,
               "model_f": 100,
@@ -4127,6 +4123,9 @@
               "flags": [
                 27,
                 27
+              ],
+              "names": [
+                "Zinogre Vest"
               ]
             }
           ]
@@ -6290,9 +6289,25 @@
         },
         {
           "names": [
+            "Zinogre Vambraces",
             "Zinogre Guards"
           ],
           "variants": [
+            {
+              "model_m": 99,
+              "model_f": 99,
+              "eids": [
+                49,
+                133
+              ],
+              "flags": [
+                7,
+                7
+              ],
+              "names": [
+                "Zinogre Vambraces"
+              ]
+            },
             {
               "model_m": 100,
               "model_f": 100,
@@ -6303,6 +6318,9 @@
               "flags": [
                 27,
                 27
+              ],
+              "names": [
+                "Zinogre Guards"
               ]
             }
           ]
@@ -8363,9 +8381,25 @@
         },
         {
           "names": [
+            "Zinogre Faulds",
             "Zinogre Coat"
           ],
           "variants": [
+            {
+              "model_m": 99,
+              "model_f": 99,
+              "eids": [
+                50,
+                133
+              ],
+              "flags": [
+                7,
+                7
+              ],
+              "names": [
+                "Zinogre Faulds"
+              ]
+            },
             {
               "model_m": 100,
               "model_f": 100,
@@ -8376,6 +8410,9 @@
               "flags": [
                 27,
                 27
+              ],
+              "names": [
+                "Zinogre Coat"
               ]
             }
           ]
@@ -10413,9 +10450,25 @@
         },
         {
           "names": [
+            "Zinogre Greaves",
             "Zinogre Leggings"
           ],
           "variants": [
+            {
+              "model_m": 99,
+              "model_f": 99,
+              "eids": [
+                49,
+                134
+              ],
+              "flags": [
+                7,
+                7
+              ],
+              "names": [
+                "Zinogre Greaves"
+              ]
+            },
             {
               "model_m": 100,
               "model_f": 100,
@@ -10426,6 +10479,9 @@
               "flags": [
                 27,
                 27
+              ],
+              "names": [
+                "Zinogre Leggings"
               ]
             }
           ]
