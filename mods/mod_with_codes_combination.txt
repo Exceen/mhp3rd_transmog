@@ -1,0 +1,23 @@
+how does the transmog mod now work in combination with my transmog codes?
+
+  let's say i have Armor A equipped
+  i used the mod to make it look like armor B
+
+  and then i have these transmog codes enabled:
+  armor A -> armor C
+  armor B -> armor D
+
+  what do i see and what do other players see?
+
+=======
+
+Your codes are applied after the mod, and only on your own system, so:
+
+What you see on your screen
+- Yourself: armor D. The mod says "draw armor B instead of A", and your code "B → D" then changes how B is drawn.
+- The code "A → C" does nothing for you in this case, because armor A is no longer looked up for that piece.
+- Other players: your codes change them too. Anyone really wearing A looks like C to you, and anyone wearing B, or using the mod to look like B, looks like D.
+
+What other players see when they look at you
+- With the transmog mod: armor B. Your codes never leave your system; only the mod's value is sent.
+- Without the mod: armor A, your real gear.
